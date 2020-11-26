@@ -42,6 +42,10 @@ namespace BookStore.Data.Configurations
                 .HasMaxLength(40)
                 .IsRequired();
 
+            user
+                .Property(u => u.Address)
+                .HasMaxLength(150)
+                .IsRequired();
         }
     }
 }
