@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hristo.petkov\\Desktop\\BookStore\\BookStore\\BookStore.csproj": {}
+    "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hristo.petkov\\Desktop\\BookStore\\BookStore\\BookStore.csproj": {
+    "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hristo.petkov\\Desktop\\BookStore\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "C:\\Users\\hristo.petkov\\Desktop\\BookStore\\BookStore\\BookStore.csproj",
+        "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
         "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hristo.petkov\\Desktop\\BookStore\\BookStore\\obj\\",
+        "outputPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",

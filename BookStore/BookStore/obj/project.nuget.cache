@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TBpT7UqPHqdPzOONaOni1eEJtHmH/PdsKaddhfzOz0DOTWg3EgbmPYeXIoMGjL4nyIuLYf32Js1BD+i0QTq9Mw==",
+  "dgSpecHash": "HZbwOfPRxiemkvGWudI5mnByRtmKX5gxVgM1zM4/V9puYifeGsN6X2/10LlE4Cfb+UVcpUXj9NVnnT8wTGb/Aw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hristo.petkov\\Desktop\\BookStore\\BookStore\\BookStore.csproj",
+  "projectFilePath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
