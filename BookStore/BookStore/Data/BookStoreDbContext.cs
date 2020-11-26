@@ -23,10 +23,10 @@ namespace BookStore.Data
 
         public DbSet<Genre> Genre { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("host=localhost;database=BookStore;Username=postgres;Password=1qaz2wsx");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseNpgsql("host=localhost;database=BookStore;Username=postgres;Password=1qaz2wsx");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

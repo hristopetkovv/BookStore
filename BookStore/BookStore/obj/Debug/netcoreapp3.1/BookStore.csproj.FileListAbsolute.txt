@@ -65,8 +65,13 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.runtimeconfig.dev.json
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.pdb
-C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csproj.CoreCompileInputs.cache
-C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.pdb
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.genruntimeconfig.cache
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csproj.CoreCompileInputs.cache
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cache
