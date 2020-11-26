@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BookStore.Data.Models.Enums
+﻿namespace BookStore.Data.Models.Enums
 {
-    public class Status
+    public enum Status
     {
+        Pending = 0,
+        Proccessed = 1,
+        Shipped = 2,
     }
 }

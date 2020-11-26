@@ -1,11 +1,21 @@
-﻿using System;
+﻿using BookStore.Data.Common;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BookStore.Data.Models
 {
-    public class Author
+    public class Author : BaseModel
     {
+        public Author()
+        {
+            this.Books = new HashSet<BookAuthor>();
+        }
+
+        public int Id { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public ICollection<BookAuthor> Books { get; set; }
     }
 }

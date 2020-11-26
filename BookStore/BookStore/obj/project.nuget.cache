@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HZbwOfPRxiemkvGWudI5mnByRtmKX5gxVgM1zM4/V9puYifeGsN6X2/10LlE4Cfb+UVcpUXj9NVnnT8wTGb/Aw==",
+  "dgSpecHash": "aiFhk0H9WsviUdrptr4ABiACTQxMP2FIGjD2gvh+Zz39zCpVhBBsPkf2NgsCwK7/OgV4gGDB7YGOnme87e5MSQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.1\\microsoft.entityframeworkcore.design.3.1.1.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.1\\microsoft.entityframeworkcore.relational.3.1.1.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.entityframeworkcore.relational.design\\1.1.0\\microsoft.entityframeworkcore.relational.design.1.1.0.nupkg.sha512",
+    "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.1\\microsoft.entityframeworkcore.tools.3.1.1.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.1\\microsoft.extensions.caching.abstractions.3.1.1.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.1\\microsoft.extensions.caching.memory.3.1.1.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.1\\microsoft.extensions.configuration.3.1.1.nupkg.sha512",

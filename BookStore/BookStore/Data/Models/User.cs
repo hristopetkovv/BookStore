@@ -1,11 +1,31 @@
-﻿using System;
+﻿using BookStore.Data.Common;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Data.Models
 {
-    public class User
+    public class User : BaseDeletableModel
     {
+        public User()
+        {
+            this.Books = new HashSet<UserBook>();
+        }
+
+        public int Id { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        [EmailAddress]
+        public string Email { get; set; }
+
+        public string Username { get; set; }
+
+        public int? TelephoneNumber { get; set; }
+
+        public string Password { get; set; }
+
+        public ICollection<UserBook> Books { get; set; }
     }
 }

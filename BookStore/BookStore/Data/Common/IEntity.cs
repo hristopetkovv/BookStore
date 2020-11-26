@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BookStore.Data.Common
 {
-    interface IEntity
+    public interface IEntity
     {
+        DateTime CreatedOn { get; set; }
+
+        DateTime UpdatedOn { get; set; }
     }
 }
