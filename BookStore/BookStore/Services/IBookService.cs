@@ -6,7 +6,7 @@ namespace BookStore.Services
 {
     public interface IBookService
     {
-        Task<IEnumerable<BookResponseModel>> GetBooks(string sortOrder);
+        Task<IEnumerable<BookResponseModel>> GetBooks(BookFilterRequestModel model);
 
         Task<BookDetailalsResponseModel> GetBookById(int id);
 

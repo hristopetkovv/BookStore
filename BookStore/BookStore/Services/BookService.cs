@@ -57,7 +57,7 @@ namespace BookStore.Services
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<BookResponseModel>> GetBooks(string sortOrder)
+        public async Task<IEnumerable<BookResponseModel>> GetBooks(BookFilterRequestModel model)
         {
             IQueryable<BookResponseModel> books = this.dbContext
                 .Book
@@ -70,7 +70,12 @@ namespace BookStore.Services
                     AuthorName = x.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName)
                 });
 
-            switch (sortOrder)
+            if(!string.IsNullOrEmpty(model.SearchByAuthorOrTitle))
+            {
+                books = books.Where(b => b.Title.Contains(model.SearchByAuthorOrTitle) || b.AuthorName.Contains(model.SearchByAuthorOrTitle));
+            }
+
+            switch (model.sortOrder)
             {
                 case "Price_descending":
                     books = books.OrderByDescending(b => b.Price);
