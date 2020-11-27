@@ -4,11 +4,19 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BookStore.Data
 {
     public class BookStoreDbContext : DbContext
     {
+        public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
+          : base(options)
+        {
+
+        }
+
         public DbSet<Book> Book { get; set; }
 
         public DbSet<Author> Author { get; set; }
@@ -22,12 +30,19 @@ namespace BookStore.Data
         public DbSet<UserBook> UserBook { get; set; }
 
         public DbSet<Genre> Genre { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+      
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            optionsBuilder.UseNpgsql("host=localhost;database=BookStore;Username=postgres;Password=1qaz2wsx");
+            this.HandleWhen();
+            return base.SaveChangesAsync(cancellationToken);
         }
 
+        public override int SaveChanges()
+        {
+            this.HandleWhen();
+            return base.SaveChanges();
+        }
+      
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes().ToList())
