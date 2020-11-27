@@ -22,9 +22,9 @@ namespace BookStore.Controllers
 
         // GET: api/<AuthorController>
         [HttpGet]
-        public async Task<IEnumerable<AuthorResponseModel>> Get()
+        public async Task<IEnumerable<AuthorResponseModel>> Get([FromQuery] string sortOrder)
         {
-            return await this.authorService.GetAuthors();
+            return await this.authorService.GetAuthors(sortOrder);
         }
 
         // GET api/<AuthorController>/5

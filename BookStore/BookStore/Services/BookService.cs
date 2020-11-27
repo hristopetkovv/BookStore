@@ -37,6 +37,7 @@ namespace BookStore.Services
         {
             return await this.dbContext
                 .Book
+                .AsNoTracking()
                 .Where(b => b.Id == id)
                 .Select(b => new BookDetailalsResponseModel
                 {
@@ -56,9 +57,9 @@ namespace BookStore.Services
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<BookResponseModel>> GetBooks()
+        public async Task<IEnumerable<BookResponseModel>> GetBooks(string sortOrder)
         {
-            return await this.dbContext
+            IQueryable<BookResponseModel> books = this.dbContext
                 .Book
                 .Select(x => new BookResponseModel
                 {
@@ -67,8 +68,25 @@ namespace BookStore.Services
                     ImageUrl = x.ImageUrl,
                     Price = x.Price,
                     AuthorName = x.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName)
-                })
-                .ToListAsync();
+                });
+
+            switch (sortOrder)
+            {
+                case "Price_descending":
+                    books = books.OrderByDescending(b => b.Price);
+                    break;
+                case "Price":
+                    books = books.OrderBy(b => b.Price);
+                    break;
+                case "Title_descending":
+                    books = books.OrderByDescending(b => b.Title);
+                    break;
+                default:
+                    books = books.OrderBy(b => b.Title);
+                    break;
+            }
+
+            return await books.AsNoTracking().ToListAsync();
         }
     }
 }

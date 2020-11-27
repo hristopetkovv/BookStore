@@ -6,6 +6,6 @@ namespace BookStore.Services
 {
     public interface IAuthorService
     {
-        Task<IEnumerable<AuthorResponseModel>> GetAuthors();
+        Task<IEnumerable<AuthorResponseModel>> GetAuthors(string sortOrder);
     }
 }

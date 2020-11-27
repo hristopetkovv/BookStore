@@ -16,9 +16,9 @@ namespace BookStore.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<AuthorResponseModel>> GetAuthors()
+        public async Task<IEnumerable<AuthorResponseModel>> GetAuthors(string sortOrder)
         {
-            return await this.dbContext
+            IQueryable<AuthorResponseModel> authors = this.dbContext
                 .Author
                 .Select(a => new AuthorResponseModel
                 {
@@ -27,8 +27,28 @@ namespace BookStore.Services
                     LastName = a.LastName,
                     Books = a.Books.Select(b => b.Book.Title),
                     BookId = a.Books.Select(b => b.BookId)
-                })
-                .ToListAsync();
+                });
+
+            switch (sortOrder)
+            {
+                case "FirstName_descending":
+                    authors = authors.OrderByDescending(a => a.FirstName);
+                    break;
+                case "BooksCount":
+                    authors = authors.OrderByDescending(a => a.Books.Count());
+                    break;
+                case "LastName":
+                    authors = authors.OrderBy(a => a.LastName);
+                    break;
+                case "LastName_descending":
+                    authors = authors.OrderByDescending(a => a.LastName);
+                    break;
+                default:
+                    authors = authors.OrderBy(a => a.FirstName);
+                    break;
+            }
+
+            return await authors.AsNoTracking().ToListAsync();
         }
     }
 }

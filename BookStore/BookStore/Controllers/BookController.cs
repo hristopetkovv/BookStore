@@ -20,9 +20,9 @@ namespace BookStore.Controllers
 
         // GET: api/<BookController>
         [HttpGet]
-        public async Task<IEnumerable<BookResponseModel>> Get()
+        public async Task<IEnumerable<BookResponseModel>> Get([FromQuery] string sortOrder)
         {
-            return await this.bookService.GetBooks();
+            return await this.bookService.GetBooks(sortOrder);
         }
 
         // GET api/<BookController>/5
