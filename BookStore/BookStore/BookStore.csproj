@@ -5,6 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201127130518_ChangePKToUserBook.cs" />
+    <Compile Remove="Data\Migrations\20201127130518_ChangePKToUserBook.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201127131326_ChangePKToUserBook.cs" />
+    <Compile Remove="Data\Migrations\20201127131326_ChangePKToUserBook.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201127131623_ChangePKToUserBook.cs" />
+    <Compile Remove="Data\Migrations\20201127131623_ChangePKToUserBook.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201127132756_ChangePKToUserBook.cs" />
+    <Compile Remove="Data\Migrations\20201127132756_ChangePKToUserBook.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201127132840_ChangePKToUserBook.cs" />
+    <Compile Remove="Data\Migrations\20201127132840_ChangePKToUserBook.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201127133500_Change.cs" />
+    <Compile Remove="Data\Migrations\20201127133500_Change.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201127133641_Change.cs" />
+    <Compile Remove="Data\Migrations\20201127133641_Change.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -1,8 +1,10 @@
-﻿namespace BookStore.ViewModels.Books
+﻿using BookStore.ViewModels.Books.Enums;
+
+namespace BookStore.ViewModels.Books
 {
     public class BookFilterRequestModel
     {
-        public string sortOrder { get; set; }
+        public BookSortOrder SortOrder { get; set; }
 
         public string SearchByAuthorOrTitle { get; set; }
     }

@@ -21,9 +21,7 @@ namespace BookStore.ViewModels.Books
 
         public IEnumerable<string> AuthorName { get; set; }
 
-        public IEnumerable<string> Comments { get; set; }
-
-        public IEnumerable<string> CommentUser { get; set; }
+        public IEnumerable<BookCommentResponseModel> Comments { get; set; }
 
         public string Genre { get; set; }
 

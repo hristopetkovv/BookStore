@@ -1,7 +1,10 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
+using BookStore.Data.Models.Enums;
 using BookStore.ViewModels.Books;
+using BookStore.ViewModels.Books.Enums;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +18,45 @@ namespace BookStore.Services
         public BookService(BookStoreDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task AddBookToCart(int bookId, int userId, int pieces)
+        {
+            var book = await dbContext
+                .Book
+                .FirstOrDefaultAsync(b => b.Id == bookId);
+
+            var user = await dbContext
+                .User
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (book.IsAvailable == false)
+            {
+                return;
+            }
+
+            if (book.Quantity < pieces)
+            {
+                return;
+            }
+
+            book.Quantity--;
+            if (book.Quantity == 0)
+            {
+                book.IsAvailable = false;
+            }
+
+            var userBook = new UserBook
+            {
+                User = user,
+                Book = book,
+                Pieces = pieces,
+                Status = Status.Pending,
+                BoughtOn = DateTime.UtcNow
+            };
+
+            await this.dbContext.UserBook.AddAsync(userBook);
+            await this.dbContext.SaveChangesAsync();
         }
 
         public async Task<int> AddComent(int bookId, BookCommentRequestModel model)
@@ -51,8 +93,13 @@ namespace BookStore.Services
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
                     AuthorName = b.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName),
-                    Comments = b.Comments.Select(c => c.Text),
-                    CommentUser = b.Comments.Select(c => c.Username)
+                    Comments = b.Comments.Select(c => new BookCommentResponseModel 
+                    { 
+                        Text = c.Text,
+                        Username = c.Username,
+                        CreatedOn = c.CreatedOn
+                    })
+
                 })
                 .FirstOrDefaultAsync();
         }
@@ -70,20 +117,20 @@ namespace BookStore.Services
                     AuthorName = x.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName)
                 });
 
-            if(!string.IsNullOrEmpty(model.SearchByAuthorOrTitle))
+            if (!string.IsNullOrEmpty(model.SearchByAuthorOrTitle))
             {
                 books = books.Where(b => b.Title.Contains(model.SearchByAuthorOrTitle) || b.AuthorName.Contains(model.SearchByAuthorOrTitle));
             }
 
-            switch (model.sortOrder)
+            switch (model.SortOrder)
             {
-                case "Price_descending":
+                case BookSortOrder.PriceDescending:
                     books = books.OrderByDescending(b => b.Price);
                     break;
-                case "Price":
+                case BookSortOrder.Price:
                     books = books.OrderBy(b => b.Price);
                     break;
-                case "Title_descending":
+                case BookSortOrder.TitleDescending:
                     books = books.OrderByDescending(b => b.Title);
                     break;
                 default:

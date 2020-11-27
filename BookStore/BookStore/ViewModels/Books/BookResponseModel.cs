@@ -13,6 +13,5 @@ namespace BookStore.ViewModels.Books
         public decimal Price { get; set; }
 
         public IEnumerable<string> AuthorName { get; set; }
-
     }
 }

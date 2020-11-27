@@ -71,28 +71,26 @@ namespace BookStore.Data
         {
             var changedEntries = this.ChangeTracker
                 .Entries()
-                .Where(e =>
-                    e.Entity is IEntity &&
-                    (e.State == EntityState.Added || e.State == EntityState.Modified));
+                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
 
             foreach (var entry in changedEntries)
             {
-                IEntity entity = (IEntity)entry.Entity;
-
-                //IDeletableEntity deletableEntity = (IDeletableEntity)entry.Entity;
-
-                if (entry.State == EntityState.Added && entity.CreatedOn == default)
+                if(entry.Entity is IEntity entity)
                 {
-                    entity.CreatedOn = DateTime.UtcNow;
+                    switch(entry.State)
+                    {
+                        case EntityState.Added:
+                            entity.CreatedOn = DateTime.UtcNow;
+                            break;
+                        case EntityState.Modified:
+                            entity.UpdatedOn = DateTime.UtcNow;
+                            break;
+                    }
                 }
-                else
-                {
-                    //if (deletableEntity.IsDeleted)
-                    //{
-                    //    deletableEntity.DeletedOn = DateTime.UtcNow;
-                    //}
 
-                    entity.UpdatedOn = DateTime.UtcNow;
+                if (entry.Entity is IDeletableEntity deletableEntity && entry.State == EntityState.Modified)
+                {
+                    deletableEntity.DeletedOn = DateTime.UtcNow;
                 }
             }
         }

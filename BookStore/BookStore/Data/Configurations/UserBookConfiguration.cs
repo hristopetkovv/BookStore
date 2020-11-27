@@ -10,7 +10,11 @@ namespace BookStore.Data.Configurations
         {
             userBook.ToTable("UserBook");
 
-            userBook.HasKey(ub => new { ub.BookId, ub.UserId });
+            userBook.HasKey(ub => ub.Id);
+
+            userBook
+                .Property(ub => ub.Id)
+                .ValueGeneratedOnAdd();
 
             userBook
                 .Property(ub => ub.Pieces)

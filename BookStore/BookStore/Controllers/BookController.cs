@@ -41,5 +41,14 @@ namespace BookStore.Controllers
 
             return Ok(id);
         }
+
+        [HttpPost]
+        [Route("{id:int}")]
+        public async Task<IActionResult> AddBookToCart([FromRoute] int id, [FromQuery] int pieces)
+        {
+            await this.bookService.AddBookToCart(id, 2, pieces);
+
+            return Ok();
+        }
     }
 }
