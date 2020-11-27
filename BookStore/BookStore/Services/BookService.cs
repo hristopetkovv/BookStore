@@ -1,4 +1,5 @@
 ﻿using BookStore.Data;
+using BookStore.Data.Models;
 using BookStore.ViewModels.Books;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -14,6 +15,22 @@ namespace BookStore.Services
         public BookService(BookStoreDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task<int> AddComent(int bookId, BookCommentRequestModel model)
+        {
+            var comment = new Comment
+            {
+                Text = model.Text,
+                Username = model.Username,
+                BookId = bookId
+            };
+
+            this.dbContext.Comment.Add(comment);
+
+            await this.dbContext.SaveChangesAsync();
+
+            return comment.Id;
         }
 
         public async Task<BookDetailalsResponseModel> GetBookById(int id)
@@ -32,7 +49,9 @@ namespace BookStore.Services
                     PublishHouse = b.PublishHouse,
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
-                    AuthorName = b.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName)
+                    AuthorName = b.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName),
+                    Comments = b.Comments.Select(c => c.Text),
+                    CommentUser = b.Comments.Select(c => c.Username)
                 })
                 .FirstOrDefaultAsync();
         }

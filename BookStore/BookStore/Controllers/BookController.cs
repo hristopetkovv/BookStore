@@ -34,20 +34,12 @@ namespace BookStore.Controllers
 
         // POST api/<BookController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("{id:int}/comments")]
+        public async Task<IActionResult> Post([FromRoute] int id, [FromBody] BookCommentRequestModel model)
         {
-        }
+            await this.bookService.AddComent(id, model);
 
-        // PUT api/<BookController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<BookController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(id);
         }
     }
 }

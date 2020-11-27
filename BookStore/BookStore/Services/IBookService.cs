@@ -9,5 +9,7 @@ namespace BookStore.Services
         Task<IEnumerable<BookResponseModel>> GetBooks();
 
         Task<BookDetailalsResponseModel> GetBookById(int id);
+
+        Task<int> AddComent(int bookId, BookCommentRequestModel model);
     }
 }

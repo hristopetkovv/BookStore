@@ -79,7 +79,7 @@ namespace BookStore.Data
             {
                 IEntity entity = (IEntity)entry.Entity;
 
-                IDeletableEntity deletableEntity = (IDeletableEntity)entry.Entity;
+                //IDeletableEntity deletableEntity = (IDeletableEntity)entry.Entity;
 
                 if (entry.State == EntityState.Added && entity.CreatedOn == default)
                 {
@@ -87,10 +87,10 @@ namespace BookStore.Data
                 }
                 else
                 {
-                    if (deletableEntity.IsDeleted)
-                    {
-                        deletableEntity.DeletedOn = DateTime.UtcNow;
-                    }
+                    //if (deletableEntity.IsDeleted)
+                    //{
+                    //    deletableEntity.DeletedOn = DateTime.UtcNow;
+                    //}
 
                     entity.UpdatedOn = DateTime.UtcNow;
                 }
