@@ -3,7 +3,6 @@ using BookStore.Data.Models;
 using BookStore.Data.Models.Enums;
 using BookStore.ExtensionMethods;
 using BookStore.ViewModels.Books;
-using BookStore.ViewModels.Books.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -94,8 +93,8 @@ namespace BookStore.Services
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
                     AuthorName = b.Authors.Select(a => a.Author.Fullname),
-                    Comments = b.Comments.Select(c => new BookCommentResponseModel 
-                    { 
+                    Comments = b.Comments.Select(c => new BookCommentResponseModel
+                    {
                         Text = c.Text,
                         Username = c.Username,
                         CreatedOn = c.CreatedOn
@@ -109,21 +108,17 @@ namespace BookStore.Services
         {
             IQueryable<Book> books = this.dbContext.Book;
 
-            if (!string.IsNullOrEmpty(model.SearchByTitle))
-            {
-                books = books.Where(b => b.Title.Contains(model.SearchByTitle));
-            }
-
             var result = await books
                 .OrderBooks(model)
+                .SortBooks(model)
                 .Select(x => new BookResponseModel
-            {
-                Id = x.Id,
-                Title = x.Title,
-                ImageUrl = x.ImageUrl,
-                Price = x.Price,
-                AuthorName = x.Authors.Select(a => a.Author.Fullname)
-            })
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    ImageUrl = x.ImageUrl,
+                    Price = x.Price,
+                    AuthorName = x.Authors.Select(a => a.Author.Fullname)
+                })
                 .ToListAsync();
 
             return result;

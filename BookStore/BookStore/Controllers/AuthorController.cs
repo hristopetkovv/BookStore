@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Authors;
+using BookStore.ViewModels.Authors.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -22,7 +23,7 @@ namespace BookStore.Controllers
 
         // GET: api/<AuthorController>
         [HttpGet]
-        public async Task<IEnumerable<AuthorResponseModel>> Get([FromQuery] string sortOrder)
+        public async Task<IEnumerable<AuthorResponseModel>> Get([FromQuery] AuthorSortOrder sortOrder)
         {
             return await this.authorService.GetAuthors(sortOrder);
         }

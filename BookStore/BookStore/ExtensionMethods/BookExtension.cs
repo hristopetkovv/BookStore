@@ -9,20 +9,21 @@ namespace BookStore.ExtensionMethods
     {
         public static IQueryable<Book> OrderBooks(this IQueryable<Book> book, BookFilterRequestModel model)
         {
-            switch (model.SortOrder)
+            book = model.SortOrder switch
             {
-                case BookSortOrder.PriceDescending:
-                    book = book.OrderByDescending(b => b.Price);
-                    break;
-                case BookSortOrder.Price:
-                    book = book.OrderBy(b => b.Price);
-                    break;
-                case BookSortOrder.TitleDescending:
-                    book = book.OrderByDescending(b => b.Title);
-                    break;
-                default:
-                    book = book.OrderBy(b => b.Title);
-                    break;
+                BookSortOrder.PriceDescending => book.OrderByDescending(b => b.Price),
+                BookSortOrder.Price => book.OrderBy(b => b.Price),
+                BookSortOrder.TitleDescending => book.OrderByDescending(b => b.Title),
+                _ => book.OrderBy(b => b.Title),
+            };
+            return book;
+        }
+
+        public static IQueryable<Book> SortBooks(this IQueryable<Book> book, BookFilterRequestModel model)
+        {
+            if (!string.IsNullOrEmpty(model.SearchByTitle))
+            {
+                return book.Where(b => b.Title.Contains(model.SearchByTitle));
             }
 
             return book;

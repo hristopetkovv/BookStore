@@ -1,5 +1,8 @@
 ﻿using BookStore.Data;
+using BookStore.Data.Models;
+using BookStore.ExtensionMethods;
 using BookStore.ViewModels.Authors;
+using BookStore.ViewModels.Authors.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,29 +19,21 @@ namespace BookStore.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<AuthorResponseModel>> GetAuthors(string sortOrder)
+        public async Task<IEnumerable<AuthorResponseModel>> GetAuthors(AuthorSortOrder sortOrder)
         {
-            IQueryable<AuthorResponseModel> authors = this.dbContext
-                .Author
+            IQueryable<Author> authors = this.dbContext.Author;
+
+            var result = await authors
+                .OrderAuthors(sortOrder)
                 .Select(a => new AuthorResponseModel
                 {
                     Id = a.Id,
-                    FirstName = a.FirstName,
-                    LastName = a.LastName,
+                    Fullname = a.Fullname,
                     Books = a.Books.Select(b => b.Book.Title),
                     BookId = a.Books.Select(b => b.BookId)
-                });
+                }).ToListAsync();
 
-            authors = sortOrder switch
-            {
-                "FirstName_descending" => authors.OrderByDescending(a => a.FirstName),
-                "BooksCount" => authors.OrderByDescending(a => a.Books.Count()),
-                "LastName" => authors.OrderBy(a => a.LastName),
-                "LastName_descending" => authors.OrderByDescending(a => a.LastName),
-                _ => authors.OrderBy(a => a.FirstName),
-            };
-
-            return await authors.ToListAsync();
+            return result;
         }
     }
 }

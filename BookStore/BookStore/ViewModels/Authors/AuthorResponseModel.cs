@@ -6,9 +6,7 @@ namespace BookStore.ViewModels.Authors
     {
         public int Id { get; set; }
 
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
+        public string Fullname { get; set; }
 
         public IEnumerable<int> BookId { get; set; }
 
