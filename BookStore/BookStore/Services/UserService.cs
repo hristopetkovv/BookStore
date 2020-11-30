@@ -1,6 +1,8 @@
 ﻿using BookStore.Data;
 using BookStore.ViewModels.Home;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
@@ -13,11 +15,22 @@ namespace BookStore.Services
             this.dbContext = dbContext;
         }
 
-        public CartListingResponseModel ShowCart(int userId)
+        public async Task RemoveBook(int bookId)
         {
-            var books = this.dbContext
+            var userBook = await this.dbContext.UserBook.FirstOrDefaultAsync(ub => ub.BookId == bookId);
+
+            var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
+            book.Quantity++;
+            userBook.IsDeleted = true;
+
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<CartListingResponseModel> ShowCart(int userId)
+        {
+            var books = await this.dbContext
                  .UserBook
-                 .Where(u => u.UserId == userId)
+                 .Where(u => u.UserId == userId && u.IsDeleted == false)
                  .Select(u => new CartViewModel
                  {
                      Pieces = u.Pieces,
@@ -27,7 +40,7 @@ namespace BookStore.Services
                      ImageUrl = u.Book.ImageUrl,
                      Title = u.Book.Title,
                      AuthorName = u.Book.Authors.Select(a => a.Author.Fullname)
-                 }).ToList();
+                 }).ToListAsync();
 
             var userBooks = new CartListingResponseModel 
             { 

@@ -1,9 +1,10 @@
-﻿using BookStore.Data.Models.Enums;
+﻿using BookStore.Data.Common;
+using BookStore.Data.Models.Enums;
 using System;
 
 namespace BookStore.Data.Models
 {
-    public class UserBook
+    public class UserBook : BaseDeletableModel
     {
         public int Id { get; set; }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +17,15 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
-        public CartListingResponseModel Cart()
+        public async Task<CartListingResponseModel> MyCart()
         {
-            return this.userService.ShowCart(2);
+            return await this.userService.ShowCart(2);
+        }
+
+        [HttpDelete]
+        public async Task RemoveBook([FromQuery] int bookId)
+        {
+            await this.userService.RemoveBook(bookId);
         }
     }
 }

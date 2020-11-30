@@ -3,15 +3,17 @@ using System;
 using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    partial class BookStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201130125541_MakeBookAuthorDeletableEntity")]
+    partial class MakeBookAuthorDeletableEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,6 +126,22 @@ namespace BookStore.Migrations
                     b.Property<int>("BookId")
                         .HasColumnName("bookid")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnName("createdon")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DeletedOn")
+                        .HasColumnName("deletedon")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnName("isdeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnName("updatedon")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("AuthorId", "BookId");
 
@@ -282,18 +300,6 @@ namespace BookStore.Migrations
                         .HasColumnName("boughton")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnName("createdon")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("DeletedOn")
-                        .HasColumnName("deletedon")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnName("isdeleted")
-                        .HasColumnType("boolean");
-
                     b.Property<int>("Pieces")
                         .HasColumnName("pieces")
                         .HasColumnType("integer");
@@ -301,10 +307,6 @@ namespace BookStore.Migrations
                     b.Property<int>("Status")
                         .HasColumnName("status")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnName("updatedon")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("UserId")
                         .HasColumnName("userid")
