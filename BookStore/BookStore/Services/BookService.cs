@@ -1,6 +1,7 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
 using BookStore.Data.Models.Enums;
+using BookStore.ExtensionMethods;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Books.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -32,12 +33,12 @@ namespace BookStore.Services
 
             if (book.IsAvailable == false)
             {
-                return;
+                throw new InvalidOperationException("The Book is not available.");
             }
 
             if (book.Quantity < pieces)
             {
-                return;
+                throw new InvalidOperationException("There are not enought pieces in store.");
             }
 
             book.Quantity -= pieces;
@@ -80,7 +81,6 @@ namespace BookStore.Services
         {
             return await this.dbContext
                 .Book
-                .AsNoTracking()
                 .Where(b => b.Id == id)
                 .Select(b => new BookDetailalsResponseModel
                 {
@@ -93,7 +93,7 @@ namespace BookStore.Services
                     PublishHouse = b.PublishHouse,
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
-                    AuthorName = b.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName),
+                    AuthorName = b.Authors.Select(a => a.Author.Fullname),
                     Comments = b.Comments.Select(c => new BookCommentResponseModel 
                     { 
                         Text = c.Text,
@@ -107,39 +107,26 @@ namespace BookStore.Services
 
         public async Task<IEnumerable<BookResponseModel>> GetBooks(BookFilterRequestModel model)
         {
-            IQueryable<BookResponseModel> books = this.dbContext
-                .Book
+            IQueryable<Book> books = this.dbContext.Book;
+
+            if (!string.IsNullOrEmpty(model.SearchByTitle))
+            {
+                books = books.Where(b => b.Title.Contains(model.SearchByTitle));
+            }
+
+            var result = await books
+                .OrderBooks(model)
                 .Select(x => new BookResponseModel
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    ImageUrl = x.ImageUrl,
-                    Price = x.Price,
-                    AuthorName = x.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName)
-                });
-
-            if (!string.IsNullOrEmpty(model.SearchByAuthorOrTitle))
             {
-                books = books.Where(b => b.Title.Contains(model.SearchByAuthorOrTitle) || b.AuthorName.Contains(model.SearchByAuthorOrTitle));
-            }
+                Id = x.Id,
+                Title = x.Title,
+                ImageUrl = x.ImageUrl,
+                Price = x.Price,
+                AuthorName = x.Authors.Select(a => a.Author.Fullname)
+            })
+                .ToListAsync();
 
-            switch (model.SortOrder)
-            {
-                case BookSortOrder.PriceDescending:
-                    books = books.OrderByDescending(b => b.Price);
-                    break;
-                case BookSortOrder.Price:
-                    books = books.OrderBy(b => b.Price);
-                    break;
-                case BookSortOrder.TitleDescending:
-                    books = books.OrderByDescending(b => b.Title);
-                    break;
-                default:
-                    books = books.OrderBy(b => b.Title);
-                    break;
-            }
-
-            return await books.AsNoTracking().ToListAsync();
+            return result;
         }
     }
 }

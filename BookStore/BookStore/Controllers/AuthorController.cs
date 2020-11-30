@@ -26,12 +26,5 @@ namespace BookStore.Controllers
         {
             return await this.authorService.GetAuthors(sortOrder);
         }
-
-        // GET api/<AuthorController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
     }
 }

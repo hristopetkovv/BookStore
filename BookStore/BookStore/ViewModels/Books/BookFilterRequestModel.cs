@@ -6,6 +6,6 @@ namespace BookStore.ViewModels.Books
     {
         public BookSortOrder SortOrder { get; set; }
 
-        public string SearchByAuthorOrTitle { get; set; }
+        public string SearchByTitle { get; set; }
     }
 }

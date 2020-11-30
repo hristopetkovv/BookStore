@@ -16,7 +16,10 @@ namespace BookStore.Data.Models
 
         public string LastName { get; set; }
 
-        public string Fullname { get; set; }
+        public string Fullname
+        {
+            get { return $"{this.FirstName} {this.LastName}"; }
+        }
 
         public ICollection<BookAuthor> Books { get; set; }
     }

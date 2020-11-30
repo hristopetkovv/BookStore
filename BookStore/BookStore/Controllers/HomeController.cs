@@ -18,7 +18,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CartResponseModel> Cart()
+        public CartListingResponseModel Cart()
         {
             return this.userService.ShowCart(2);
         }

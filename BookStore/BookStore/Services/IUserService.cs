@@ -5,6 +5,6 @@ namespace BookStore.Services
 {
     public interface IUserService
     {
-        IEnumerable<CartResponseModel> ShowCart(int userId);
+        CartListingResponseModel ShowCart(int userId);
     }
 }

@@ -29,26 +29,16 @@ namespace BookStore.Services
                     BookId = a.Books.Select(b => b.BookId)
                 });
 
-            switch (sortOrder)
+            authors = sortOrder switch
             {
-                case "FirstName_descending":
-                    authors = authors.OrderByDescending(a => a.FirstName);
-                    break;
-                case "BooksCount":
-                    authors = authors.OrderByDescending(a => a.Books.Count());
-                    break;
-                case "LastName":
-                    authors = authors.OrderBy(a => a.LastName);
-                    break;
-                case "LastName_descending":
-                    authors = authors.OrderByDescending(a => a.LastName);
-                    break;
-                default:
-                    authors = authors.OrderBy(a => a.FirstName);
-                    break;
-            }
+                "FirstName_descending" => authors.OrderByDescending(a => a.FirstName),
+                "BooksCount" => authors.OrderByDescending(a => a.Books.Count()),
+                "LastName" => authors.OrderBy(a => a.LastName),
+                "LastName_descending" => authors.OrderByDescending(a => a.LastName),
+                _ => authors.OrderBy(a => a.FirstName),
+            };
 
-            return await authors.AsNoTracking().ToListAsync();
+            return await authors.ToListAsync();
         }
     }
 }

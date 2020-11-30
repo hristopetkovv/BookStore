@@ -1,6 +1,5 @@
 ﻿using BookStore.Data;
 using BookStore.ViewModels.Home;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BookStore.Services
@@ -14,22 +13,29 @@ namespace BookStore.Services
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<CartResponseModel> ShowCart(int userId)
+        public CartListingResponseModel ShowCart(int userId)
         {
-            var users = this.dbContext
+            var books = this.dbContext
                  .UserBook
                  .Where(u => u.UserId == userId)
-                 .Select(u => new CartResponseModel
+                 .Select(u => new CartViewModel
                  {
                      Pieces = u.Pieces,
                      BookId = u.BookId,
-                     Price = u.Book.Price,
+                     TotalPrice = u.Book.Price * u.Pieces,
+                     PriceForEach = u.Book.Price,
                      ImageUrl = u.Book.ImageUrl,
                      Title = u.Book.Title,
-                     AuthorName = u.Book.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName)
+                     AuthorName = u.Book.Authors.Select(a => a.Author.Fullname)
                  }).ToList();
 
-            return users;
+            var userBooks = new CartListingResponseModel 
+            { 
+                books = books,
+                TotalPrice = books.Select(x => x.TotalPrice).Sum()
+            };
+
+            return userBooks;
         }
     }
 }
