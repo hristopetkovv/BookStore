@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookStore.ViewModels.Books;
-using Microsoft.AspNetCore.Http;
+using BookStore.Services;
+using BookStore.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -12,10 +10,17 @@ namespace BookStore.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
-        //[HttpGet]
-        //public async Task<IEnumerable<BookResponseModel>> Cart()
-        //{
-        //    return Ok();
-        //}
+        private readonly IUserService userService;
+
+        public HomeController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
+        [HttpGet]
+        public IEnumerable<CartResponseModel> Cart()
+        {
+            return this.userService.ShowCart(2);
+        }
     }
 }

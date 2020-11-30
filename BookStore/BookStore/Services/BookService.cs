@@ -40,7 +40,8 @@ namespace BookStore.Services
                 return;
             }
 
-            book.Quantity--;
+            book.Quantity -= pieces;
+
             if (book.Quantity == 0)
             {
                 book.IsAvailable = false;
