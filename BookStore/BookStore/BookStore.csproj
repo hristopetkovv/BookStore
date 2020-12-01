@@ -19,6 +19,10 @@
     <Compile Remove="Data\Migrations\20201127133500_Change.Designer.cs" />
     <Compile Remove="Data\Migrations\20201127133641_Change.cs" />
     <Compile Remove="Data\Migrations\20201127133641_Change.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201201083237_NullableColumnBook.cs" />
+    <Compile Remove="Data\Migrations\20201201083237_NullableColumnBook.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201201090012_UpdateColumn.cs" />
+    <Compile Remove="Data\Migrations\20201201090012_UpdateColumn.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

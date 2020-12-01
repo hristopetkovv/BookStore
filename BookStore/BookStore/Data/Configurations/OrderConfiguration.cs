@@ -8,15 +8,14 @@ namespace BookStore.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> order)
         {
-            order.ToTable("Book");
+            order.ToTable("Order");
 
             order
                 .HasKey(o => o.Id);
 
             order
-                .HasOne(o => o.Book)
-                .WithOne(b => b.Order)
-                .HasForeignKey<Order>(o => o.Id);
+                .Property(o => o.Id)
+                .ValueGeneratedOnAdd();
         }
     }
 }

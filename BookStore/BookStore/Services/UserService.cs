@@ -1,6 +1,10 @@
 ﻿using BookStore.Data;
+using BookStore.Data.Models;
+using BookStore.Data.Models.Enums;
 using BookStore.ViewModels.Home;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,6 +58,30 @@ namespace BookStore.Services
             };
 
             return userBooks;
+        }
+
+        public async Task CreateOrder(int userId, decimal totalPrice)
+        {
+            var order = new Order
+            {
+                UserId = userId,
+                BoughtOn = DateTime.UtcNow,
+                Status = Status.Pending,
+                TotalPrice = totalPrice,
+            };
+
+            var userBooks = dbContext
+                .UserBook
+                .Where(ub => ub.UserId == userId)
+                .ToList();
+
+            foreach (var book in userBooks)
+            {
+                book.IsDeleted = true;
+            }
+
+            await this.dbContext.Order.AddAsync(order);
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

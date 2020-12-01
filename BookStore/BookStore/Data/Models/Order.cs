@@ -1,9 +1,10 @@
-﻿using BookStore.Data.Models.Enums;
+﻿using BookStore.Data.Common;
+using BookStore.Data.Models.Enums;
 using System;
 
 namespace BookStore.Data.Models
 {
-    public class Order
+    public class Order : BaseModel
     {
         public int Id { get; set; }
 
@@ -16,9 +17,5 @@ namespace BookStore.Data.Models
         public User User { get; set; }
 
         public decimal TotalPrice { get; set; }
-
-        public int? BookId { get; set; }
-
-        public Book Book { get; set; }
     }
 }

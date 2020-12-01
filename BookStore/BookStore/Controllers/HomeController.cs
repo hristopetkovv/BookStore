@@ -27,5 +27,11 @@ namespace BookStore.Controllers
         {
             await this.userService.RemoveBook(bookId);
         }
+
+        [HttpPost]
+        public async Task CompleteOrder([FromQuery] decimal totalPrice)
+        {
+            await this.userService.CreateOrder(2, totalPrice);
+        }
     }
 }
