@@ -16,6 +16,7 @@ namespace BookStore.Controllers
         {
             this.orderService = orderService;
         }
+
         [HttpPost]
         public async Task CompleteOrder([FromQuery] decimal totalPrice)
         {
