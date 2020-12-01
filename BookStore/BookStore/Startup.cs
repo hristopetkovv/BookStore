@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using BookStore.Services;
+using BookStore.ExtensionMethods;
 
 namespace BookStore
 {
@@ -21,23 +21,11 @@ namespace BookStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BookStoreDbContext>(
-                options => options.UseNpgsql(
-                    this.configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Api", Version = "v1" });
-            });
-
-            services.AddControllers();
-
-            services.AddTransient<IIdentityService, IdentityService>();
-            services.AddTransient<IBookService, BookService>();
-            services.AddTransient<IAuthorService, AuthorService>();
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IOrderService, OrderService>();
-
+            services
+                .AddDatabase(this.configuration)
+                .AddApplicationServices()
+                .AddSwagger()
+                .AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

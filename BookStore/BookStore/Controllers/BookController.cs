@@ -20,14 +20,14 @@ namespace BookStore.Controllers
 
         // GET: api/<BookController>
         [HttpGet]
-        public async Task<IEnumerable<BookResponseModel>> Get([FromQuery] BookFilterRequestModel model)
+        public async Task<IEnumerable<BookResponseModel>> GetBooks([FromQuery] BookFilterRequestModel model)
         {
             return await this.bookService.GetBooks(model);
         }
 
         // GET api/<BookController>/5
         [HttpGet("{id:int}")]
-        public async Task<BookDetailalsResponseModel> Get([FromRoute] int id)
+        public async Task<BookDetailalsResponseModel> BookDetails([FromRoute] int id)
         {
             return await this.bookService.GetBookById(id);
         }
@@ -35,7 +35,7 @@ namespace BookStore.Controllers
         // POST api/<BookController>
         [HttpPost]
         [Route("{id:int}/comments")]
-        public async Task<IActionResult> Post([FromRoute] int id, [FromBody] BookCommentRequestModel model)
+        public async Task<IActionResult> AddComment([FromRoute] int id, [FromBody] BookCommentRequestModel model)
         {
             await this.bookService.AddComent(id, model);
 
@@ -44,7 +44,7 @@ namespace BookStore.Controllers
 
         [HttpPost]
         [Route("{id:int}")]
-        public async Task<IActionResult> AddBookToCart([FromRoute] int id, [FromQuery] int pieces)
+        public async Task<IActionResult> BuyBook([FromRoute] int id, [FromQuery] int pieces)
         {
             await this.bookService.AddBookToCart(id, 2, pieces);
 
