@@ -1,6 +1,4 @@
 ﻿using BookStore.Data.Common;
-using BookStore.Data.Models.Enums;
-using System;
 
 namespace BookStore.Data.Models
 {
@@ -17,9 +15,5 @@ namespace BookStore.Data.Models
         public Book Book { get; set; }
 
         public int Pieces { get; set; }
-
-        public DateTime BoughtOn { get; set; }
-
-        public Status Status { get; set; }
     }
 }

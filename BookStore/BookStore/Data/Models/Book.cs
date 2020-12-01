@@ -37,6 +37,8 @@ namespace BookStore.Data.Models
 
         public DateTime PublishedOn { get; set; }
 
+        public Order Order { get; set; }
+
         public virtual ICollection<BookAuthor> Authors { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }

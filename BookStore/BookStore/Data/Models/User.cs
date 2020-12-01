@@ -9,6 +9,7 @@ namespace BookStore.Data.Models
         public User()
         {
             this.Books = new HashSet<UserBook>();
+            this.Orders = new HashSet<Order>();
         }
 
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace BookStore.Data.Models
         public string Address { get; set; }
 
         public ICollection<UserBook> Books { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

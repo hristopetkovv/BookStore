@@ -21,6 +21,11 @@ namespace BookStore.Services
 
             var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
             book.Quantity++;
+            if (book.IsAvailable == false)
+            {
+                book.IsAvailable = true;
+            }
+
             userBook.IsDeleted = true;
 
             await dbContext.SaveChangesAsync();

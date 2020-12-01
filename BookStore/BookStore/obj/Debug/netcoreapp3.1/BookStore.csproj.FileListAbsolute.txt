@@ -53,7 +53,6 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Npgsql.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
-C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csprojAssemblyReference.cache
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.AssemblyInfoInputs.cache
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.AssemblyInfo.cs
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.RazorTargetAssemblyInfo.cache
@@ -76,3 +75,4 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\web.config
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csprojAssemblyReference.cache

@@ -52,8 +52,6 @@ namespace BookStore.Services
                 User = user,
                 Book = book,
                 Pieces = pieces,
-                Status = Status.Pending,
-                BoughtOn = DateTime.UtcNow
             };
 
             await this.dbContext.UserBook.AddAsync(userBook);
