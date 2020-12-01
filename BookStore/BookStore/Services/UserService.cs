@@ -25,6 +25,7 @@ namespace BookStore.Services
 
             var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
             book.Quantity++;
+
             if (book.IsAvailable == false)
             {
                 book.IsAvailable = true;
@@ -82,6 +83,28 @@ namespace BookStore.Services
 
             await this.dbContext.Order.AddAsync(order);
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<OrderResponseModel>> GetOrders(int userId)
+        {
+            IQueryable<Order> orders = this.dbContext.Order;
+
+            var result = await orders
+                .Select(o => new OrderResponseModel
+                {
+                    Id = o.Id,
+                    TotalPrice = o.TotalPrice,
+                    BoughtOn = o.BoughtOn,
+                    Status = o.Status,
+                    FirstName = o.User.FirstName,
+                    LastName = o.User.LastName,
+                    Address = o.User.Address,
+                    TelephoneNumber = o.User.TelephoneNumber,
+                    Email = o.User.Email
+                })
+                .ToListAsync();
+
+            return result;
         }
     }
 }

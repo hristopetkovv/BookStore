@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,13 @@ namespace BookStore.Controllers
         public async Task CompleteOrder([FromQuery] decimal totalPrice)
         {
             await this.userService.CreateOrder(2, totalPrice);
+        }
+
+        [HttpGet]
+        [Route("/orders")]
+        public async Task<IEnumerable<OrderResponseModel>> Orders()
+        {
+            return await this.userService.GetOrders(2);
         }
     }
 }

@@ -11,5 +11,7 @@ namespace BookStore.Services
         Task RemoveBook(int bookId);
 
         Task CreateOrder(int userId, decimal totalPrice);
+
+        Task<IEnumerable<OrderResponseModel>> GetOrders(int userId);
     }
 }
