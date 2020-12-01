@@ -11,10 +11,12 @@ namespace BookStore.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IUserService userService;
+        private readonly IOrderService orderService;
 
-        public HomeController(IUserService userService)
+        public HomeController(IUserService userService, IOrderService orderService)
         {
             this.userService = userService;
+            this.orderService = orderService;
         }
 
         [HttpGet]
@@ -32,14 +34,14 @@ namespace BookStore.Controllers
         [HttpPost]
         public async Task CompleteOrder([FromQuery] decimal totalPrice)
         {
-            await this.userService.CreateOrder(2, totalPrice);
+            await this.orderService.CreateOrder(2, totalPrice);
         }
 
         [HttpGet]
         [Route("/orders")]
         public async Task<IEnumerable<OrderResponseModel>> Orders()
         {
-            return await this.userService.GetOrders(2);
+            return await this.orderService.GetOrders(2);
         }
     }
 }

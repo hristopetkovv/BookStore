@@ -36,6 +36,7 @@ namespace BookStore
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IOrderService, OrderService>();
 
         }
 

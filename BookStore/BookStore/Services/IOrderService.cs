@@ -1,11 +1,13 @@
-﻿using System;
+﻿using BookStore.ViewModels.Home;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
-    public class IOrderService
+    public interface IOrderService
     {
+        Task CreateOrder(int userId, decimal totalPrice);
+
+        Task<IEnumerable<OrderResponseModel>> GetOrders(int userId);
     }
 }

@@ -1,6 +1,5 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
-using BookStore.Data.Models.Enums;
 using BookStore.ExtensionMethods;
 using BookStore.ViewModels.Books;
 using Microsoft.EntityFrameworkCore;
