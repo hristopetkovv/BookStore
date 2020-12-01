@@ -71,6 +71,11 @@ namespace BookStore.Services
                 TotalPrice = totalPrice,
             };
 
+            if (totalPrice == 0)
+            {
+                throw new InvalidOperationException("Your cart is empty.");
+            }
+
             var userBooks = dbContext
                 .UserBook
                 .Where(ub => ub.UserId == userId)
