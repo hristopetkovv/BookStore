@@ -19,7 +19,7 @@ namespace BookStore.Controllers
         [HttpGet]
         public async Task<CartListingResponseModel> MyCart()
         {
-            return await this.userService.ShowCart(2);
+            return await this.userService.ShowCart(1);
         }
 
         [HttpDelete]

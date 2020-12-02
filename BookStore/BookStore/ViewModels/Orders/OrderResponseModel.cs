@@ -1,7 +1,7 @@
 ﻿using BookStore.Data.Models.Enums;
 using System;
 
-namespace BookStore.ViewModels.Orders;
+namespace BookStore.ViewModels.Orders
 {
     public class OrderResponseModel
     {

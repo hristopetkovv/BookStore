@@ -2,6 +2,7 @@
 using BookStore.Data.Models;
 using BookStore.Data.Models.Enums;
 using BookStore.ViewModels.Home;
+using BookStore.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace BookStore.Services
             IQueryable<Order> orders = this.dbContext.Order;
 
             var result = await orders
+                .Where(o => o.UserId == userId)
                 .Select(o => new OrderResponseModel
                 {
                     Id = o.Id,

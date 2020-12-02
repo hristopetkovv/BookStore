@@ -44,9 +44,9 @@ namespace BookStore.Controllers
 
         [HttpPost]
         [Route("{id:int}")]
-        public async Task<IActionResult> BuyBook([FromRoute] int id, [FromQuery] int pieces)
+        public async Task<IActionResult> BuyBook([FromRoute] int id, [FromQuery] int pieces = 1)
         {
-            await this.bookService.AddBookToCart(id, 2, pieces);
+            await this.bookService.AddBookToCart(id, 1, pieces);
 
             return Ok();
         }

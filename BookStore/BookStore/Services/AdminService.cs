@@ -1,7 +1,11 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
 using BookStore.ViewModels.Books;
+using BookStore.ViewModels.Orders;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.Services
@@ -40,6 +44,36 @@ namespace BookStore.Services
 
             dbContext.Book.Add(book);
             
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<OrderResponseModel>> GetOrders()
+        {
+            var orders = await dbContext
+                .Order
+                .Select(o => new OrderResponseModel
+                {
+                    Id = o.Id,
+                    FirstName = o.User.FirstName,
+                    LastName = o.User.LastName,
+                    Email = o.User.Email,
+                    Address = o.User.Address,
+                    BoughtOn = o.BoughtOn,
+                    Status = o.Status,
+                    TelephoneNumber = o.User.TelephoneNumber,
+                    TotalPrice = o.TotalPrice
+                })
+                .ToListAsync();
+
+            return orders;
+        }
+
+        public async Task UpdateOrder(OrderUpdateRequestModel model)
+        {
+            var order = await dbContext.Order.FirstOrDefaultAsync(x => x.Id == model.OrderId);
+
+            order.Status = model.Status;
+
             await dbContext.SaveChangesAsync();
         }
     }
