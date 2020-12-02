@@ -31,7 +31,8 @@ namespace BookStore.ExtensionMethods
                 .AddTransient<IBookService, BookService>()
                 .AddTransient<IAuthorService, AuthorService>()
                 .AddTransient<IUserService, UserService>()
-                .AddTransient<IOrderService, OrderService>();
+                .AddTransient<IOrderService, OrderService>()
+                .AddTransient<IAdminService, AdminService>();
         }
     }
 }

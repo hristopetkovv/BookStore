@@ -68,10 +68,12 @@ namespace BookStore.Services
                 .Where(ub => ub.UserId == userId)
                 .ToList();
 
-            foreach (var book in userBooks)
-            {
-                book.IsDeleted = true;
-            }
+            dbContext.UserBook.RemoveRange(userBooks);
+
+            //foreach (var book in userBooks)
+            //{
+            //    book.IsDeleted = true;
+            //}
         }
     }
 }

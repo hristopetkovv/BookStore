@@ -14,6 +14,10 @@ namespace BookStore.Data.Configurations
                 .HasKey(g => g.Id);
 
             genre
+                .Property(g => g.Id)
+                .ValueGeneratedOnAdd();
+
+            genre
                 .Property(g => g.Name)
                 .HasMaxLength(50)
                 .IsRequired();
