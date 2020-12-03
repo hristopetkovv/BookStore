@@ -38,7 +38,7 @@ namespace BookStore.Services
             return user.Id;
         }
 
-        public  async Task Login(LoginRequestModel model)
+        public Task Login(LoginRequestModel model)
         {
             throw new System.NotImplementedException();
         }

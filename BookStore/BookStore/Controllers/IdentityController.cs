@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,34 +9,14 @@ namespace BookStore.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class IdentityController : ControllerBase
+    public class TestController : ControllerBase
     {
         private readonly IIdentityService identityService;
 
-        public IdentityController(IIdentityService identityService)
+        public TestController(IIdentityService identityService)
         {
             this.identityService = identityService;
         }
-
-        //// GET: api/<IdentityController>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET api/<IdentityController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        // POST api/<IdentityController>
-        //[HttpPost]
-        //public void Login([FromBody] LoginRequestModel model)
-        //{
-        //}
 
         // POST api/<IdentityController>
         [HttpPost]
@@ -46,11 +26,5 @@ namespace BookStore.Controllers
 
             return Ok(id);
         }
-
-        //// PUT api/<IdentityController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
     }
 }

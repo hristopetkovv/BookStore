@@ -1,6 +1,7 @@
 ﻿using BookStore.Data.Common;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace BookStore.Data.Models
 {
