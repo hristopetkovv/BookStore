@@ -44,7 +44,7 @@ namespace BookStore.Data
             this.HandleWhen();
             return base.SaveChanges();
         }
-      
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes().ToList())

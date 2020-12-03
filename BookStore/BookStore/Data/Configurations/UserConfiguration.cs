@@ -29,13 +29,9 @@ namespace BookStore.Data.Configurations
                 .IsRequired();
 
             user
-                .Property(u => u.TelephoneNumber)
-                .HasMaxLength(20);
-
-            user
-                .Property(u => u.Username)
-                .HasMaxLength(30)
-                .IsRequired();
+               .Property(u => u.Username)
+               .HasMaxLength(30)
+               .IsRequired();
 
             user
                 .Property(u => u.Password)

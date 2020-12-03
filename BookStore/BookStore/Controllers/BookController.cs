@@ -1,5 +1,6 @@
 ﻿using BookStore.Services;
 using BookStore.ViewModels.Books;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;

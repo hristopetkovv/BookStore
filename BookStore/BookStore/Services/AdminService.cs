@@ -3,7 +3,6 @@ using BookStore.Data.Models;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -60,7 +59,7 @@ namespace BookStore.Services
                     Address = o.User.Address,
                     BoughtOn = o.BoughtOn,
                     Status = o.Status,
-                    TelephoneNumber = o.User.TelephoneNumber,
+                    TelephoneNumber = o.User.PhoneNumber,
                     TotalPrice = o.TotalPrice
                 })
                 .ToListAsync();

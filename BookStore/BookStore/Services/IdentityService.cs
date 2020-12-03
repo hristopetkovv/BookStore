@@ -26,7 +26,7 @@ namespace BookStore.Services
                 LastName = model.LastName,
                 Email = model.Email,
                 Username = model.Username,
-                TelephoneNumber = model.TelephoneNumber,
+                PhoneNumber = model.TelephoneNumber,
                 Password = hashedPass.ToString(),
                 Address = model.Address
             };

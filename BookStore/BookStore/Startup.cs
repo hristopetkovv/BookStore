@@ -23,6 +23,8 @@ namespace BookStore
                 .AddApplicationServices()
                 .AddSwagger()
                 .AddControllers();
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +43,7 @@ namespace BookStore
                         c.RoutePrefix = string.Empty;
                     })
                 .UseHttpsRedirection()
+                .UseAuthentication()
                 .UseAuthorization()
                 .UseRouting()
                 .UseEndpoints(endpoints =>
