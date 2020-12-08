@@ -1,5 +1,6 @@
 ﻿using BookStore.Data.Common;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Data.Models
 {
@@ -18,7 +19,9 @@ namespace BookStore.Data.Models
 
         public string Email { get; set; }
 
-        public string Password { get; set; }
+        public byte[] PasswordSalt { get; set; }
+
+        public byte[] PasswordHash { get; set; }
 
         public string PhoneNumber { get; set; }
 

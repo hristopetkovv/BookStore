@@ -6,9 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class OrderController : ControllerBase
+    public class OrderController : BaseApiController
     {
         private readonly IOrderService orderService;
 

@@ -5,9 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HomeController : ControllerBase
+    public class HomeController : BaseApiController
     {
         private readonly IUserService userService;
 

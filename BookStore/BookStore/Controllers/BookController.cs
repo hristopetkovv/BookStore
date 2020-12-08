@@ -1,6 +1,5 @@
 ﻿using BookStore.Services;
 using BookStore.ViewModels.Books;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BookController : ControllerBase
+    public class BookController : BaseApiController
     {
         private readonly IBookService bookService;
 

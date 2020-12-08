@@ -1,0 +1,33 @@
+﻿using System.Threading.Tasks;
+using BookStore.Services;
+using BookStore.ViewModels.Account;
+using Microsoft.AspNetCore.Mvc;
+
+
+namespace BookStore.Controllers
+{
+    public class AccountController : BaseApiController
+    {
+        private readonly IAccountService accountService;
+
+        public AccountController(IAccountService accountService)
+        {
+            this.accountService = accountService;
+        }
+
+        [HttpPost("register")]
+        public async Task<ActionResult<UserResponseModel>> Register([FromBody] RegisterRequestModel model)
+        {
+            if (await this.accountService.UserExists(model.Username))
+            {
+                return BadRequest("Username is taken");
+            }
+
+            var user = await this.accountService.Create(model);
+
+            return Ok(user);
+        }
+
+
+    }
+}

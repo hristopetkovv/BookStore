@@ -1,11 +1,12 @@
 ﻿using BookStore.Data;
-using BookStore.Data.Models;
 using BookStore.Services;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace BookStore.ExtensionMethods
 {
@@ -26,15 +27,33 @@ namespace BookStore.ExtensionMethods
                     configuration.GetConnectionString("DefaultConnection")));
         }
 
+        public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+               .AddJwtBearer(options =>
+               {
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuerSigningKey = true,
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenKey"])),
+                       ValidateIssuer = false,
+                       ValidateAudience = false
+                   };
+               });
+
+            return services;
+        }
+
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             return services
-                .AddTransient<IIdentityService, IdentityService>()
+                .AddTransient<IAccountService, AccountService>()
                 .AddTransient<IBookService, BookService>()
                 .AddTransient<IAuthorService, AuthorService>()
                 .AddTransient<IUserService, UserService>()
                 .AddTransient<IOrderService, OrderService>()
-                .AddTransient<IAdminService, AdminService>();
+                .AddTransient<IAdminService, AdminService>()
+                .AddTransient<ITokenService, TokenService>();
         }
     }
 }

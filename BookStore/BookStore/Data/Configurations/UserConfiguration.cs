@@ -34,11 +34,6 @@ namespace BookStore.Data.Configurations
                .IsRequired();
 
             user
-                .Property(u => u.Password)
-                .HasMaxLength(40)
-                .IsRequired();
-
-            user
                 .Property(u => u.Address)
                 .HasMaxLength(150)
                 .IsRequired();

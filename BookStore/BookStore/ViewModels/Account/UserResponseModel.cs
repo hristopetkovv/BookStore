@@ -1,0 +1,9 @@
+﻿namespace BookStore.ViewModels.Account
+{
+    public class UserResponseModel
+    {
+        public string Username { get; set; }
+
+        public string Token { get; set; }
+    }
+}

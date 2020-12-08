@@ -23,9 +23,14 @@
     <Compile Remove="Data\Migrations\20201201083237_NullableColumnBook.Designer.cs" />
     <Compile Remove="Data\Migrations\20201201090012_UpdateColumn.cs" />
     <Compile Remove="Data\Migrations\20201201090012_UpdateColumn.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201208074008_UpdatePassword.cs" />
+    <Compile Remove="Data\Migrations\20201208074008_UpdatePassword.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201208074231_ChangeUser.cs" />
+    <Compile Remove="Data\Migrations\20201208074231_ChangeUser.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -37,6 +42,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.1" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
 

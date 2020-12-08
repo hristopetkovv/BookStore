@@ -121,7 +121,15 @@ C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\st
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.pdb
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.genruntimeconfig.cache
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Views.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csproj.CoreCompileInputs.cache
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cs
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cache
-C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Views.dll

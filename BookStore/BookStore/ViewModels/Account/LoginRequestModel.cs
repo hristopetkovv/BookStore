@@ -1,4 +1,4 @@
-﻿namespace BookStore.ViewModels.Identity
+﻿namespace BookStore.ViewModels.Account
 {
     public class LoginRequestModel
     {

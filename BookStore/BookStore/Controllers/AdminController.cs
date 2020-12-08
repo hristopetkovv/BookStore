@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AdminController : ControllerBase
+    public class AdminController : BaseApiController
     {
         private readonly IAdminService adminService;
 
