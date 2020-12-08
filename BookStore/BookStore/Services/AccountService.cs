@@ -2,6 +2,7 @@
 using BookStore.Data.Models;
 using BookStore.ViewModels.Account;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace BookStore.Services
 
         public async Task<UserResponseModel> Create(RegisterRequestModel model)
         {
+            await this.UserExists(model.Username);
+
             using var hmac = new HMACSHA512();
 
             var user = new User
@@ -46,14 +49,44 @@ namespace BookStore.Services
             };
         }
 
-        public Task Login(LoginRequestModel model)
+        public async Task<UserResponseModel> Login(LoginRequestModel model)
         {
-            throw new System.NotImplementedException();
+            var user = await this.dbContext
+               .User
+               .SingleOrDefaultAsync(u => u.Username == model.Username);
+
+            if (user == null)
+            {
+                throw new InvalidOperationException("Invalid username");
+            }
+
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(model.Password));
+
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != user.PasswordHash[i])
+                {
+                    throw new InvalidOperationException("Invalid password");
+                }
+            }
+
+            return new UserResponseModel
+            {
+                Username = user.Username,
+                Token = this.tokenService.CreateToken(user)
+            };
         }
 
-        public async Task<bool> UserExists(string username)
+        private async Task UserExists(string username)
         {
-            return await this.dbContext.User.AnyAsync(u => u.Username == username.ToLower());
+            var exists = await this.dbContext.User.AnyAsync(u => u.Username == username.ToLower());
+
+            if (exists)
+            {
+                throw new InvalidOperationException("Username is taken");
+            }
         }
     }
 }

@@ -18,16 +18,19 @@ namespace BookStore.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserResponseModel>> Register([FromBody] RegisterRequestModel model)
         {
-            if (await this.accountService.UserExists(model.Username))
-            {
-                return BadRequest("Username is taken");
-            }
+            
 
             var user = await this.accountService.Create(model);
 
             return Ok(user);
         }
 
+        [HttpPost("login")]
+        public async Task<ActionResult<UserResponseModel>> Login([FromBody] LoginRequestModel model)
+        {
+            var user = await this.accountService.Login(model);
 
+            return user;
+        }
     }
 }

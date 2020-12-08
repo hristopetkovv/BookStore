@@ -7,8 +7,6 @@ namespace BookStore.Services
     {
         Task<UserResponseModel> Create(RegisterRequestModel model);
 
-        Task Login(LoginRequestModel model);
-
-        Task<bool> UserExists(string username);
+        Task<UserResponseModel> Login(LoginRequestModel model);
     }
 }

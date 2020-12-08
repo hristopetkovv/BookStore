@@ -11,12 +11,14 @@ namespace BookStore.ViewModels.Account
         public string LastName { get; set; }
 
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         public string Username { get; set; }
 
         [Required]
+        [Phone]
         public string TelephoneNumber { get; set; }
 
         [Required]
