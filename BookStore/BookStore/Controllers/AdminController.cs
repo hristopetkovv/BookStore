@@ -1,12 +1,14 @@
 ﻿using BookStore.Services;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Orders;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class AdminController : BaseApiController
     {
         private readonly IAdminService adminService;

@@ -41,10 +41,10 @@ namespace BookStore
                         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My BookStore Api");
                         c.RoutePrefix = string.Empty;
                     })
-                .UseHttpsRedirection()
                 .UseAuthentication()
-                .UseAuthorization()
+                .UseHttpsRedirection()
                 .UseRouting()
+                .UseAuthorization()
                 .UseEndpoints(endpoints =>
                     {
                         endpoints.MapControllers();

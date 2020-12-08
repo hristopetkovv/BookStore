@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Home;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class HomeController : BaseApiController
     {
         private readonly IUserService userService;

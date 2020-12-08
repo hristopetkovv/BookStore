@@ -19,7 +19,6 @@ namespace BookStore.Controllers
             this.authorService = authorService;
         }
 
-        // GET: api/<AuthorController>
         [HttpGet]
         public async Task<IEnumerable<AuthorResponseModel>> Get([FromQuery] AuthorSortOrder sortOrder)
         {
