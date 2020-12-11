@@ -1,0 +1,14 @@
+.me-auto {
+    margin-right: auto!important;
+}
+
+.me-2 {
+    margin-right: .5rem!important;
+}
+.navbar-dark .navbar-brand {
+    color: #fff;
+}
+
+button {
+    margin-right: 10px;
+}

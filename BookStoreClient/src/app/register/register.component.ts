@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { UserDto } from '../_models/userDto';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,47 +8,25 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-registerForm: FormGroup;
-  constructor(private fb: FormBuilder, private authService: AuthService) {
-    this.registerForm = this.fb.group({
-      'username': ['', [Validators.required]],
-      'email': ['', [Validators.required]],
-      'firstName': ['', [Validators.required]],
-      'lastName': ['', [Validators.required]],
-      'password': ['', [Validators.required]],
-      'telephoneNumber': ['', [Validators.required]],
-      'address': ['', [Validators.required]],
-    })
-  }
+  model: any = {};
+  loggedIn: boolean = false;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   register() {
-    this.authService.register(this.registerForm.value).subscribe(data => {
-      console.log(data);
+    this.authService.register(this.model)
+    .subscribe((user: UserDto) => {
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+        this.authService.setCurrentUser(user);
+        this.loggedIn = true;
+        this.authService.isLoggedIn(this.loggedIn);
+      }
+    }, error => {
+      console.log(error);
     });
-  }
-
-  get username() {
-    return this.registerForm.get('username')
-  }
-  get email() {
-    return this.registerForm.get('email')
-  }
-  get firstName() {
-    return this.registerForm.get('firstName')
-  }
-  get lastName() {
-    return this.registerForm.get('lastName')
-  }
-  get password() {
-    return this.registerForm.get('password')
-  }
-  get telephoneNumber() {
-    return this.registerForm.get('telephoneNumber')
-  }
-  get address() {
-    return this.registerForm.get('address')
   }
 }

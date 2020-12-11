@@ -1,0 +1,42 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { UserDto } from '../_models/userDto';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private currentUserSource = new ReplaySubject<UserDto | null>(1);
+  currentUser = this.currentUserSource.asObservable();
+  private sidenavOpenSubject: Subject<boolean>;
+
+  constructor(private http: HttpClient) {
+    this.sidenavOpenSubject = new Subject<boolean>();
+   }
+
+   login(model: any): Observable<UserDto> {
+     return this.http.post<UserDto>('/api/Account/login', model);
+   }
+
+   register(model: any): Observable<UserDto> {
+     return this.http.post<UserDto>('/api/Account/register', model);
+   }
+
+   setCurrentUser(user: UserDto) {
+     this.currentUserSource.next(user);
+   }
+
+   logout() {
+     localStorage.removeItem('user');
+     this.currentUserSource.next(null);
+   }
+
+   isLoggedIn(loggedIn: boolean): void {
+     this.sidenavOpenSubject.next(loggedIn);
+   }
+
+   exportLoggedIn(): Observable<boolean> {
+    return this.sidenavOpenSubject;
+}
+}

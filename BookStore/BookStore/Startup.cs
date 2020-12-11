@@ -21,7 +21,7 @@ namespace BookStore
             services
                 .AddDatabase(this.configuration)
                 .AddApplicationServices()
-                .AddCors()
+                //.AddCors()
                 .AddAuthentication(this.configuration)
                 .AddSwagger()
                 .AddControllers();
@@ -43,9 +43,9 @@ namespace BookStore
                         c.RoutePrefix = string.Empty;
                     })
                 .UseAuthentication()
-                .UseHttpsRedirection()
+                //.UseHttpsRedirection()
                 .UseRouting()
-                .UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"))
+                //.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"))
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>
                     {

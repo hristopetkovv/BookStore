@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { UserDto } from '../_models/userDto';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,29 +8,27 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-loginForm: FormGroup;
+  model: any = {};
+  loggedIn: boolean = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
-    this.loginForm = this.fb.group({
-      'username': ['', [Validators.required]],
-      'password': ['', [Validators.required]]
-    })
-   }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.authService.login(this.loginForm.value).subscribe(data => {
-      console.log(data);
-    });
-  }
-
-  get username() {
-    return this.loginForm.get('username');
-  }
-
-  get password() {
-    return this.loginForm.get('password');
+    this.authService.login(this.model)
+      .subscribe((user: UserDto) => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.authService.setCurrentUser(user);
+          this.loggedIn = true;
+          this.authService.isLoggedIn(this.loggedIn);
+        }
+      }, error => {
+        console.log(error);
+      });
   }
 }
