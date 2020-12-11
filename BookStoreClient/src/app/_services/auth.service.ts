@@ -9,10 +9,11 @@ import { Observable, ReplaySubject, Subject } from 'rxjs';
 export class AuthService {
   private currentUserSource = new ReplaySubject<UserDto | null>(1);
   currentUser = this.currentUserSource.asObservable();
-  private sidenavOpenSubject: Subject<boolean>;
+  logedInSubject: Subject<boolean>;
+  isLoggedInUser = false;
 
   constructor(private http: HttpClient) {
-    this.sidenavOpenSubject = new Subject<boolean>();
+    this.logedInSubject = new Subject<boolean>();
    }
 
    login(model: any): Observable<UserDto> {
@@ -33,10 +34,11 @@ export class AuthService {
    }
 
    isLoggedIn(loggedIn: boolean): void {
-     this.sidenavOpenSubject.next(loggedIn);
+     this.logedInSubject.next(loggedIn);
+     this.isLoggedInUser = loggedIn;
    }
 
-   exportLoggedIn(): Observable<boolean> {
-    return this.sidenavOpenSubject;
-}
+   logedInChange(): Observable<boolean> {
+     return this.logedInSubject;
+   }
 }
