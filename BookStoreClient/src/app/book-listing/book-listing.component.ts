@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BookDto } from '../_models/bookDto';
 import { BookService } from '../_services/book.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { BookService } from '../_services/book.service';
   styleUrls: ['./book-listing.component.css']
 })
 export class BookListingComponent implements OnInit {
-  books: any;
+  books: BookDto[] = [];
 
   constructor(private bookService: BookService, private router: Router) { }
 
@@ -19,9 +20,4 @@ export class BookListingComponent implements OnInit {
   getBooks() {
     this.bookService.getBooks().subscribe(books => this.books = books);
   }
-
-  // getDetails() {
-  //   this.router.navigateByUrl('/app/book/{id}')
-  // }
-
 }

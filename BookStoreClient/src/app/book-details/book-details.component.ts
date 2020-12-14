@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BookService } from '../_services/book.service';
 
 @Component({
   selector: 'app-book-details',
@@ -7,17 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-
-  constructor(
-    private route: ActivatedRoute
-  ) { }
+  book: any;
+  constructor(private route: ActivatedRoute, private router: Router, private bookService: BookService) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-    if (isNaN(id)) {
-      // TODO: Redirect
-    }
-
   }
-
 }

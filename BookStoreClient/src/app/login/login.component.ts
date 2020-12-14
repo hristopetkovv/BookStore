@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
           this.authService.setCurrentUser(user);
           this.loggedIn = true;
           this.authService.isLoggedIn(this.loggedIn);
-          this.router.navigateByUrl('/app/book');
+          this.router.navigateByUrl('/api/book');
         }
       }, error => {
         console.log(error);
