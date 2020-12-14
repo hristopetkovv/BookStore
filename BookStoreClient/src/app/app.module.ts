@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthorComponent } from './author/author.component';
+import { CommonModule } from '@angular/common';
+import { BookListingComponent } from './book-listing/book-listing.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +24,14 @@ import { AuthorComponent } from './author/author.component';
     NavBarComponent,
     RegisterComponent,
     HomeComponent,
-    AuthorComponent
+    AuthorComponent,
+    BookComponent,
+    BookDetailsComponent,
+    BookListingComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

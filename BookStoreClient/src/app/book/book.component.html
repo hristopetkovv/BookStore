@@ -1,1 +1,13 @@
-<p>book works!</p>
+<img [src]="book.imageUrl"
+     class="mr-3"
+     style="height: 180px; width: 150px">
+<h4 style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{book.title}}</h4>
+<p class="price">
+    {{book.price | currency}}
+</p>
+<p style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{book.authorName}}</p>
+<p>
+    <button class="btn btn-outline">
+        Details
+    </button>
+</p>
