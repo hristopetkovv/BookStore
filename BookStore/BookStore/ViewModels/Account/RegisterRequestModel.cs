@@ -5,16 +5,20 @@ namespace BookStore.ViewModels.Account
     public class RegisterRequestModel
     {
         [Required]
+        [MaxLength(50)]
         public string FirstName { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string LastName { get; set; }
 
         [Required]
         [EmailAddress]
+        [MaxLength(100)]
         public string Email { get; set; }
 
         [Required]
+        [MaxLength(30)]
         public string Username { get; set; }
 
         [Required]
@@ -25,6 +29,7 @@ namespace BookStore.ViewModels.Account
         public string Password { get; set; }
 
         [Required]
+        [MaxLength(150)]
         public string Address { get; set; }
 
     }
