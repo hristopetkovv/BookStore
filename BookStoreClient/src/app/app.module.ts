@@ -10,13 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './_services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { AuthorComponent } from './author/author.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,

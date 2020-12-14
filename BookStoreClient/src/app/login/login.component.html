@@ -3,18 +3,21 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
-                <h2 class="form-signin-heading" style="text-align: center; margin-bottom: 10%;">Please login</h2>
+                <h2 class="text-center text-primary">Sign up</h2>
+                <hr>
                 <div class="form-group">
-                  <label for="exampleInputUsername">Username</label>
-                  <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text">
+                    <input type="text" class="form-control" name="username" 
+                    [(ngModel)]="model.username" placeholder="Username">
                 </div>
+
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password">
+                    <input type="password" class="form-control" style="margin-top: 5%;" name="password" 
+                    [(ngModel)]="model.password" placeholder="Password">
                 </div>
+
                 <div >
-                    <button type="submit" class="btn btn-primary">Login</button>
-                        <a href="#" class="text-align" style="margin-left: 50%;">Register here</a>
+                    <button type="submit" class="btn btn-success mr-2">Login</button>
+                        <a class="text-align" style="margin-left: 40%;" routerLink="/">Register here</a>
                 </div>
             </form>
         </div>

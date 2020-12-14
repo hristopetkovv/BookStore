@@ -18,8 +18,6 @@ namespace BookStore.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserResponseModel>> Register([FromBody] RegisterRequestModel model)
         {
-            
-
             var user = await this.accountService.Create(model);
 
             return Ok(user);
