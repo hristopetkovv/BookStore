@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { UserDto } from '../_models/userDto';
+import { UserDto } from '../_models/user.Dto';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -19,19 +19,19 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.authService.register(this.model)
-    .subscribe((user: UserDto) => {
-      if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
-        this.authService.setCurrentUser(user);
-        this.loggedIn = true;
-        this.authService.isLoggedIn(this.loggedIn);
-      }
-    }, error => {
-      console.log(error);
-    });
+      .subscribe((user: UserDto) => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.authService.setCurrentUser(user);
+          this.loggedIn = true;
+          this.authService.isLoggedIn(this.loggedIn);
+        }
+      }, error => {
+        console.log(error);
+      });
   }
 
   cancel() {
-    this.cancelRegister.emit(false);    
+    this.cancelRegister.emit(false);
   }
 }

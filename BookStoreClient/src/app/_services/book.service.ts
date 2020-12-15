@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BookDto } from '../_models/bookDto';
+import { BookDetailsDto } from '../_models/book-details.dto';
+import { BookDto } from '../_models/book.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class BookService {
     return this.http.get<BookDto[]>('api/book');
   }
 
-  getDetailOfBook(id: number) {
-    return this.http.get(`api/book/` + id);
+  getBookDetails(id: number): Observable<BookDetailsDto> {
+    return this.http.get<BookDetailsDto>(`api/book/` + id);
   }
 }

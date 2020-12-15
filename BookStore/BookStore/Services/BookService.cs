@@ -92,7 +92,7 @@ namespace BookStore.Services
                     AuthorName = b.Authors.Select(a => a.Author.Fullname),
                     Comments = b.Comments.Select(c => new BookCommentResponseModel
                     {
-                        Text = c.Text,
+                        Comment = c.Text,
                         Username = c.Username,
                         CreatedOn = c.CreatedOn
                     })

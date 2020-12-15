@@ -4,4 +4,5 @@ export class BookDto {
     imageUrl!: string;
     price!: number;
     authorName!: string[];
+
 }

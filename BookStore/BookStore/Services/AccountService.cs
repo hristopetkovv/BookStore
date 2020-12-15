@@ -79,14 +79,16 @@ namespace BookStore.Services
             };
         }
 
-        private async Task UserExists(string username)
+        private async Task<string> UserExists(string username)
         {
             var exists = await this.dbContext.User.AnyAsync(u => u.Username == username.ToLower());
 
             if (exists)
             {
-                throw new InvalidOperationException("Username is taken");
+                return "Username is taken";
             }
+
+            return string.Empty;
         }
     }
 }

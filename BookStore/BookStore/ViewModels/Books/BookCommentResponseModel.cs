@@ -7,7 +7,7 @@ namespace BookStore.ViewModels.Books
     {
         [Required]
         [MaxLength(200)]
-        public string Text { get; set; }
+        public string Comment { get; set; }
 
         [Required]
         public string Username { get; set; }
