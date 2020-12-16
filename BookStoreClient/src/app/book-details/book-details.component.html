@@ -1,7 +1,8 @@
 <div class="card">
-    <div class="container-fliud">
+    <div class="container-fliud "
+         *ngIf="book">
         <div class="wrapper row">
-            <div class="preview col-md-5">
+            <div class="preview col-md-5 ">
 
                 <div class="preview-pic tab-content">
                     <div class="tab-pane active"
@@ -69,5 +70,4 @@
     </div>
 </div>
 <!-- 
-[routerLink]="['/api/book/', book.id]">
 <book-comments [comments]="book.comments"></book-comments> -->

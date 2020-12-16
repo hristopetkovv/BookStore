@@ -9,11 +9,11 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'api/login', component: LoginComponent },
-  { path: 'api/book', component: BookListingComponent },
-  { path: 'api/author', component: AuthorComponent },
-  { path: 'api/register', component: RegisterComponent },
-  { path: 'api/book/:bookId', component: BookDetailsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'book', component: BookListingComponent },
+  { path: 'author', component: AuthorComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'book/:bookId', component: BookDetailsComponent },
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];
 

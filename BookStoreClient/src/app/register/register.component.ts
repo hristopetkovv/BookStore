@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { UserDto } from '../_models/user.Dto';
+import { UserDto } from '../_models/user.dto';
 import { AuthService } from '../_services/auth.service';
 
 @Component({

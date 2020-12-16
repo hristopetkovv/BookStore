@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserDto } from '../_models/user.Dto';
+import { UserDto } from '../_models/user.dto';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
           this.authService.setCurrentUser(user);
           this.loggedIn = true;
           this.authService.isLoggedIn(this.loggedIn);
-          this.router.navigateByUrl('/api/book');
+          this.router.navigateByUrl('/book');
         }
       }, error => {
         console.log(error);

@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { BookListingComponent } from './book-listing/book-listing.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookComponent } from './book/book.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BookComponent } from './book/book.component';
     BookComponent,
     BookDetailsComponent,
     BookListingComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,12 +6,12 @@
       <li class="nav-item">
         <a class="nav-link"
            aria-current="page"
-           routerLink="/api/book"
+           routerLink="/book"
            routerLinkActive="active">Books</a>
       </li>
       <li class="nav-item">
         <a class="nav-link"
-           routerLink="/api/author"
+           routerLink="/author"
            routerLinkActive="active">Authors</a>
       </li>
     </ul>
@@ -23,6 +23,6 @@
   </div>
   <button *ngIf="!loggedIn"
           class="btn btn-outline-secondary"
-          routerLink="/api/login"
+          routerLink="/login"
           type="submit">Login</button>
 </nav>

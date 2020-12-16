@@ -9,8 +9,9 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavBarComponent implements OnInit {
   loggedIn: boolean = false;
-  constructor(private authService: AuthService, private router: Router) { }
-  
+
+  constructor(public authService: AuthService, private router: Router) { }
+
   ngOnInit(): void {
     this.loggedIn = this.authService.isLoggedInUser;
 

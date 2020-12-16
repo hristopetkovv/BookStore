@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserDto } from '../_models/user.Dto';
+import { UserDto } from '../_models/user.dto';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
