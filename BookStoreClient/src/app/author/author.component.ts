@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorDto } from '../_models/author.dto';
 import { AuthorService } from '../_services/author.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { AuthorService } from '../_services/author.service';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
+  authors: AuthorDto[];
 
   constructor(private authorService: AuthorService) { }
 
@@ -15,7 +17,8 @@ export class AuthorComponent implements OnInit {
   }
 
   getAuthors() {
-    this.authorService.getAuthors().subscribe(authors => console.log(authors));
+    this.authorService.getAuthors().subscribe(authors => this.authors = authors);
+    console.log(this.authors);
   }
 
 }

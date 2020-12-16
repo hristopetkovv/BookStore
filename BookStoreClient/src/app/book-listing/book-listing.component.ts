@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { BookDto } from '../_models/book.dto';
 import { BookService } from '../_services/book.service';
 
@@ -11,7 +10,7 @@ import { BookService } from '../_services/book.service';
 export class BookListingComponent implements OnInit {
   books: BookDto[] = [];
 
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
     this.getBooks();
