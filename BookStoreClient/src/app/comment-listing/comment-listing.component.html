@@ -1,0 +1,20 @@
+<div class="create_new_comment"
+     *ngIf="isLoggedIn">
+    <div class="input_comment">
+        <input type="text"
+               #comment
+               placeholder="Add comment..">
+
+        <button (click)="createComment(comment.value)"
+                class="btn-primary">Add Comment
+
+        </button>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <app-comment *ngFor="let comment of comments;"
+                 [comment]="comment">
+    </app-comment>
+</div>

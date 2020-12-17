@@ -1,0 +1,14 @@
+.new_comment {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    border-top: 1px solid lighten(GREY, 10%);
+}
+
+    .user_comment {
+        list-style-type: none;
+    }
+
+    .user {
+            color: rgb(72, 72, 235);
+        }

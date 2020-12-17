@@ -13,6 +13,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   book: BookDetailsDto;
   routeSub: Subscription;
   selectedId!: number;
+  showComment: boolean = false;
 
   constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
@@ -26,6 +27,10 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   getBook() {
     this.bookService.getBookDetails(this.selectedId)
       .subscribe(book => this.book = book);
+  }
+
+  getComments() {
+    this.showComment = !this.showComment;
   }
 
   ngOnDestroy(): void {

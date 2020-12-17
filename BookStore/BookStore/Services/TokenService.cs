@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -20,17 +19,19 @@ namespace BookStore.Services
 
         public string CreateToken(User user)
         {
-            var claims = new List<Claim>
+            var claims = new ClaimsIdentity(new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.Username)
-            };
+                new Claim(JwtRegisteredClaimNames.NameId, user.Username),
+                new Claim("username", user.Username)
+
+            });
 
             var creds = new SigningCredentials(this.key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Subject = claims,
+                Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = creds
             };
 

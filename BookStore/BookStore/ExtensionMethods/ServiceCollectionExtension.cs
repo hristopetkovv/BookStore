@@ -1,6 +1,7 @@
 ﻿using BookStore.Data;
 using BookStore.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,6 +41,8 @@ namespace BookStore.ExtensionMethods
                        ValidateAudience = false
                    };
                });
+
+            services.AddHttpContextAccessor();
 
             return services;
         }

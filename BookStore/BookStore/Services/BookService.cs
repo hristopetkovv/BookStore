@@ -57,20 +57,20 @@ namespace BookStore.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<int> AddComent(int bookId, BookCommentRequestModel model)
+        public async Task<int> AddComent(int bookId, string username, string comment)
         {
-            var comment = new Comment
+            var newComment = new Comment
             {
-                Text = model.Text,
-                Username = model.Username,
+                Text = comment,
+                Username = username,
                 BookId = bookId
             };
 
-            this.dbContext.Comment.Add(comment);
+            this.dbContext.Comment.Add(newComment);
 
             await this.dbContext.SaveChangesAsync();
 
-            return comment.Id;
+            return newComment.Id;
         }
 
         public async Task<BookDetailalsResponseModel> GetBookById(int id)

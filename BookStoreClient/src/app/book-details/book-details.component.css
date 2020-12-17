@@ -139,6 +139,29 @@ img {
   
   .orange {
     background: #ff9f1a; }
+
+    .button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 15px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #55524e;
+      border: none;
+      border-radius: 15px;
+    }
+    
+    .button:hover {background-color: #686e68}
+    
+    .button:active {
+      background-color: #7f867f;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
   
   .green {
     background: #85ad00; }
@@ -168,4 +191,6 @@ img {
       opacity: 1;
       -webkit-transform: scale(1);
               transform: scale(1); } }
+
+          
   

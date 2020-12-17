@@ -8,8 +8,7 @@ import { BookDto } from '../_models/book.dto';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookComponent implements OnInit {
-  @Input()
-  book: BookDto = new BookDto;
+  @Input() book: BookDto = new BookDto;
 
   constructor() { }
 

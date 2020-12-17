@@ -14,6 +14,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
     this.logedInSubject = new Subject<boolean>();
+    this.isLoggedInUser = localStorage.getItem('user') !== null && localStorage.getItem('user') !== undefined;
   }
 
   login(model: any): Observable<UserDto> {
@@ -28,14 +29,24 @@ export class AuthService {
     this.currentUserSource.next(user);
   }
 
+  getUsername(): string {
+    if (!this.isLoggedInUser) {
+      return null;
+    }
+
+    const user = JSON.parse(localStorage.getItem('user')) as UserDto;
+    return user.username;
+  }
+
   logout() {
     localStorage.removeItem('user');
+    this.isLoggedInUser = false;
     this.currentUserSource.next(null);
   }
 
   isLoggedIn(loggedIn: boolean): void {
-    this.logedInSubject.next(loggedIn);
     this.isLoggedInUser = loggedIn;
+    this.logedInSubject.next(loggedIn);
   }
 
   logedInChange(): Observable<boolean> {

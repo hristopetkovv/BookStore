@@ -1,9 +1,14 @@
-﻿namespace BookStore.ViewModels.Books
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BookStore.ViewModels.Books
 {
     public class BookCommentRequestModel
     {
-        public string Text { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string Comment { get; set; }
 
+        [Required]
         public string Username { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace BookStore.Services
 
         Task<BookDetailalsResponseModel> GetBookById(int id);
 
-        Task<int> AddComent(int bookId, BookCommentRequestModel model);
+        Task<int> AddComent(int bookId, string username, string comment);
 
         Task AddBookToCart(int bookId, int userId, int pieces);
     }

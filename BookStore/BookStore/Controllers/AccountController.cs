@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -10,7 +11,9 @@ namespace BookStore.Controllers
     {
         private readonly IAccountService accountService;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(
+            IAccountService accountService
+         )
         {
             this.accountService = accountService;
         }
@@ -23,6 +26,7 @@ namespace BookStore.Controllers
             return Ok(user);
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserResponseModel>> Login([FromBody] LoginRequestModel model)
         {

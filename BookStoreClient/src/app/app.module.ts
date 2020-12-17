@@ -17,6 +17,8 @@ import { BookListingComponent } from './book-listing/book-listing.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookComponent } from './book/book.component';
 import { FooterComponent } from './footer/footer.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentListingComponent } from './comment-listing/comment-listing.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     BookDetailsComponent,
     BookListingComponent,
     FooterComponent,
+    CommentComponent,
+    CommentListingComponent,
   ],
   imports: [
     BrowserModule,
