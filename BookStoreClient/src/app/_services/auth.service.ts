@@ -52,4 +52,15 @@ export class AuthService {
   logedInChange(): Observable<boolean> {
     return this.logedInSubject;
   }
+
+  getToken(): string {
+    if (this.isLoggedInUser) {
+      const user = JSON.parse(localStorage.getItem('user')) as UserDto;
+      const token = user.token;
+
+      return token;
+    }
+
+    return null;
+  }
 }

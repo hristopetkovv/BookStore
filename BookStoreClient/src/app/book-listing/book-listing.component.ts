@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookFilterDto } from '../_models/book-filter.dto';
 import { BookDto } from '../_models/book.dto';
 import { BookService } from '../_services/book.service';
 
@@ -9,6 +10,7 @@ import { BookService } from '../_services/book.service';
 })
 export class BookListingComponent implements OnInit {
   books: BookDto[] = [];
+  booksFilter = new BookFilterDto();
 
   constructor(private bookService: BookService) { }
 
@@ -17,6 +19,8 @@ export class BookListingComponent implements OnInit {
   }
 
   getBooks() {
-    this.bookService.getBooks().subscribe(books => this.books = books);
+    // this.booksFilter.searchByTitle = "a";
+    // this.booksFilter.sortOrder = "Price";
+    this.bookService.getBooks(this.booksFilter).subscribe(books => this.books = books);
   }
 }

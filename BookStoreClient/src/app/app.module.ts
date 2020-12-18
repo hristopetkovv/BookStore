@@ -8,7 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component'
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './_services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthorComponent } from './author/author.component';
@@ -19,6 +19,7 @@ import { BookComponent } from './book/book.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentListingComponent } from './comment-listing/comment-listing.component';
+import { TokenInterceptorService } from './_interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { CommentListingComponent } from './comment-listing/comment-listing.compo
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
