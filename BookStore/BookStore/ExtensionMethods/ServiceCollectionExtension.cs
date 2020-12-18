@@ -58,5 +58,17 @@ namespace BookStore.ExtensionMethods
                 .AddTransient<IAdminService, AdminService>()
                 .AddTransient<ITokenService, TokenService>();
         }
+
+        public static IServiceCollection AddAuthorizationDefault(this IServiceCollection services)
+        {
+            services.AddAuthorization(options =>
+         {
+             options.DefaultPolicy = new AuthorizationPolicyBuilder()
+                 .RequireAuthenticatedUser()
+                 .Build();
+         });
+
+            return services;
+        }
     }
 }

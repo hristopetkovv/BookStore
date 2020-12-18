@@ -17,7 +17,8 @@ namespace BookStore.Controllers
         {
             this.accountService = accountService;
         }
-
+        
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<ActionResult<UserResponseModel>> Register([FromBody] RegisterRequestModel model)
         {

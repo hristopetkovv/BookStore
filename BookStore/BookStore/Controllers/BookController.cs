@@ -24,8 +24,8 @@ namespace BookStore.Controllers
             this.bookService = bookService;
         }
 
-        [AllowAnonymous]
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<BookResponseModel>> GetBooks([FromQuery] BookFilterRequestModel model)
         {
             return await this.bookService.GetBooks(model);

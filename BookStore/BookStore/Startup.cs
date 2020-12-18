@@ -4,9 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BookStore.ExtensionMethods;
-using System;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace BookStore
 {
@@ -25,13 +22,7 @@ namespace BookStore
                 .AddDatabase(this.configuration)
                 .AddApplicationServices()
                 .AddAuthentication(this.configuration)
-                .AddAuthorization(options =>
-                {
-                    options.DefaultPolicy = new AuthorizationPolicyBuilder()
-                        .RequireAuthenticatedUser()
-                        .Build();
-                })
-                
+                .AddAuthorizationDefault()
                 .AddSwagger()
                 .AddControllers();
 

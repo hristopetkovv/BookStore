@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Authors;
 using BookStore.ViewModels.Authors.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -17,6 +18,7 @@ namespace BookStore.Controllers
             this.authorService = authorService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IEnumerable<AuthorResponseModel>> Get([FromQuery] AuthorSortOrder sortOrder)
         {
