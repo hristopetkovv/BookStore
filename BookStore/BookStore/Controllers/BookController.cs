@@ -32,6 +32,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         public async Task<BookDetailalsResponseModel> BookDetails([FromRoute] int id)
         {
             return await this.bookService.GetBookById(id);
