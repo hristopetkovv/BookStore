@@ -16,10 +16,14 @@
       </li>
     </ul>
   </div>
-  <div *ngIf="loggedIn">
+  <div class="container"
+       *ngIf="loggedIn">
+    <p style="color: white;">Welcome {{authService.getUsername() | titlecase}}</p>
+
     <button class="btn btn-outline-secondary"
             (click)="logout()"
             type="submit">Logout</button>
+
   </div>
   <button *ngIf="!loggedIn"
           class="btn btn-outline-secondary"

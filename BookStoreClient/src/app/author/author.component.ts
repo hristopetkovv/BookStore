@@ -8,7 +8,7 @@ import { AuthorService } from '../_services/author.service';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
-  authors: AuthorDto[];
+  authors: AuthorDto[] = new Array<AuthorDto>();
 
   constructor(private authorService: AuthorService) { }
 
@@ -18,7 +18,5 @@ export class AuthorComponent implements OnInit {
 
   getAuthors() {
     this.authorService.getAuthors().subscribe(authors => this.authors = authors);
-    console.log(this.authors);
   }
-
 }

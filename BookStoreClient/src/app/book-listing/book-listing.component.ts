@@ -21,8 +21,4 @@ export class BookListingComponent implements OnInit {
   getBooks() {
     this.bookService.getBooks(this.booksFilter).subscribe(books => this.books = books);
   }
-
-  printdd() {
-    console.log(this.booksFilter.sortOrder);
-  }
 }
