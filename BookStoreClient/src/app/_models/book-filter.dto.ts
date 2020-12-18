@@ -1,5 +1,5 @@
 export class BookFilterDto {
     searchByTitle: string;
-    sortOrder: string;
+    sortOrder: string = "Title";
 
 }

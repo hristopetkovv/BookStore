@@ -19,8 +19,10 @@ export class BookListingComponent implements OnInit {
   }
 
   getBooks() {
-    // this.booksFilter.searchByTitle = "a";
-    // this.booksFilter.sortOrder = "Price";
     this.bookService.getBooks(this.booksFilter).subscribe(books => this.books = books);
+  }
+
+  printdd() {
+    console.log(this.booksFilter.sortOrder);
   }
 }

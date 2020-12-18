@@ -11,6 +11,7 @@ namespace BookStore.ExtensionMethods
         {
             book = model.SortOrder switch
             {
+                BookSortOrder.Title => book.OrderBy(b => b.Title),
                 BookSortOrder.PriceDescending => book.OrderByDescending(b => b.Price),
                 BookSortOrder.Price => book.OrderBy(b => b.Price),
                 BookSortOrder.TitleDescending => book.OrderByDescending(b => b.Title),

@@ -1,11 +1,13 @@
 <div class="row">
     <div class="form-group col-sm-11">
         <input class="form-control form-control-sm"
-               placeholder="Search">
+               placeholder="Search"
+               [(ngModel)]="booksFilter.searchByTitle">
     </div>
 
     <div class="form-group col-sm-1">
-        <button class="btn-search btn-outline-primary">
+        <button class="btn-search btn-outline-primary"
+                (click)="getBooks()">
             Search
         </button>
     </div>
@@ -14,13 +16,19 @@
 <div style="text-align: left; margin-top: 10px;">
     <span>
         <label style="margin-right: 10px;">SortBy: </label>
-        <select>
-            <option value="Andean">Title</option>
-            <option value="Andean">PriceDescending</option>
-            <option value="James's">Price</option>
-            <option value="Lesser">TitleDescending</option>
+        <select [(ngModel)]="booksFilter.sortOrder">
+            <option value="Title">Title</option>
+            <option value="PriceDescending">PriceDescending</option>
+            <option value="Price">Price</option>
+            <option value="TitleDescending">TitleDescending</option>
         </select>
+        <button class="btn-search btn-outline-primary"
+                style="margin-left: 10px;"
+                (click)="getBooks()">
+            Sort
+        </button>
     </span>
+
 </div>
 
 <hr>
