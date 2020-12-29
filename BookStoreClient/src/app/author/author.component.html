@@ -1,10 +1,8 @@
-<div class="text-align-center"
-     *ngFor="let author of authors">
-    <div>
-        <p>{{author.fullname}}</p>
-        <p>{{author.id}}</p>
-        <p>{{author.bookId}}</p>
-        <p>{{author.books}}</p>
-    </div>
-    <hr>
-</div>>
+<div>
+    <h4 style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{author.fullname}}</h4>
+    <app-author-books *ngFor="let book of author.books; let i = index"
+                      [book]="book"
+                      [bookId]="author.bookId[i]">
+    </app-author-books>
+</div>
+<hr>

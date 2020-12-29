@@ -10,6 +10,7 @@ namespace BookStore.ExtensionMethods
         {
             author = sortOrder switch
             {
+                AuthorSortOrder.FirstName => author.OrderBy(a => a.FirstName),
                 AuthorSortOrder.FirstNameDescending => author.OrderByDescending(a => a.FirstName),
                 AuthorSortOrder.LastNameDescending => author.OrderByDescending(a => a.LastName),
                 AuthorSortOrder.BooksCount => author.OrderByDescending(a => a.Books.Count()),

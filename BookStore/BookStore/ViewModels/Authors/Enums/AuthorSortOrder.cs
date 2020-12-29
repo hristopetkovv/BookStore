@@ -6,5 +6,6 @@
         LastName = 2,
         LastNameDescending = 3,
         BooksCount = 4,
+        FirstName = 5,
     }
 }

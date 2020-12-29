@@ -20,6 +20,8 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentListingComponent } from './comment-listing/comment-listing.component';
 import { TokenInterceptorService } from './_interceptors/token-interceptor.service';
 import { ErrorInterceptorService } from './_interceptors/error-interceptor.service';
+import { AuthorListingComponent } from './author-listing/author-listing.component';
+import { AuthorBooksComponent } from './author-books/author-books.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ErrorInterceptorService } from './_interceptors/error-interceptor.servi
     FooterComponent,
     CommentComponent,
     CommentListingComponent,
+    AuthorListingComponent,
+    AuthorBooksComponent,
   ],
   imports: [
     BrowserModule,

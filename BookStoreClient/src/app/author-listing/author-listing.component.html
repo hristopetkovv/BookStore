@@ -1,0 +1,29 @@
+<div class="form-group col-sm-11"
+     style="text-align: left; margin-top: 10px;">
+    <span class="form-control-sm">
+        <label style="margin-right: 10px;">SortBy: </label>
+        <select [(ngModel)]="sortOrder">
+            <option value="FirstName">FirstName</option>
+            <option value="FirstNameDescending">FirstNameDescending</option>
+            <option value="LastName">LastName</option>
+            <option value="LastNameDescending">LastNameDescending</option>
+            <option value="BooksCount">BooksCount</option>
+        </select>
+        <button class="btn-search btn-outline-primary"
+                style="margin-left: 10px;"
+                (click)="getAuthors()">
+            Sort
+        </button>
+    </span>
+
+</div>
+
+<hr>
+
+<div class="row"
+     style="margin-bottom: 20px;">
+    <app-author *ngFor="let author of authors"
+                [author]="author"
+                class="form-group col-md-2 col-md-12">
+    </app-author>
+</div>

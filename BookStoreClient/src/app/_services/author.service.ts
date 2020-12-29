@@ -10,7 +10,9 @@ export class AuthorService {
 
   constructor(private http: HttpClient) { }
 
-  getAuthors(): Observable<AuthorDto[]> {
-    return this.http.get<AuthorDto[]>('api/author');
+  getAuthors(sortOrder: string): Observable<AuthorDto[]> {
+    const params = { sortOrder };
+
+    return this.http.get<AuthorDto[]>('api/author', { params });
   }
 }
