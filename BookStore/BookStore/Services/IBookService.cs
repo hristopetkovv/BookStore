@@ -12,6 +12,6 @@ namespace BookStore.Services
 
         Task<int> AddComent(int bookId, string username, string comment);
 
-        Task AddBookToCart(int bookId, int userId, int pieces);
+        Task AddBookToCart(int bookId, string username, int pieces);
     }
 }

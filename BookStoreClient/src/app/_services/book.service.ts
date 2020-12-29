@@ -25,4 +25,10 @@ export class BookService {
   createComment(comment: string, id: number) {
     return this.http.post(`api/book/${id}/comments`, { comment: comment });
   }
+
+  buyBook(id: number, pieces: number) {
+    const params = { pieces };
+
+    return this.http.post(`api/book/${id}`, pieces);
+  }
 }

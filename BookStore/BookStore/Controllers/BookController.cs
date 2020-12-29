@@ -1,20 +1,14 @@
 ﻿using BookStore.Services;
 using BookStore.ViewModels.Books;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 
 namespace BookStore.Controllers
 {
-    public class CommentRequestDto
-    {
-        public string Comment { get; set; }
-    }
-
     public class BookController : BaseApiController
     {
         private readonly IBookService bookService;
@@ -40,11 +34,9 @@ namespace BookStore.Controllers
 
         [HttpPost]
         [Route("{id:int}/comments")]
-        public async Task<IActionResult> AddComment([FromRoute] int id, [FromBody] CommentRequestDto content)
+        public async Task<IActionResult> AddComment([FromRoute] int id, [FromBody] CommentRequestModel content)
         {
-            var claims = HttpContext.User.Claims.ToList();
-
-            var username = claims[0].Value;
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             await this.bookService.AddComent(id, username, content.Comment);
 
@@ -53,9 +45,11 @@ namespace BookStore.Controllers
 
         [HttpPost]
         [Route("{id:int}")]
-        public async Task<IActionResult> BuyBook([FromRoute] int id, [FromQuery] int pieces = 1)
+        public async Task<IActionResult> BuyBook([FromRoute] int id, [FromBody] int pieces = 1)
         {
-            await this.bookService.AddBookToCart(id, 1, pieces);
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            await this.bookService.AddBookToCart(id, username, pieces);
 
             return Ok();
         }

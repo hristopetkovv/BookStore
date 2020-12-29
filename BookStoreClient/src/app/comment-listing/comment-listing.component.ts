@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommentDto } from '../_models/comment.dto';
 import { AuthService } from '../_services/auth.service';
 import { BookService } from '../_services/book.service';
@@ -13,15 +14,16 @@ export class CommentListingComponent implements OnInit {
   isLoggedIn: boolean;
   @Input() bookId: number;
 
-  constructor(private authService: AuthService, private bookService: BookService) { }
+  constructor(private authService: AuthService, private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedInUser;
-    console.log(this.bookId);
   }
 
   createComment(comment: string) {
     this.bookService.createComment(comment, this.bookId)
       .subscribe();
+
+    this.router.navigateByUrl(`book/${this.bookId}`);
   }
 }

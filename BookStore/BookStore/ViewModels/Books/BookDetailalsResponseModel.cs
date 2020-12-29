@@ -15,6 +15,8 @@ namespace BookStore.ViewModels.Books
 
         public bool IsAvailable { get; set; }
 
+        public int Quantity { get; set; }
+
         public string PublishHouse { get; set; }
 
         public string ImageUrl { get; set; }

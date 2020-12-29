@@ -19,7 +19,7 @@ namespace BookStore.Services
             this.dbContext = dbContext;
         }
 
-        public async Task AddBookToCart(int bookId, int userId, int pieces)
+        public async Task AddBookToCart(int bookId, string username, int pieces)
         {
             var book = await dbContext
                 .Book
@@ -27,7 +27,7 @@ namespace BookStore.Services
 
             var user = await dbContext
                 .User
-                .FirstOrDefaultAsync(u => u.Id == userId);
+                .FirstOrDefaultAsync(u => u.Username == username);
 
             if (book.IsAvailable == false)
             {
@@ -82,6 +82,7 @@ namespace BookStore.Services
                 {
                     Id = b.Id,
                     Title = b.Title,
+                    Quantity = b.Quantity,
                     ImageUrl = b.ImageUrl,
                     Price = b.Price,
                     Description = b.Description,
@@ -95,7 +96,7 @@ namespace BookStore.Services
                         Comment = c.Text,
                         Username = c.Username,
                         CreatedOn = c.CreatedOn
-                    })
+                    }).OrderByDescending(c => c.CreatedOn)
 
                 })
                 .FirstOrDefaultAsync();

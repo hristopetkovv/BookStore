@@ -7,6 +7,7 @@ export class BookDetailsDto {
     price: number;
     authorName: string[];
     genre: string;
+    quantity: number;
     description: string;
     isAvailable: boolean;
     publishHouse: string;

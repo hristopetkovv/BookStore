@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BookDetailsDto } from '../_models/book-details.dto';
 import { BookService } from '../_services/book.service';
@@ -15,7 +15,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   selectedId!: number;
   showComment: boolean = false;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService) { }
+  constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
@@ -31,6 +31,12 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   getComments() {
     this.showComment = !this.showComment;
+  }
+
+  buyBook(quantity: any) {
+    let pieces: number = +quantity;
+    this.bookService.buyBook(this.selectedId, pieces).subscribe();
+    this.router.navigateByUrl('/');
   }
 
   ngOnDestroy(): void {
