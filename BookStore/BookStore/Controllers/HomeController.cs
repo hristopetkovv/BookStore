@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Home;
 using Microsoft.AspNetCore.Authorization;
@@ -19,7 +20,11 @@ namespace BookStore.Controllers
         [HttpGet]
         public async Task<CartListingResponseModel> MyCart()
         {
-            return await this.userService.ShowCart(1);
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+
+            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
+
+            return await this.userService.ShowCart(userId);
         }
 
         [HttpDelete]
