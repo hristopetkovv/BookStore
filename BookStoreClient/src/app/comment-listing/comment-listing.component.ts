@@ -24,6 +24,6 @@ export class CommentListingComponent implements OnInit {
     this.bookService.createComment(comment, this.bookId)
       .subscribe();
 
-    this.router.navigateByUrl(`book/${this.bookId}`);
+    location.reload();
   }
 }

@@ -1,13 +1,17 @@
-<div class="container mt-5">
-    <div *ngIf="!registerMode" style="text-align: center; margin-top: 15%;">
+<div class="container mt-5"
+     *ngIf="!isLoggedIn">
+    <div *ngIf="!registerMode"
+         style="text-align: center; margin-top: 15%;">
         <h2>Charming choice and fast delivery. Thank you for your trust!</h2>
         <p class="lead">Come see and buy...all you need to do is sing up!</p>
         <div class="text-center">
-            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
+            <button (click)="registerToggle()"
+                    class="btn btn-primary btn-lg mr-2">Register</button>
         </div>
     </div>
 
-    <div *ngIf="registerMode" class="container">
+    <div *ngIf="registerMode"
+         class="container">
         <div class="row justify-content-center">
             <div class="col-4">
                 <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>

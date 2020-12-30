@@ -107,6 +107,7 @@ namespace BookStore.Services
             IQueryable<Book> books = this.dbContext.Book;
 
             var result = await books
+                .Where(b => b.IsAvailable == true)
                 .OrderBooks(model)
                 .SortBooks(model)
                 .Select(x => new BookResponseModel
