@@ -27,8 +27,6 @@ export class BookService {
   }
 
   buyBook(id: number, pieces: number) {
-    const params = { pieces };
-
     return this.http.post(`api/book/${id}`, pieces);
   }
 }

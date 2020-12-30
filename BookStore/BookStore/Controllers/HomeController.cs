@@ -28,7 +28,8 @@ namespace BookStore.Controllers
         }
 
         [HttpDelete]
-        public async Task RemoveBook([FromQuery] int bookId)
+        [Route("{bookId:int}")]
+        public async Task RemoveBook([FromRoute] int bookId)
         {
             await this.userService.RemoveBook(bookId);
         }

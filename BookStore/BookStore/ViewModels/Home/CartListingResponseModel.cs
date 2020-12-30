@@ -6,6 +6,6 @@ namespace BookStore.ViewModels.Home
     {
         public decimal TotalPrice { get; set; }
 
-        public IEnumerable<CartViewModel> books { get; set; }
+        public IEnumerable<CartViewModel> Books { get; set; }
     }
 }

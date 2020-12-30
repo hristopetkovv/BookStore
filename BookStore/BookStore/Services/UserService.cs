@@ -17,9 +17,9 @@ namespace BookStore.Services
 
         public async Task RemoveBook(int bookId)
         {
-            var userBook = await this.dbContext.UserBook.FirstOrDefaultAsync(ub => ub.BookId == bookId);
+            var userBook = await this.dbContext.UserBook.FirstOrDefaultAsync(ub => ub.BookId == bookId && ub.IsDeleted == false);
 
-            await this.ReturnBook(bookId);
+            await this.ReturnBook(bookId, userBook.Pieces);
 
             userBook.IsDeleted = true;
 
@@ -44,17 +44,17 @@ namespace BookStore.Services
 
             var userBooks = new CartListingResponseModel
             {
-                books = books,
+                Books = books,
                 TotalPrice = books.Select(x => x.TotalPrice).Sum()
             };
 
             return userBooks;
         }
 
-        private async Task ReturnBook(int bookId)
+        private async Task ReturnBook(int bookId, int pieces)
         {
             var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
-            book.Quantity++;
+            book.Quantity += pieces;
 
             if (book.IsAvailable == false)
             {

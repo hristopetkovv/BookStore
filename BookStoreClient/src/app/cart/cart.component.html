@@ -1,0 +1,30 @@
+<!-- <p>{{cartProduct.totalPrice}}</p>
+<p>{{cartProduct.title}}</p>
+<p>{{cartProduct.priceForEach}}</p>
+<p>{{cartProduct.pieces}}</p>
+<p>{{cartProduct.imageUrl}}</p>
+<p>{{cartProduct.discount}}</p>
+<p>{{cartProduct.bookId}}</p>
+<p>{{cartProduct.authorName}}</p>
+<hr> -->
+
+<img [src]="cartProduct.imageUrl"
+     class="mr-3"
+     style="height: 180px; width: 150px">
+<h4 style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{cartProduct.title}}</h4>
+<p class="price">
+    Price for each: {{cartProduct.priceForEach | currency}}
+</p>
+<p class="price">
+    Pieces: {{cartProduct.pieces}}
+</p>
+<p class="price">
+    Total price: {{cartProduct.totalPrice | currency}}
+</p>
+<p style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{cartProduct.authorName}}</p>
+<p>
+    <button class="btn btn-outline"
+            (click)="removeBook(cartProduct.bookId)">
+        Remove book
+    </button>
+</p>

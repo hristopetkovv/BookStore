@@ -1,0 +1,8 @@
+<div class="row">
+    <app-cart *ngFor="let product of cart.books"
+              [cartProduct]="product"
+              class="form-group col-md-2 col-sm-12"></app-cart>
+</div>
+<hr>
+
+<h5>Total price: {{cart.totalPrice | currency}}</h5>

@@ -22,6 +22,8 @@ import { TokenInterceptorService } from './_interceptors/token-interceptor.servi
 import { ErrorInterceptorService } from './_interceptors/error-interceptor.service';
 import { AuthorListingComponent } from './author-listing/author-listing.component';
 import { AuthorBooksComponent } from './author-books/author-books.component';
+import { CartListingComponent } from './cart-listing/cart-listing.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { AuthorBooksComponent } from './author-books/author-books.component';
     CommentListingComponent,
     AuthorListingComponent,
     AuthorBooksComponent,
+    CartListingComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
