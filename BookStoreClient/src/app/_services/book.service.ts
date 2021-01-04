@@ -29,4 +29,8 @@ export class BookService {
   buyBook(id: number, pieces: number) {
     return this.http.post(`api/book/${id}`, pieces);
   }
+
+  removeBook(bookId: number) {
+    return this.http.delete(`api/Home/${bookId}`);
+  }
 }

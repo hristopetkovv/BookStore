@@ -10,3 +10,7 @@ button {
 .form-control {
     margin-top: 10px;
 }
+
+.error-message {
+    height: 20px;
+}

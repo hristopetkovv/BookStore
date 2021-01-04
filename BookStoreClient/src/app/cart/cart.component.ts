@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartProductDto } from '../_models/cart-product.dto';
-import { UserService } from '../_services/user.service';
+import { BookService } from '../_services/book.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,14 +10,14 @@ import { UserService } from '../_services/user.service';
 export class CartComponent implements OnInit {
   @Input() cartProduct: CartProductDto = new CartProductDto();
 
-  constructor(private userService: UserService) { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
   }
 
   removeBook(bookId: number) {
-    this.userService.removeBook(bookId).subscribe();
-    location.reload();
+    this.bookService.removeBook(bookId).subscribe();
+    // location.reload();
   }
 
 }
