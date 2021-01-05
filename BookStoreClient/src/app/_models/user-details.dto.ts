@@ -1,9 +1,9 @@
 export class UserDetailsDto {
     id: number;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     email: string;
     address: string;
-    phonenumber: string;
+    phoneNumber: string;
     username: string
 }

@@ -13,4 +13,8 @@ export class UserService {
   getUser(): Observable<UserDetailsDto> {
     return this.http.get<UserDetailsDto>('api/home');
   }
+
+  updateUser(model: any) {
+    return this.http.put('api/home', model);
+  }
 }

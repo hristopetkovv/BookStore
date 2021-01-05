@@ -24,5 +24,11 @@ namespace BookStore.Controllers
 
             return await this.userService.GetUser(userId);
         }
+
+        [HttpPut]
+        public async Task UpdateUser(UserInformationResponseModel model)
+        {
+            await this.userService.UpdateUser(model);
+        }
     }
 }

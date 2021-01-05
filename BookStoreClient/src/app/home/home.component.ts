@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDetailsDto } from '../_models/user-details.dto';
 import { AuthService } from '../_services/auth.service';
-import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +9,11 @@ import { UserService } from '../_services/user.service';
 export class HomeComponent implements OnInit {
   registerMode = false;
   isLoggedIn: boolean;
-  user: UserDetailsDto = new UserDetailsDto();
 
-  constructor(private authService: AuthService, private userService: UserService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedInUser;
-    this.getUser();
   }
 
   registerToggle() {
@@ -27,9 +23,4 @@ export class HomeComponent implements OnInit {
   cancelRegisterMode(event: boolean) {
     this.registerMode = event;
   }
-
-  getUser() {
-    this.userService.getUser().subscribe(user => console.log(user))
-  }
-
 }

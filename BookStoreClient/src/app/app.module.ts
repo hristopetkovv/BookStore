@@ -24,6 +24,10 @@ import { AuthorListingComponent } from './author-listing/author-listing.componen
 import { AuthorBooksComponent } from './author-books/author-books.component';
 import { CartListingComponent } from './cart-listing/cart-listing.component';
 import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+
 
 @NgModule({
   declarations: [
@@ -43,6 +47,7 @@ import { CartComponent } from './cart/cart.component';
     AuthorBooksComponent,
     CartListingComponent,
     CartComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,7 @@ import { CartComponent } from './cart/cart.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },

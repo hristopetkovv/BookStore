@@ -31,5 +31,21 @@ namespace BookStore.Services
                 })
                 .FirstOrDefaultAsync();
         }
+
+        public async Task UpdateUser(UserInformationResponseModel model)
+        {
+            var user = await this.dbContext
+                .User
+                .FirstOrDefaultAsync(u => u.Id == model.Id);
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Username = model.Username;
+            user.Address = model.Address;
+            user.PhoneNumber = model.PhoneNumber;
+            user.Email = model.Email;
+
+            await this.dbContext.SaveChangesAsync();
+        }
     }
 }

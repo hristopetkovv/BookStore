@@ -17,3 +17,11 @@ button {
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
 }
+
+.dropdown-toggle {
+    text-decoration: none;
+}
+
+.dropdown-toggle:hover {
+    text-decoration: underline;
+}

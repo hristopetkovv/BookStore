@@ -1,27 +1,55 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand"
-       href="#">Book Store</a>
-    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <li class="nav-item">
-        <a class="nav-link"
-           aria-current="page"
-           routerLink="/book"
-           routerLinkActive="active">Books</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"
-           routerLink="/author"
-           routerLinkActive="active">Authors</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"
-           routerLink="/cart"
-           routerLinkActive="active">Cart</a>
-      </li>
-    </ul>
-  </div>
-  <div class="container"
+   <div class="container-fluid">
+      <a class="navbar-brand"
+         href="#">Book Store</a>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+         <li class="nav-item">
+            <a class="nav-link"
+               aria-current="page"
+               routerLink="/book"
+               routerLinkActive="active">Books</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/author"
+               routerLinkActive="active">Authors</a>
+         </li>
+      </ul>
+   </div>
+
+   <div>
+      <a class="cart"
+         routerLink="/cart">
+         <i class="fa fa-cart-plus"
+            aria-hidden="true"
+            style="color: white; margin-right: 30px; font-size: 24px;"></i>
+      </a>
+
+   </div>
+
+   <div class="dropdown"
+        dropdown
+        style="margin-right: 20px;"
+        *ngIf="loggedIn">
+      <a class="dropdown-toggle text-light"
+         dropdownToggle>Welcome {{authService.getUsername() | titlecase}}</a>
+      <div class="dropdown-menu mt-3"
+           *dropdownMenu>
+         <a class="dropdown-item"
+            routerLink="/profile">
+            <i class="fa fa-edit"
+               style="margin-right: 5px;"></i>
+
+            Edit Profile
+         </a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item"
+            (click)="logout()">
+            <i class="fa fa-sign-out"
+               style="margin-right: 10px;"></i>Logout</a>
+      </div>
+   </div>
+   <!-- <div class="container"
        *ngIf="loggedIn">
     <p style="color: white;">Welcome {{authService.getUsername() | titlecase}}</p>
 
@@ -29,9 +57,9 @@
             (click)="logout()"
             type="submit">Logout</button>
 
-  </div>
-  <button *ngIf="!loggedIn"
-          class="btn btn-outline-secondary"
-          routerLink="/login"
-          type="submit">Login</button>
+  </div> -->
+   <button *ngIf="!loggedIn"
+           class="btn btn-outline-secondary"
+           routerLink="/login"
+           type="submit">Login</button>
 </nav>
