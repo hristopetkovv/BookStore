@@ -1,13 +1,11 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using BookStore.Services;
-using BookStore.ViewModels.Home;
-using Microsoft.AspNetCore.Authorization;
+﻿using BookStore.Services;
+using BookStore.ViewModels.Account;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
     public class HomeController : BaseApiController
     {
         private readonly IUserService userService;
@@ -18,20 +16,13 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
-        public async Task<CartListingResponseModel> MyCart()
+        public async Task<UserInformationResponseModel> GetUser()
         {
             var claimsIdentity = User.Identity as ClaimsIdentity;
 
             var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
 
-            return await this.userService.ShowCart(userId);
-        }
-
-        [HttpDelete]
-        [Route("{bookId:int}")]
-        public async Task RemoveBook([FromRoute] int bookId)
-        {
-            await this.userService.RemoveBook(bookId);
+            return await this.userService.GetUser(userId);
         }
     }
 }

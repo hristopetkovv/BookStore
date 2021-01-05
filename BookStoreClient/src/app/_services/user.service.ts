@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartDto } from '../_models/cart.dto';
+import { UserDetailsDto } from '../_models/user-details.dto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  showCart(): Observable<CartDto> {
-    return this.http.get<CartDto>('api/cart');
+  getUser(): Observable<UserDetailsDto> {
+    return this.http.get<UserDetailsDto>('api/home');
   }
 }

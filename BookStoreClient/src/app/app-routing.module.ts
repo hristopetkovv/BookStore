@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'author', component: AuthorListingComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'book/:bookId', component: BookDetailsComponent },
-  { path: 'home', component: CartListingComponent },
-  { path: 'home/:bookId', component: CartComponent },
+  { path: 'cart', component: CartListingComponent },
+  { path: 'cart/:bookId', component: CartComponent },
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];
 

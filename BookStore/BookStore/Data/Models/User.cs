@@ -1,6 +1,5 @@
 ﻿using BookStore.Data.Common;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Data.Models
 {
@@ -11,6 +10,7 @@ namespace BookStore.Data.Models
             this.Books = new HashSet<UserBook>();
             this.Orders = new HashSet<Order>();
         }
+
         public int Id { get; set; }
 
         public string FirstName { get; set; }

@@ -22,7 +22,7 @@ namespace BookStore.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserResponseModel>> Register([FromBody] RegisterRequestModel model)
         {
-            var user = await this.accountService.Create(model);
+            var user = await this.accountService.Register(model);
 
             return Ok(user);
         }

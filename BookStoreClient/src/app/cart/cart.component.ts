@@ -17,7 +17,6 @@ export class CartComponent implements OnInit {
 
   removeBook(bookId: number) {
     this.bookService.removeBook(bookId).subscribe();
-    // location.reload();
+    location.reload();
   }
-
 }

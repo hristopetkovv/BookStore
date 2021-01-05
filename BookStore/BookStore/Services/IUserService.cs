@@ -1,12 +1,10 @@
-﻿using BookStore.ViewModels.Home;
+﻿using BookStore.ViewModels.Account;
 using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
     public interface IUserService
     {
-        Task<CartListingResponseModel> ShowCart(int userId);
-
-        Task RemoveBook(int bookId);
+        Task<UserInformationResponseModel> GetUser(int userId);
     }
 }

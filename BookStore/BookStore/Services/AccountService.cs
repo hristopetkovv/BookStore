@@ -20,7 +20,7 @@ namespace BookStore.Services
             this.tokenService = tokenService;
         }
 
-        public async Task<UserResponseModel> Create(RegisterRequestModel model)
+        public async Task<UserResponseModel> Register(RegisterRequestModel model)
         {
             await this.UserExists(model.Username);
 
