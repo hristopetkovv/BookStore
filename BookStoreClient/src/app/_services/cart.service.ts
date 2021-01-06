@@ -13,4 +13,8 @@ export class CartService {
   showCart(): Observable<CartDto> {
     return this.http.get<CartDto>('api/cart');
   }
+
+  removeBook(bookId: number) {
+    return this.http.delete(`api/Cart/${bookId}`);
+  }
 }

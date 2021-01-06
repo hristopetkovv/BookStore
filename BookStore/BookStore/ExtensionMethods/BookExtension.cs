@@ -24,7 +24,17 @@ namespace BookStore.ExtensionMethods
         {
             if (!string.IsNullOrEmpty(model.SearchByTitle))
             {
-                return book.Where(b => b.Title.Contains(model.SearchByTitle));
+                book = book.Where(b => b.Title.ToLower().Contains(model.SearchByTitle.ToLower()));
+            }
+
+            if (model.MinPrice.HasValue)
+            {
+                book = book.Where(b => b.Price >= model.MinPrice.Value);
+            }
+
+            if (model.MaxPrice.HasValue)
+            {
+                book = book.Where(b => b.Price <= model.MaxPrice.Value);
             }
 
             return book;

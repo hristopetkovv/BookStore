@@ -36,7 +36,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   buyBook(quantity: any) {
     let pieces: number = +quantity;
     this.bookService.buyBook(this.selectedId, pieces).subscribe();
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/book');
   }
 
   ngOnDestroy(): void {

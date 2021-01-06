@@ -7,5 +7,9 @@ namespace BookStore.ViewModels.Books
         public BookSortOrder SortOrder { get; set; }
 
         public string SearchByTitle { get; set; }
+
+        public decimal? MinPrice { get; set; }
+
+        public decimal? MaxPrice { get; set; }
     }
 }

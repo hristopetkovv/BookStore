@@ -27,15 +27,9 @@ namespace BookStore.Controllers
 
         [HttpDelete]
         [Route("{bookId:int}")]
-        public async Task<CartListingResponseModel> RemoveBook([FromRoute] int bookId)
+        public async Task RemoveBook([FromRoute] int bookId)
         {
             await this.cartService.RemoveBook(bookId);
-
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-
-            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
-
-            return await this.cartService.ShowCart(userId);
         }
     }
 }

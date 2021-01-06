@@ -4,29 +4,33 @@
                placeholder="Search"
                [(ngModel)]="booksFilter.searchByTitle">
     </div>
-
-    <div class="form-group col-sm-1">
-        <button class="btn-search btn-outline-primary"
-                (click)="getBooks()">
-            Search
-        </button>
-    </div>
 </div>
 
 <div class="form-group col-sm-11"
      style="text-align: left; margin-top: 10px;">
-    <span class="form-control-sm">
-        <label style="margin-right: 10px;">SortBy: </label>
-        <select [(ngModel)]="booksFilter.sortOrder">
-            <option value="Title">Title</option>
-            <option value="PriceDescending">PriceDescending</option>
-            <option value="Price">Price</option>
-            <option value="TitleDescending">TitleDescending</option>
-        </select>
+    <label style="margin-right: 10px;">SortBy: </label>
+    <select [(ngModel)]="booksFilter.sortOrder"
+            (ngModelChange)="getBooks()">
+        <option value="Title">Title</option>
+        <option value="PriceDescending">PriceDescending</option>
+        <option value="Price">Price</option>
+        <option value="TitleDescending">TitleDescending</option>
+    </select>
+    <span>
+        <label style="margin-left: 30px;">Price from:</label>
+        <input class="price"
+               type="number"
+               [(ngModel)]="booksFilter.minPrice"
+               style="margin-left: 5px;">
+        <label style="margin-left: 20px;">Price to:</label>
+        <input class="price"
+               type="number"
+               [(ngModel)]="booksFilter.maxPrice"
+               style="margin-left: 5px;">
         <button class="btn-search btn-outline-primary"
-                style="margin-left: 10px;"
+                style="margin-left: 15px;"
                 (click)="getBooks()">
-            Sort
+            Search
         </button>
     </span>
 

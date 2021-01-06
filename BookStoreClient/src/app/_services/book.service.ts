@@ -13,9 +13,7 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   getBooks(booksFilter: BookFilterDto): Observable<BookDto[]> {
-    const params = { ...booksFilter };
-
-    return this.http.get<BookDto[]>('api/book', { params });
+    return this.http.get<BookDto[]>(`api/book/${booksFilter.getQueryString()}`,);
   }
 
   getBookDetails(id: number): Observable<BookDetailsDto> {
@@ -30,7 +28,5 @@ export class BookService {
     return this.http.post(`api/book/${id}`, pieces);
   }
 
-  removeBook(bookId: number) {
-    return this.http.delete(`api/Home/${bookId}`);
-  }
+
 }
