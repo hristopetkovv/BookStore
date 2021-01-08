@@ -1,4 +1,5 @@
-﻿using BookStore.ViewModels.Books;
+﻿using BookStore.Helpers;
+using BookStore.ViewModels.Books;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace BookStore.Services
 {
     public interface IBookService
     {
-        Task<IEnumerable<BookResponseModel>> GetBooks(BookFilterRequestModel model);
+        Task<PagedList<BookResponseModel>> GetBooks(BookFilterRequestModel model, BookParams bookParams);
 
         Task<BookDetailalsResponseModel> GetBookById(int id);
 

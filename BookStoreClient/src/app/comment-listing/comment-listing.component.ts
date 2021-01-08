@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommentDto } from '../_models/comment.dto';
 import { AuthService } from '../_services/auth.service';
 import { BookService } from '../_services/book.service';
@@ -14,7 +13,7 @@ export class CommentListingComponent implements OnInit {
   isLoggedIn: boolean;
   @Input() bookId: number;
 
-  constructor(private authService: AuthService, private bookService: BookService, private router: Router) { }
+  constructor(private authService: AuthService, private bookService: BookService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedInUser;

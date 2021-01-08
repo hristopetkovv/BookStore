@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
     public class AdminController : BaseApiController
     {
         private readonly IAdminService adminService;

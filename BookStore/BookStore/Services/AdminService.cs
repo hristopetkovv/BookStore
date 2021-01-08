@@ -30,7 +30,7 @@ namespace BookStore.Services
                 PublishHouse = model.PublishHouse,
                 Quantity = model.Quantity,
                 Title = model.Title,
-                Genre = new Genre { Name = model.Genre}
+                Genre = new Genre { Name = model.Genre},
             };
 
             var bookAuthor = new BookAuthor

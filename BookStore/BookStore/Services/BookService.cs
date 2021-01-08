@@ -1,6 +1,7 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
 using BookStore.ExtensionMethods;
+using BookStore.Helpers;
 using BookStore.ViewModels.Books;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -102,11 +103,9 @@ namespace BookStore.Services
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<BookResponseModel>> GetBooks(BookFilterRequestModel model)
+        public async Task<PagedList<BookResponseModel>> GetBooks(BookFilterRequestModel model, BookParams bookParams)
         {
-            IQueryable<Book> books = this.dbContext.Book;
-
-            var result = await books
+            IQueryable<BookResponseModel> query = this.dbContext.Book
                 .Where(b => b.IsAvailable == true)
                 .OrderBooks(model)
                 .SortBooks(model)
@@ -117,10 +116,9 @@ namespace BookStore.Services
                     ImageUrl = x.ImageUrl,
                     Price = x.Price,
                     AuthorName = x.Authors.Select(a => a.Author.Fullname)
-                })
-                .ToListAsync();
+                }).AsNoTracking();
 
-            return result;
+            return await PagedList<BookResponseModel>.CreateAsync(query, bookParams.PageNumber, bookParams.PageSize);
         }
     }
 }

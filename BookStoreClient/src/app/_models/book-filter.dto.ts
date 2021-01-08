@@ -1,3 +1,5 @@
+import { Injectable } from "@angular/core";
+
 export abstract class BaseFilterDto {
     getQueryString(): string {
         let params = '';
@@ -13,6 +15,9 @@ export abstract class BaseFilterDto {
     }
 }
 
+@Injectable({
+    providedIn: 'root'
+})
 export class BookFilterDto extends BaseFilterDto {
     searchByTitle: string;
     sortOrder: string = "Title";

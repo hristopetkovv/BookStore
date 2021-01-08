@@ -10,9 +10,8 @@ import { BookService } from '../_services/book.service';
 })
 export class BookListingComponent implements OnInit {
   books: BookDto[] = [];
-  booksFilter = new BookFilterDto();
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, public booksFilter: BookFilterDto) { }
 
   ngOnInit(): void {
     this.getBooks();

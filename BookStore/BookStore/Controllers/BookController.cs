@@ -1,4 +1,6 @@
 ﻿using BookStore.Data.Models;
+using BookStore.ExtensionMethods;
+using BookStore.Helpers;
 using BookStore.Services;
 using BookStore.ViewModels.Books;
 using Microsoft.AspNetCore.Authorization;
@@ -23,9 +25,13 @@ namespace BookStore.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IEnumerable<BookResponseModel>> GetBooks([FromQuery] BookFilterRequestModel model)
+        public async Task<ActionResult<IEnumerable<BookResponseModel>>> GetBooks([FromQuery] BookFilterRequestModel model,[FromQuery] BookParams bookParams)
         {
-            return await this.bookService.GetBooks(model);
+            var books = await this.bookService.GetBooks(model, bookParams);
+
+            Response.AddPaginationHeader(books.CurrentPage, books.PageSize, books.TotalCount, books.TotalPages);
+
+            return Ok(books);
         }
 
         [HttpGet("{id:int}")]
