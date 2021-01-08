@@ -7,9 +7,9 @@ namespace BookStore.ExtensionMethods
 {
     public static class BookExtension
     {
-        public static IQueryable<Book> OrderBooks(this IQueryable<Book> book, BookFilterRequestModel model)
+        public static IQueryable<Book> OrderBooks(this IQueryable<Book> book, BookFilterRequestModel filter)
         {
-            book = model.SortOrder switch
+            book = filter.SortOrder switch
             {
                 BookSortOrder.Title => book.OrderBy(b => b.Title),
                 BookSortOrder.PriceDescending => book.OrderByDescending(b => b.Price),
@@ -20,21 +20,21 @@ namespace BookStore.ExtensionMethods
             return book;
         }
 
-        public static IQueryable<Book> SortBooks(this IQueryable<Book> book, BookFilterRequestModel model)
+        public static IQueryable<Book> SortBooks(this IQueryable<Book> book, BookFilterRequestModel filter)
         {
-            if (!string.IsNullOrEmpty(model.SearchByTitle))
+            if (!string.IsNullOrEmpty(filter.SearchByTitle))
             {
-                book = book.Where(b => b.Title.ToLower().Contains(model.SearchByTitle.ToLower()));
+                book = book.Where(b => b.Title.ToLower().Contains(filter.SearchByTitle.ToLower()));
             }
 
-            if (model.MinPrice.HasValue)
+            if (filter.MinPrice.HasValue)
             {
-                book = book.Where(b => b.Price >= model.MinPrice.Value);
+                book = book.Where(b => b.Price >= filter.MinPrice.Value);
             }
 
-            if (model.MaxPrice.HasValue)
+            if (filter.MaxPrice.HasValue)
             {
-                book = book.Where(b => b.Price <= model.MaxPrice.Value);
+                book = book.Where(b => b.Price <= filter.MaxPrice.Value);
             }
 
             return book;

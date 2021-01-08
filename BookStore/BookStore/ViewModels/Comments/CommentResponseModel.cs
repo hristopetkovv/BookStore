@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace BookStore.ViewModels.Books
+namespace BookStore.ViewModels.Comments
 {
-    public class BookCommentResponseModel
+    public class CommentResponseModel
     {
-        
         public string Comment { get; set; }
 
         public string Username { get; set; }

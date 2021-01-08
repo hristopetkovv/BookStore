@@ -39,7 +39,7 @@
 <hr>
 
 <div class="row">
-    <app-book *ngFor="let book of books;"
+    <app-book *ngFor="let book of books"
               [book]="book"
               class="form-group col-md-2 col-sm-12">
     </app-book>
@@ -47,10 +47,11 @@
 
 <div class="d-flex justify-content-center"
      style="margin-bottom: 30px;">
-    <pagination [boundaryLinks]="true"
-                [totalItems]="pagination?.totalItems"
-                [itemsPerPage]="pagination?.itemsPerPage"
-                [(ngModel)]="pagination.currentPage"
+    <pagination class="paging"
+                [boundaryLinks]="true"
+                [totalItems]="totalCount"
+                [itemsPerPage]="booksFilter.pageSize"
+                [(ngModel)]="booksFilter.pageNumber"
                 (pageChanged)="pageChanged($event)"
                 previousText="&lsaquo;"
                 nextText="&rsaquo;"

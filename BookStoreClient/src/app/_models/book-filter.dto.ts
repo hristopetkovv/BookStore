@@ -23,4 +23,6 @@ export class BookFilterDto extends BaseFilterDto {
     sortOrder: string = "Title";
     minPrice: number;
     maxPrice: number;
+    pageNumber: number;
+    pageSize: number;
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.ViewModels.Comments;
+using System;
 using System.Collections.Generic;
 
 namespace BookStore.ViewModels.Books
@@ -23,7 +24,7 @@ namespace BookStore.ViewModels.Books
 
         public IEnumerable<string> AuthorName { get; set; }
 
-        public IEnumerable<BookCommentResponseModel> Comments { get; set; }
+        public IEnumerable<CommentResponseModel> Comments { get; set; }
 
         public string Genre { get; set; }
 

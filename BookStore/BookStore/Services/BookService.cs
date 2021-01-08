@@ -1,11 +1,10 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
 using BookStore.ExtensionMethods;
-using BookStore.Helpers;
 using BookStore.ViewModels.Books;
+using BookStore.ViewModels.Comments;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -92,7 +91,7 @@ namespace BookStore.Services
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
                     AuthorName = b.Authors.Select(a => a.Author.Fullname),
-                    Comments = b.Comments.Select(c => new BookCommentResponseModel
+                    Comments = b.Comments.Select(c => new CommentResponseModel
                     {
                         Comment = c.Text,
                         Username = c.Username,
@@ -103,12 +102,12 @@ namespace BookStore.Services
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<PagedList<BookResponseModel>> GetBooks(BookFilterRequestModel model, BookParams bookParams)
+        public async Task<SearchResultDto<BookResponseModel>> GetBooks(BookFilterRequestModel filter)
         {
             IQueryable<BookResponseModel> query = this.dbContext.Book
                 .Where(b => b.IsAvailable == true)
-                .OrderBooks(model)
-                .SortBooks(model)
+                .OrderBooks(filter)
+                .SortBooks(filter)
                 .Select(x => new BookResponseModel
                 {
                     Id = x.Id,
@@ -116,9 +115,9 @@ namespace BookStore.Services
                     ImageUrl = x.ImageUrl,
                     Price = x.Price,
                     AuthorName = x.Authors.Select(a => a.Author.Fullname)
-                }).AsNoTracking();
+                });
 
-            return await PagedList<BookResponseModel>.CreateAsync(query, bookParams.PageNumber, bookParams.PageSize);
+            return await query.WithPaginationAsync(filter.PageNumber, filter.PageSize);
         }
     }
 }

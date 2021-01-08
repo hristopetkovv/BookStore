@@ -1,13 +1,11 @@
-﻿using BookStore.Helpers;
-using BookStore.ViewModels.Books;
-using System.Collections.Generic;
+﻿using BookStore.ViewModels.Books;
 using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
     public interface IBookService
     {
-        Task<PagedList<BookResponseModel>> GetBooks(BookFilterRequestModel model, BookParams bookParams);
+        Task<SearchResultDto<BookResponseModel>> GetBooks(BookFilterRequestModel filter);
 
         Task<BookDetailalsResponseModel> GetBookById(int id);
 
