@@ -26,7 +26,7 @@ import { CartListingComponent } from './cart-listing/cart-listing.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
@@ -57,6 +57,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BrowserAnimationsModule,
     HttpClientModule,
     BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },

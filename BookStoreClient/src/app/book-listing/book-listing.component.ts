@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookFilterDto } from '../_models/book-filter.dto';
 import { BookDto } from '../_models/book.dto';
+import { Pagination } from '../_models/pagination.dto';
 import { BookService } from '../_services/book.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { BookService } from '../_services/book.service';
 })
 export class BookListingComponent implements OnInit {
   books: BookDto[] = [];
+  pagination: Pagination;
+  pageNumber = 1;
+  pageSize = 12;
 
   constructor(private bookService: BookService, public booksFilter: BookFilterDto) { }
 
@@ -18,6 +22,14 @@ export class BookListingComponent implements OnInit {
   }
 
   getBooks() {
-    this.bookService.getBooks(this.booksFilter).subscribe(books => this.books = books);
+    this.bookService.getBooks(this.booksFilter, this.pageNumber, this.pageSize).subscribe(books => {
+      this.books = books.result;
+      this.pagination = books.pagination;
+    });
+  }
+
+  pageChanged(event: any): void {
+    this.pageNumber = event.page;
+    this.getBooks();
   }
 }
