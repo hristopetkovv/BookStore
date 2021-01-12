@@ -2,6 +2,7 @@
 using BookStore.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BookStore.Controllers
 {
@@ -14,13 +15,13 @@ namespace BookStore.Controllers
             this.dbContext = dbContext;
         }
 
-        [Authorize]
         [HttpGet("auth")]
         public ActionResult<string> GetSecret()
         {
             return "secret text";
         }
 
+        [AllowAnonymous]
         [HttpGet("not-found")]
         public ActionResult<User> GetNotFound()
         {
@@ -34,20 +35,22 @@ namespace BookStore.Controllers
             return Ok(thing);
         }
 
+        [AllowAnonymous]
         [HttpGet("server-error")]
         public ActionResult<string> GetServerError()
         {
-            var thing = this.dbContext.User.Find(-1);
+                var thing = this.dbContext.User.Find(-1);
 
-            var thingToReturn = thing.ToString();
+                var thingToReturn = thing.ToString();
 
-            return thingToReturn;
+                return thingToReturn;
         }
 
+        [AllowAnonymous]
         [HttpGet("bad-request")]
         public ActionResult<string> GetBadRequest()
         {
-            return BadRequest("This was not a good request.");
+            return BadRequest("This was not good request");
         }
     }
 }

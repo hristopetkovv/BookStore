@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
    <div class="container-fluid">
       <a class="navbar-brand"
-         href="#">Book Store</a>
+         href="/book">Book Store</a>
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
          <li class="nav-item">
             <a class="nav-link"
@@ -17,7 +17,7 @@
       </ul>
    </div>
 
-   <div>
+   <div *ngIf="loggedIn">
       <a class="cart"
          routerLink="/cart">
          <i class="fa fa-cart-plus"
@@ -49,15 +49,10 @@
                style="margin-right: 10px;"></i>Logout</a>
       </div>
    </div>
-   <!-- <div class="container"
-       *ngIf="loggedIn">
-    <p style="color: white;">Welcome {{authService.getUsername() | titlecase}}</p>
-
-    <button class="btn btn-outline-secondary"
-            (click)="logout()"
-            type="submit">Logout</button>
-
-  </div> -->
+   <button *ngIf="!loggedIn"
+           class="btn btn-outline-secondary"
+           routerLink="/register"
+           type="submit">Sign Up</button>
    <button *ngIf="!loggedIn"
            class="btn btn-outline-secondary"
            routerLink="/login"

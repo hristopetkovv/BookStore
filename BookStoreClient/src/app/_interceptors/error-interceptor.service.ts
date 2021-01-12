@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { EMPTY, Observable, throwError } from 'rxjs';
@@ -18,10 +18,18 @@ export class ErrorInterceptorService implements HttpInterceptor {
           if (error.status === 401) {
             this.router.navigate(['login']);
             return EMPTY;
+          } else if (error.status === 404) {
+            this.router.navigate(['not-found']);
+            return EMPTY;
+          } else if (error.status === 400) {
+            this.router.navigate(['bad-request'])
+            return EMPTY;
+          } else if (error.status === 500) {
+            this.router.navigate(['server-error']);
+            return EMPTY;
           }
 
           return throwError(error);
-
         })
       )
   }

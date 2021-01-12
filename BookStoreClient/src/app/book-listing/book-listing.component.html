@@ -16,15 +16,27 @@
         <option value="Price">Price</option>
         <option value="TitleDescending">TitleDescending</option>
     </select>
+
+    <label style="margin-left: 30px;">ShowBy: </label>
+    <select style="margin-left: 5px"
+            [(ngModel)]="booksFilter.pageSize"
+            (ngModelChange)="getBooks()">
+        <option value="12">12</option>
+        <option value="24">24</option>
+        <option value="48">48</option>
+    </select>
+
     <span>
         <label style="margin-left: 30px;">Price from:</label>
         <input class="price"
                type="number"
+               min="0"
                [(ngModel)]="booksFilter.minPrice"
                style="margin-left: 5px;">
         <label style="margin-left: 20px;">Price to:</label>
         <input class="price"
                type="number"
+               min="0"
                [(ngModel)]="booksFilter.maxPrice"
                style="margin-left: 5px;">
         <button class="btn-search btn-outline-primary"

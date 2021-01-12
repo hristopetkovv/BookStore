@@ -81,11 +81,11 @@ namespace BookStore.Services
 
         private async Task<string> UserExists(string username)
         {
-            var exists = await this.dbContext.User.AnyAsync(u => u.Username == username.ToLower());
+            var exists = await this.dbContext.User.AnyAsync(u => u.Username.ToLower() == username.ToLower());
 
             if (exists)
             {
-                return "Username is taken";
+                throw new InvalidOperationException("Username is taken");
             }
 
             return string.Empty;

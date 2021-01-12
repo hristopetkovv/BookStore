@@ -27,6 +27,9 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NotFoundComponent } from './_errors/not-found/not-found.component';
+import { BadRequestComponent } from './_errors/bad-request/bad-request.component';
+import { ServerErrorComponent } from './_errors/server-error/server-error.component';
 
 
 @NgModule({
@@ -48,6 +51,9 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     CartListingComponent,
     CartComponent,
     ProfileComponent,
+    NotFoundComponent,
+    BadRequestComponent,
+    ServerErrorComponent,
   ],
   imports: [
     BrowserModule,
