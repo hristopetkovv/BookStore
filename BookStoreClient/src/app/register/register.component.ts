@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserDto } from '../_models/user.dto';
 import { AuthService } from '../_services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   loggedIn: boolean = false;
   @Output() cancelRegister = new EventEmitter();
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit {
         }
       }, error => {
         console.log(error);
+        this.toastrService.error(error.error.message);
       });
   }
 

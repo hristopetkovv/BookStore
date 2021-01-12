@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDto } from '../_models/user.dto';
 import { AuthService } from '../_services/auth.service';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loggedIn: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
         }
       }, error => {
         console.log(error);
+        // this.toastr.error(error.error.message);
       });
   }
 }

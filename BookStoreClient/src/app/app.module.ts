@@ -28,8 +28,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NotFoundComponent } from './_errors/not-found/not-found.component';
-import { BadRequestComponent } from './_errors/bad-request/bad-request.component';
-import { ServerErrorComponent } from './_errors/server-error/server-error.component';
+import { TestErrorsComponent } from './_errors/test-errors/test-errors.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -52,8 +52,7 @@ import { ServerErrorComponent } from './_errors/server-error/server-error.compon
     CartComponent,
     ProfileComponent,
     NotFoundComponent,
-    BadRequestComponent,
-    ServerErrorComponent,
+    TestErrorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +63,9 @@ import { ServerErrorComponent } from './_errors/server-error/server-error.compon
     HttpClientModule,
     BsDropdownModule.forRoot(),
     PaginationModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
