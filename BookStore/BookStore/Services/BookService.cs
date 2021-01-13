@@ -1,5 +1,6 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
+using BookStore.Data.Models.Enums;
 using BookStore.ExtensionMethods;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Comments;
@@ -75,7 +76,7 @@ namespace BookStore.Services
 
         public async Task<BookDetailalsResponseModel> GetBookById(int id)
         {
-            return await this.dbContext
+            var book = await this.dbContext
                 .Book
                 .Where(b => b.Id == id)
                 .Select(b => new BookDetailalsResponseModel
@@ -91,6 +92,8 @@ namespace BookStore.Services
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
                     AuthorName = b.Authors.Select(a => a.Author.Fullname),
+                    DownVotes = b.Votes.Where(v => v.Type == VoteType.DownVote).Sum(v => (int) v.Type),
+                    UpVotes = b.Votes.Where(v => v.Type == VoteType.UpVote).Sum(v => (int)v.Type),
                     Comments = b.Comments.Select(c => new CommentResponseModel
                     {
                         Comment = c.Text,
@@ -100,6 +103,13 @@ namespace BookStore.Services
 
                 })
                 .FirstOrDefaultAsync();
+
+            if (book.DownVotes < 0)
+            {
+                book.DownVotes *= -1;
+            }
+
+            return book;
         }
 
         public async Task<SearchResultDto<BookResponseModel>> GetBooks(BookFilterRequestModel filter)

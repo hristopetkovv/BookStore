@@ -29,5 +29,9 @@ namespace BookStore.ViewModels.Books
         public string Genre { get; set; }
 
         public DateTime PublishedOn { get; set; }
+
+        public int DownVotes { get; set; }
+
+        public int UpVotes { get; set; }
     }
 }

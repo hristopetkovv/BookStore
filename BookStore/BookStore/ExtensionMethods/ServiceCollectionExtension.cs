@@ -57,8 +57,8 @@ namespace BookStore.ExtensionMethods
                 .AddTransient<IOrderService, OrderService>()
                 .AddTransient<IAdminService, AdminService>()
                 .AddTransient<IUserService, UserService>()
-                .AddTransient<ITokenService, TokenService>();
-
+                .AddTransient<ITokenService, TokenService>()
+                .AddTransient<IVotesService, VotesService>();
         }
 
         public static IServiceCollection AddAuthorizationDefault(this IServiceCollection services)

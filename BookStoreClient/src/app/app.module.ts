@@ -30,6 +30,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NotFoundComponent } from './_errors/not-found/not-found.component';
 import { TestErrorsComponent } from './_errors/test-errors/test-errors.component';
 import { ToastrModule } from 'ngx-toastr';
+import { VoteComponent } from './vote/vote.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ToastrModule } from 'ngx-toastr';
     ProfileComponent,
     NotFoundComponent,
     TestErrorsComponent,
+    VoteComponent,
   ],
   imports: [
     BrowserModule,

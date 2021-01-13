@@ -32,6 +32,8 @@ namespace BookStore.Data
         public DbSet<Genre> Genre { get; set; }
 
         public DbSet<Order> Order { get; set; }
+
+        public DbSet<Vote> Vote { get; set; }
       
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

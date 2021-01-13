@@ -16,7 +16,12 @@
 
                 <p class="product-description">{{book.description}}</p>
                 <h6 class="price">current price: <span>{{book.price | currency}}</span></h6>
-                <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+
+                <p>
+                    <app-vote [bookId]="book.id"
+                              [downVotes]="book.downVotes"
+                              [upVotes]="book.upVotes"></app-vote>
+                </p>
 
                 <div>
                     <h6 style="display: inline-block;"

@@ -33,13 +33,26 @@ namespace BookStore.Services
                 Genre = new Genre { Name = model.Genre},
             };
 
+            var author = this.dbContext
+                .Author
+                .FirstOrDefault(a => a.FirstName.ToLower() == model.AuthorFirstName.ToLower() && a.LastName.ToLower() == model.AuthorLastName.ToLower());
+
             var bookAuthor = new BookAuthor
             {
-                Book = book,
-                Author = new Author { FirstName = model.AuthorFirstName, LastName = model.AuthorLastName}
+                Book = book
             };
 
-            book.Authors.Add(bookAuthor);
+            if (author != null)
+            {
+                bookAuthor.AuthorId = author.Id;
+                bookAuthor.Author = author;
+                dbContext.BookAuthor.Add(bookAuthor);
+            }
+            else
+            {
+                bookAuthor.Author = new Author { FirstName = model.AuthorFirstName, LastName = model.AuthorLastName };
+                book.Authors.Add(bookAuthor);
+            }
 
             dbContext.Book.Add(book);
             

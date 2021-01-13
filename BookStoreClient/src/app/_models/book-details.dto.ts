@@ -13,4 +13,7 @@ export class BookDetailsDto {
     publishHouse: string;
     publishedOn: Date;
     comments: CommentDto[];
+    votesCount: number;
+    downVotes: number;
+    upVotes: number;
 }

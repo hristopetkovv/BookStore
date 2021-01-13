@@ -1,0 +1,11 @@
+<a href="/book/{{bookId}}"
+   (click)="sendVote(bookId, true)">
+    <i class="fa fa-thumbs-up fa-lg"></i>
+</a>
+<strong> {{upVotes}} </strong>
+<a href="/book/{{bookId}}"
+   style="margin-left: 10px;"
+   (click)="sendVote(bookId, false)">
+    <i class="fa fa-thumbs-down fa-lg"></i>
+</a>
+<strong> {{downVotes}}</strong>

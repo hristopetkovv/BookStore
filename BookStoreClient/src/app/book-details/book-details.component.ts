@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { BookDetailsDto } from '../_models/book-details.dto';
 import { BookService } from '../_services/book.service';
+import { VoteService } from '../_services/vote.service';
 
 @Component({
   selector: 'app-book-details',
@@ -15,7 +16,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   selectedId!: number;
   showComment: boolean = false;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router, private voteService: VoteService) { }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
