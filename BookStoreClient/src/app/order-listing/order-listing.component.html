@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Adress</th>
+        <th>Email</th>
+        <th>Telephone number</th>
+        <th>Price</th>
+        <th>Order created</th>
+        <th>Status</th>
+    <tr *ngFor="let order of orders">
+        <td>{{order.firstName}}</td>
+        <td>{{order.lastName}}</td>
+        <td>{{order.address}}</td>
+        <td>{{order.email}}</td>
+        <td>{{order.telephoneNumber}}</td>
+        <td>{{order.totalPrice | currency}}</td>
+        <td>{{order.boughtOn | date: 'medium'}}</td>
+        <td>{{order.status}}</td>
+        <hr>
+    </tr>
+</table>

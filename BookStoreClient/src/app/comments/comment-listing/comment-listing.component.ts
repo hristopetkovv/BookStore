@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommentDto } from '../_models/comment.dto';
-import { AuthService } from '../_services/auth.service';
-import { BookService } from '../_services/book.service';
+import { CommentDto } from '../../_models/comment.dto';
+import { AuthService } from '../../_services/auth.service';
+import { BookService } from '../../_services/book.service';
 
 @Component({
   selector: 'app-comment-listing',

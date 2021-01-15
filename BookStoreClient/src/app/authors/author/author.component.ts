@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { AuthorDto } from '../_models/author.dto';
+import { AuthorDto } from '../../_models/author.dto';
 
 @Component({
   selector: 'app-author',

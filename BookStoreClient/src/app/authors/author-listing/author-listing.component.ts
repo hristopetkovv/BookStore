@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorDto } from '../_models/author.dto';
-import { AuthorService } from '../_services/author.service';
+import { AuthorDto } from '../../_models/author.dto';
+import { AuthorService } from '../../_services/author.service';
 
 @Component({
   selector: 'app-author-listing',

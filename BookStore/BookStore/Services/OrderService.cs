@@ -41,16 +41,15 @@ namespace BookStore.Services
 
         public async Task<IEnumerable<OrderResponseModel>> GetOrders(int userId)
         {
-            IQueryable<Order> orders = this.dbContext.Order;
+            IQueryable<Order> orders = this.dbContext.Order.Where(o => o.UserId == userId);
 
             var result = await orders
-                .Where(o => o.UserId == userId)
                 .Select(o => new OrderResponseModel
                 {
                     Id = o.Id,
                     TotalPrice = o.TotalPrice,
                     BoughtOn = o.BoughtOn,
-                    Status = o.Status,
+                    Status = o.Status.ToString(),
                     FirstName = o.User.FirstName,
                     LastName = o.User.LastName,
                     Address = o.User.Address,
@@ -70,11 +69,6 @@ namespace BookStore.Services
                 .ToList();
 
             dbContext.UserBook.RemoveRange(userBooks);
-
-            //foreach (var book in userBooks)
-            //{
-            //    book.IsDeleted = true;
-            //}
         }
     }
 }

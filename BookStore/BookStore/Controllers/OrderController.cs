@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Orders;
@@ -16,15 +17,23 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        public async Task CompleteOrder([FromQuery] decimal totalPrice)
+        public async Task CompleteOrder([FromBody] decimal totalPrice)
         {
-            await this.orderService.CreateOrder(1, totalPrice);
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+
+            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
+
+            await this.orderService.CreateOrder(userId, totalPrice);
         }
 
-        [HttpGet("orders")]
+        [HttpGet]
         public async Task<IEnumerable<OrderResponseModel>> Orders()
         {
-            return await this.orderService.GetOrders(1);
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+
+            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
+
+            return await this.orderService.GetOrders(userId);
         }
     }
 }

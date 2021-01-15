@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { BookDto } from '../_models/book.dto';
+import { BookDto } from '../../_models/book.dto';
 
 @Component({
   selector: 'app-book',

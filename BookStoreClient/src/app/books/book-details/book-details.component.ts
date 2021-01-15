@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { BookDetailsDto } from '../_models/book-details.dto';
-import { BookService } from '../_services/book.service';
-import { VoteService } from '../_services/vote.service';
+import { BookDetailsDto } from '../../_models/book-details.dto';
+import { BookService } from '../../_services/book.service';
+import { VoteService } from '../../_services/vote.service';
 
 @Component({
   selector: 'app-book-details',

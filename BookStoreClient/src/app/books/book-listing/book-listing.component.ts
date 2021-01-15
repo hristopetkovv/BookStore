@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookFilterDto } from '../_models/book-filter.dto';
-import { BookDto } from '../_models/book.dto';
-import { BookService } from '../_services/book.service';
+import { BookFilterDto } from '../../_models/book-filter.dto';
+import { BookDto } from '../../_models/book.dto';
+import { BookService } from '../../_services/book.service';
 
 @Component({
   selector: 'app-book-listing',

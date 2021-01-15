@@ -1,8 +1,10 @@
 ﻿using BookStore.Data;
 using BookStore.Data.Models;
+using BookStore.Data.Models.Enums;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -71,7 +73,7 @@ namespace BookStore.Services
                     Email = o.User.Email,
                     Address = o.User.Address,
                     BoughtOn = o.BoughtOn,
-                    Status = o.Status,
+                    Status = Enum.GetName(typeof(Status), o.Status),
                     TelephoneNumber = o.User.PhoneNumber,
                     TotalPrice = o.TotalPrice
                 })

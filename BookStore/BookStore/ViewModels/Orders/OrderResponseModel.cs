@@ -7,7 +7,7 @@ namespace BookStore.ViewModels.Orders
     {
         public int Id { get; set; }
 
-        public Status Status { get; set; }
+        public string Status { get; set; }
 
         public DateTime BoughtOn { get; set; }
 

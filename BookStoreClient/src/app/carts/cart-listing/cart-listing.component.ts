@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartDto } from '../_models/cart.dto';
-import { CartService } from '../_services/cart.service';
+import { CartDto } from '../../_models/cart.dto';
+import { CartService } from '../../_services/cart.service';
+import { OrderService } from '../../_services/order.service';
 
 @Component({
   selector: 'app-cart-listing',
@@ -10,7 +11,7 @@ import { CartService } from '../_services/cart.service';
 export class CartListingComponent implements OnInit {
   cart: CartDto = new CartDto();
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.showCart();
@@ -18,5 +19,9 @@ export class CartListingComponent implements OnInit {
 
   showCart() {
     this.cartService.showCart().subscribe(cart => this.cart = cart);
+  }
+
+  completeOrder() {
+    this.orderService.createOrder(this.cart.totalPrice).subscribe();
   }
 }
