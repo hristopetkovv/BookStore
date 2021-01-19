@@ -11,10 +11,12 @@ namespace BookStore.Controllers
     public class BookController : BaseApiController
     {
         private readonly IBookService bookService;
+        private readonly UserContext userContext;
 
-        public BookController(IBookService bookService)
+        public BookController(IBookService bookService, UserContext userContext)
         {
             this.bookService = bookService;
+            this.userContext = userContext;
         }
 
         [HttpGet]
@@ -35,9 +37,7 @@ namespace BookStore.Controllers
         [Route("{id:int}/comments")]
         public async Task<IActionResult> AddComment([FromRoute] int id, [FromBody] CommentRequestModel content)
         {
-            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            await this.bookService.AddComent(id, username, content.Comment);
+            await this.bookService.AddComent(id, this.userContext.UserName, content.Comment);
 
             return Ok(id);
         }
@@ -46,9 +46,7 @@ namespace BookStore.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> BuyBook([FromRoute] int id, [FromBody] int pieces = 1)
         {
-            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            await this.bookService.AddBookToCart(id, username, pieces);
+            await this.bookService.AddBookToCart(id, this.userContext.UserName, pieces);
 
             return Ok();
         }

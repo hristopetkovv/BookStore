@@ -10,20 +10,19 @@ namespace BookStore.Controllers
     public class VoteController : BaseApiController
     {
         private readonly IVotesService votesService;
+        private readonly UserContext userContext;
 
-        public VoteController(IVotesService votesService)
+        public VoteController(IVotesService votesService, UserContext userContext)
         {
             this.votesService = votesService;
+            this.userContext = userContext;
         }
 
         [HttpPost]
         public async Task<VoteResponseModel> Vote(VoteRequestModel model)
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
 
-            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
-
-            await this.votesService.VoteAsync(model.BookId, userId, model.IsUpVote);
+            await this.votesService.VoteAsync(model.BookId, this.userContext.UserId, model.IsUpVote);
 
             var votes = this.votesService.GetVotes(model.BookId);
 

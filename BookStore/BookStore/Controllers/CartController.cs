@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -9,20 +8,18 @@ namespace BookStore.Controllers
     public class CartController : BaseApiController
     {
         private readonly ICartService cartService;
+        private readonly UserContext userContext;
 
-        public CartController(ICartService cartService)
+        public CartController(ICartService cartService, UserContext userContext)
         {
             this.cartService = cartService;
+            this.userContext = userContext;
         }
 
         [HttpGet]
         public async Task<CartListingResponseModel> MyCart()
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-
-            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
-
-            return await this.cartService.ShowCart(userId);
+            return await this.cartService.ShowCart(this.userContext.UserId);
         }
 
         [HttpDelete]

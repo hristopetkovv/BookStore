@@ -1,7 +1,6 @@
 ﻿using BookStore.Services;
 using BookStore.ViewModels.Account;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BookStore.Controllers
@@ -9,20 +8,18 @@ namespace BookStore.Controllers
     public class HomeController : BaseApiController
     {
         private readonly IUserService userService;
+        private readonly UserContext userContext;
 
-        public HomeController(IUserService userService)
+        public HomeController(IUserService userService, UserContext userContext)
         {
             this.userService = userService;
+            this.userContext = userContext;
         }
 
         [HttpGet]
         public async Task<UserInformationResponseModel> GetUser()
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-
-            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
-
-            return await this.userService.GetUser(userId);
+            return await this.userService.GetUser(this.userContext.UserId);
         }
 
         [HttpPut]

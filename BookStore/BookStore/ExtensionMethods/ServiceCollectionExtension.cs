@@ -2,6 +2,7 @@
 using BookStore.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,7 +59,8 @@ namespace BookStore.ExtensionMethods
                 .AddTransient<IAdminService, AdminService>()
                 .AddTransient<IUserService, UserService>()
                 .AddTransient<ITokenService, TokenService>()
-                .AddTransient<IVotesService, VotesService>();
+                .AddTransient<IVotesService, VotesService>()
+                .AddScoped<UserContext>();
         }
 
         public static IServiceCollection AddAuthorizationDefault(this IServiceCollection services)

@@ -20,6 +20,7 @@ namespace BookStore
         {
             services
                 .AddDatabase(this.configuration)
+                .AddHttpContextAccessor()
                 .AddApplicationServices()
                 .AddAuthentication(this.configuration)
                 .AddAuthorizationDefault()

@@ -23,7 +23,7 @@ namespace BookStore.Services
             {
                 new Claim(JwtRegisteredClaimNames.NameId, user.Username),
                 new Claim("userId", user.Id.ToString()),
-                //new Claim(ClaimTypes.Role, user.Role)
+                new Claim(ClaimTypes.Role, user.Role),
             });
 
             var creds = new SigningCredentials(this.key, SecurityAlgorithms.HmacSha512Signature);

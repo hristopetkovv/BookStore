@@ -10,30 +10,24 @@ namespace BookStore.Controllers
     public class OrderController : BaseApiController
     {
         private readonly IOrderService orderService;
+        private readonly UserContext userContext;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(IOrderService orderService, UserContext userContext)
         {
             this.orderService = orderService;
+            this.userContext = userContext;
         }
 
         [HttpPost]
         public async Task CompleteOrder([FromBody] decimal totalPrice)
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-
-            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
-
-            await this.orderService.CreateOrder(userId, totalPrice);
+            await this.orderService.CreateOrder(this.userContext.UserId, totalPrice);
         }
 
         [HttpGet]
         public async Task<IEnumerable<OrderResponseModel>> Orders()
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-
-            var userId = int.Parse(claimsIdentity.FindFirst("userId").Value);
-
-            return await this.orderService.GetOrders(userId);
+            return await this.orderService.GetOrders(this.userContext.UserId);
         }
     }
 }

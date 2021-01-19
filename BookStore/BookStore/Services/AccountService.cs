@@ -38,6 +38,8 @@ namespace BookStore.Services
                 PasswordSalt = hmac.Key
             };
 
+            user.Role = Role.User;
+
             this.dbContext.User.Add(user);
 
             await this.dbContext.SaveChangesAsync();
