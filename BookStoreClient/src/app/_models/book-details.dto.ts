@@ -16,4 +16,5 @@ export class BookDetailsDto {
     votesCount: number;
     downVotes: number;
     upVotes: number;
+    keywords: string[];
 }

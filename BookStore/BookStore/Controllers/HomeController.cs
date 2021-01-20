@@ -19,7 +19,7 @@ namespace BookStore.Controllers
         [HttpGet]
         public async Task<UserInformationResponseModel> GetUser()
         {
-            return await this.userService.GetUser(this.userContext.UserId);
+            return await this.userService.GetUser(this.userContext.UserId.Value);
         }
 
         [HttpPut]

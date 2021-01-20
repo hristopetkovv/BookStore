@@ -34,6 +34,8 @@ namespace BookStore.Data
         public DbSet<Order> Order { get; set; }
 
         public DbSet<Vote> Vote { get; set; }
+
+        public DbSet<BookKeyWords> BookKeyWords { get; set; }
       
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

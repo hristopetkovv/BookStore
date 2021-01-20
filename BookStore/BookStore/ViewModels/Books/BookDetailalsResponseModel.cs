@@ -33,5 +33,7 @@ namespace BookStore.ViewModels.Books
         public int DownVotes { get; set; }
 
         public int UpVotes { get; set; }
+
+        public List<string> Keywords { get; set; } = new List<string>();
     }
 }

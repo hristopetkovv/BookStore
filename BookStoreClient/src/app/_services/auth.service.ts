@@ -11,6 +11,7 @@ export class AuthService {
   currentUser = this.currentUserSource.asObservable();
   logedInSubject: Subject<boolean>;
   isLoggedInUser = false;
+  isAdmin: boolean;
 
   constructor(private http: HttpClient) {
     this.logedInSubject = new Subject<boolean>();
@@ -62,5 +63,13 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  isUserInRole(role: string) {
+    if (role === "Admin") {
+      this.isAdmin = true;
+    } else if (role === "User") {
+      this.isAdmin = false;
+    }
   }
 }

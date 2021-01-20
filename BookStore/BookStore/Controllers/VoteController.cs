@@ -1,8 +1,6 @@
 ﻿using BookStore.Services;
 using BookStore.ViewModels.Votes;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BookStore.Controllers
@@ -22,7 +20,7 @@ namespace BookStore.Controllers
         public async Task<VoteResponseModel> Vote(VoteRequestModel model)
         {
 
-            await this.votesService.VoteAsync(model.BookId, this.userContext.UserId, model.IsUpVote);
+            await this.votesService.VoteAsync(model.BookId, this.userContext.UserId.Value, model.IsUpVote);
 
             var votes = this.votesService.GetVotes(model.BookId);
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using BookStore.Services;
 using BookStore.ViewModels.Orders;
@@ -21,13 +20,13 @@ namespace BookStore.Controllers
         [HttpPost]
         public async Task CompleteOrder([FromBody] decimal totalPrice)
         {
-            await this.orderService.CreateOrder(this.userContext.UserId, totalPrice);
+            await this.orderService.CreateOrder(this.userContext.UserId.Value, totalPrice);
         }
 
         [HttpGet]
         public async Task<IEnumerable<OrderResponseModel>> Orders()
         {
-            return await this.orderService.GetOrders(this.userContext.UserId);
+            return await this.orderService.GetOrders(this.userContext.UserId.Value);
         }
     }
 }

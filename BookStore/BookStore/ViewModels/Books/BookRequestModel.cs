@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.ViewModels.Books
@@ -20,9 +21,6 @@ namespace BookStore.ViewModels.Books
         public int Quantity { get; set; }
 
         [Required]
-        public bool IsAvailable { get; set; }
-
-        [Required]
         [MaxLength(100)]
         public string PublishHouse { get; set; }
 
@@ -35,5 +33,7 @@ namespace BookStore.ViewModels.Books
         public string Genre { get; set; }
 
         public DateTime PublishedOn { get; set; }
+
+        public List<string> Keywords { get; set; }
     }
 }

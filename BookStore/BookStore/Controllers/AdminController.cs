@@ -28,6 +28,7 @@ namespace BookStore.Controllers
         [Route("addbook")]
         public async Task<IActionResult> CreateBook([FromBody] BookRequestModel model)
         {
+
             await this.adminService.AddBook(model);
 
             return Ok();

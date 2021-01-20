@@ -10,17 +10,14 @@ namespace BookStore.Services
         {
             var user = context.HttpContext.User;
 
-            if(!int.TryParse(GetClaimValue(user, "userId"), out int userId))
-            {
-                throw new System.Exception();
-            }
-
+            int.TryParse(GetClaimValue(user, "userId"), out int userId);
             this.UserId = userId;
+
             this.Role = GetClaimValue(user, ClaimTypes.Role);
-            this.UserName = GetClaimValue(user, ClaimTypes.NameIdentifier);
+            this.UserName = GetClaimValue(user, ClaimTypes.Name);
         }
 
-        public int UserId { get; private set; }
+        public int? UserId { get; private set; }
 
         public string Role { get; private set; }
 

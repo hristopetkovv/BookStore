@@ -14,7 +14,6 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedIn = this.authService.isLoggedInUser;
-
     this.authService.logedInChange()
       .subscribe(isLoggedIn => this.loggedIn = isLoggedIn);
   }
@@ -22,6 +21,7 @@ export class NavBarComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.loggedIn = false;
+    this.authService.isAdmin = false;
     this.router.navigateByUrl('/login');
   }
 }

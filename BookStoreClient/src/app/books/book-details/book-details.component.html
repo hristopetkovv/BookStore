@@ -64,6 +64,21 @@
                 </div>
 
                 <div>
+                    <h6 style="display: inline-block;"
+                        class="sizes">Tags:
+                    </h6>
+                    <ng-container *ngFor="let key of book.keywords, let last = last">
+                        <span class="tags"
+                              style="margin-left: 5px"
+                              data-toggle="tooltip"
+                              title="Tags">{{key}}
+                            <span *ngIf="!last">|</span>
+                        </span>
+                    </ng-container>
+
+                </div>
+
+                <div>
                     <span class="form-control-sm">
                         <label for="quantity">Quantity:</label>
                         <input #quantity

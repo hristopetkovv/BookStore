@@ -13,6 +13,7 @@ namespace BookStore.Data.Models
             this.Comments = new HashSet<Comment>();
             this.Users = new HashSet<UserBook>();
             this.Votes = new HashSet<Vote>();
+            this.BookKeyWords = new HashSet<BookKeyWords>();
         }
 
         public int Id { get; set; }
@@ -37,6 +38,8 @@ namespace BookStore.Data.Models
         public Genre Genre { get; set; }
 
         public DateTime PublishedOn { get; set; }
+
+        public virtual ICollection<BookKeyWords> BookKeyWords { get; set; }
 
         public virtual ICollection<BookAuthor> Authors { get; set; }
 

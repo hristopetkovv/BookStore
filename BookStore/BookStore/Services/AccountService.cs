@@ -47,7 +47,8 @@ namespace BookStore.Services
             return new UserResponseModel
             {
                 Username = user.Username,
-                Token = this.tokenService.CreateToken(user)
+                Token = this.tokenService.CreateToken(user),
+                Role = user.Role
             };
         }
 
@@ -77,7 +78,8 @@ namespace BookStore.Services
             return new UserResponseModel
             {
                 Username = user.Username,
-                Token = this.tokenService.CreateToken(user)
+                Token = this.tokenService.CreateToken(user),
+                Role = user.Role
             };
         }
 

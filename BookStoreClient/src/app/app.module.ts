@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './account/login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './account/register/register.component';
@@ -32,6 +32,7 @@ import { TestErrorsComponent } from './_errors/test-errors/test-errors.component
 import { ToastrModule } from 'ngx-toastr';
 import { VoteComponent } from './vote/vote.component';
 import { OrderListingComponent } from './order-listing/order-listing.component';
+import { NewBookComponent } from './admin/new-book/new-book.component';
 
 
 @NgModule({
@@ -57,11 +58,13 @@ import { OrderListingComponent } from './order-listing/order-listing.component';
     TestErrorsComponent,
     VoteComponent,
     OrderListingComponent,
+    NewBookComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

@@ -3,6 +3,7 @@ using BookStore.Data.Models;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,14 +25,25 @@ namespace BookStore.Services
             {
                 Description = model.Description,
                 ImageUrl = model.ImageUrl,
-                IsAvailable = model.IsAvailable,
+                IsAvailable = true,
                 Price = model.Price,
                 PublishedOn = model.PublishedOn,
                 PublishHouse = model.PublishHouse,
                 Quantity = model.Quantity,
                 Title = model.Title,
-                Genre = new Genre { Name = model.Genre},
+                Genre = new Genre { Name = model.Genre },
             };
+
+            foreach (var keyword in model.Keywords)
+            {
+                var bookKeywords = new BookKeyWords
+                {
+                    Keyword = keyword,
+                    BookId = book.Id,
+                };
+
+                book.BookKeyWords.Add(bookKeywords);
+            }
 
             var author = this.dbContext
                 .Author

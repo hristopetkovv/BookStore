@@ -27,7 +27,7 @@ namespace BookStore.Services
                     Address = u.Address,
                     PhoneNumber = u.PhoneNumber,
                     Username = u.Username,
-                    Email = u.Email
+                    Email = u.Email,
                 })
                 .FirstOrDefaultAsync();
         }

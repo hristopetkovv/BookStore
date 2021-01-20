@@ -25,7 +25,8 @@ namespace BookStore
                 .AddAuthentication(this.configuration)
                 .AddAuthorizationDefault()
                 .AddSwagger()
-                .AddControllers();
+                .AddControllers()
+                .AddNewtonsoftJson();
 
             services.AddDistributedMemoryCache();
         }

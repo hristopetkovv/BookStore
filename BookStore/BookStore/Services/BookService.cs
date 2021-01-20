@@ -91,6 +91,7 @@ namespace BookStore.Services
                     PublishHouse = b.PublishHouse,
                     PublishedOn = b.PublishedOn,
                     Genre = b.Genre.Name,
+                    Keywords = b.BookKeyWords.Where(kw => kw.BookId == id).Select(kw => kw.Keyword).ToList(),
                     AuthorName = b.Authors.Select(a => a.Author.Fullname),
                     DownVotes = b.Votes.Where(v => v.Type == VoteType.DownVote).Sum(v => (int) v.Type),
                     UpVotes = b.Votes.Where(v => v.Type == VoteType.UpVote).Sum(v => (int)v.Type),
