@@ -1,6 +1,8 @@
-<h4 class="text-center">Change keywords</h4>
+<h4 class="text-center">Change Keywords</h4>
+<button class="btn btn-success"
+        *ngIf="!hasKeywords">Add Keyword</button>
 <div class="row">
-    <ng-container *ngFor="let keyword of keywords">
+    <ng-container *ngFor="let keyword of keywords; let last = last">
         <span>
             <input type="text"
                    class="form-control"
@@ -15,6 +17,10 @@
             <button class="btn btn-danger"
                     (click)="removeKeyword(keyword.id)"
                     style="margin-top: 5px; margin-left: 3px">Delete</button>
+            <button class="btn btn-success"
+                    *ngIf="last"
+                    style="margin-top: 5px; margin-left: 3px">Add Keyword</button>
         </span>
     </ng-container>
+
 </div>

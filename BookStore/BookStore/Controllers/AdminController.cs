@@ -40,7 +40,20 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Route("book/{bookId:int}")]
+        public async Task<BookUpdateModel> GetBook([FromRoute]int bookId)
+        {
+            return await this.adminService.GetBook(bookId);
+        }
+
+        [HttpPut]
+        [Route("book")] 
+        public async Task UpdateBook([FromQuery] int bookId, [FromBody]BookUpdateModel model)
+        {
+            await this.adminService.UpdateBook(bookId, model);
+        }
+
+        [HttpGet]
         [Route("keywords/{bookId:int}")]
         public async Task<IEnumerable<BookKeywordsModel>> GetKeywords([FromRoute]int bookId)
         {

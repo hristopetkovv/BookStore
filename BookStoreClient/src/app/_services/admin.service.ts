@@ -1,7 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddBookDto } from '../_models/add-book.dto';
+import { BookUpdateDto } from '../_models/book-update.dto';
 import { KeywordDto } from '../_models/keyword.dto';
 
 @Injectable({
@@ -25,5 +26,9 @@ export class AdminService {
 
   removeKeyword(keywordId: any) {
     return this.http.delete(`api/admin/keywords?keywordId=${keywordId}`);
+  }
+
+  getBook(bookId: number): Observable<BookUpdateDto> {
+    return this.http.get<BookUpdateDto>(`api/admin/book/${bookId}`);
   }
 }

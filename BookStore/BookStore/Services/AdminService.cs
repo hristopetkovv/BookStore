@@ -137,5 +137,38 @@ namespace BookStore.Services
 
             await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task UpdateBook(int bookId, BookUpdateModel model)
+        {
+            var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
+
+            book.Title = model.Title;
+            book.Description = model.Description;
+            book.Price = model.Price;
+            book.Quantity = model.Quantity;
+            book.ImageUrl = model.ImageUrl;
+            book.PublishHouse = model.PublishHouse;
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<BookUpdateModel> GetBook(int bookId)
+        {
+            var book = await this.dbContext
+                .Book
+                .Where(b => b.Id == bookId)
+                .Select(b => new BookUpdateModel
+                {
+                    Title = b.Title,
+                    Description = b.Description,
+                    Price = b.Price,
+                    Quantity = b.Quantity,
+                    PublishHouse = b.PublishHouse,
+                    ImageUrl = b.ImageUrl,
+                })
+                .FirstOrDefaultAsync();
+
+            return book;
+        }
     }
 }

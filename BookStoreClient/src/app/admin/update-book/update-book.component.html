@@ -1,11 +1,78 @@
-<div class="row"
-     style="margin-bottom: 20px;">
-    <div class="form-group col-md-2 col-md-12"
-         *ngFor="let book of books">
-        <h4 style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{book.title}}</h4>
-        <a style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-           class="nav-link"
-           routerLink="/admin/keywords/{{book.id}}">Update keywords</a>
-        <hr>
+<form #editForm="ngForm"
+      (ngSubmit)="update()"
+      autocomplete="off">
+    <h2 class="text-center text-primary">Edit Book</h2>
+    <div class="form-group">
+        <label for="fname">Title:</label><br>
+        <input type="text"
+               class="form-control"
+               name="title"
+               [(ngModel)]="book.title"
+               placeholder={{book?.title}}
+               #title="ngModel">
     </div>
-</div>
+    <hr>
+
+    <div class="form-group">
+        <label for="fname">Description:</label><br>
+        <input type="text"
+               class="form-control"
+               name="description"
+               [(ngModel)]="book.description"
+               placeholder={{book.description}}
+               #description="ngModel">
+    </div>
+    <hr>
+
+    <div class="form-group">
+        <label for="fname">Price:</label><br>
+        <input type="number"
+               class="form-control"
+               name="price"
+               [(ngModel)]="book.price"
+               placeholder={{book.price}}
+               #price="ngModel">
+    </div>
+    <hr>
+
+    <div class="form-group">
+        <label for="fname">Quantity:</label><br>
+        <input type="number"
+               class="form-control"
+               name="quantity"
+               [(ngModel)]="book.quantity"
+               placeholder={{book.quantity}}
+               #quantity="ngModel">
+    </div>
+    <hr>
+
+    <div class="form-group">
+        <label for="fname">PublishHouse:</label><br>
+        <input type="text"
+               class="form-control"
+               name="publishHouse"
+               [(ngModel)]="book.publishHouse"
+               placeholder={{book.publishHouse}}
+               #publishHouse="ngModel">
+    </div>
+    <hr>
+
+    <div class="form-group">
+        <label for="fname">ImageUrl:</label><br>
+        <input type="text"
+               class="form-control"
+               name="imageUrl"
+               [(ngModel)]="book.imageUrl"
+               placeholder={{book.imageUrl}}
+               #imageUrl="ngModel">
+    </div>
+    <hr>
+
+    <div class="form-group text-center">
+        <button class="btn btn-success mr-2"
+                type="submit">Edit</button>
+        <button class="btn btn-default mr-2"
+                (click)="cancel()"
+                type="button">Cancel</button>
+    </div>
+</form>

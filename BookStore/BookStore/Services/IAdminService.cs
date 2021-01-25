@@ -18,5 +18,9 @@ namespace BookStore.Services
         Task RemoveKeyword(int keywordId);
 
         Task UpdateKeyword(BookKeywordsModel model);
+
+        Task UpdateBook(int bookId, BookUpdateModel model);
+
+        Task<BookUpdateModel> GetBook(int bookId);
     }
 }

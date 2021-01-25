@@ -14,6 +14,7 @@ import { NotFoundComponent } from './_errors/not-found/not-found.component';
 import { TestErrorsComponent } from './_errors/test-errors/test-errors.component';
 import { NewBookComponent } from './admin/new-book/new-book.component';
 import { KeywordListingComponent } from './admin/keyword-listing/keyword-listing.component';
+import { UpdateKeywordsComponent } from './admin/update-keywords/update-keywords.component';
 import { UpdateBookComponent } from './admin/update-book/update-book.component';
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'order', component: OrderListingComponent },
   { path: 'admin/keywords/:bookId', component: KeywordListingComponent },
   { path: 'admin/addbook', component: NewBookComponent },
-  { path: 'admin/getbooks', component: UpdateBookComponent },
+  { path: 'admin/getbooks', component: UpdateKeywordsComponent },
+  { path: 'admin/book/:bookId', component: UpdateBookComponent },
   { path: 'errors', component: TestErrorsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },

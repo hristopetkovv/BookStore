@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/_services/admin.service';
 export class KeywordListingComponent implements OnInit {
   keywords: KeywordDto[] = [];
   bookId: number;
+  hasKeywords: boolean = false;
 
   constructor(private adminService: AdminService, private route: ActivatedRoute) { }
 
@@ -21,12 +22,17 @@ export class KeywordListingComponent implements OnInit {
   }
 
   getKeywords(bookId: number) {
-    this.adminService.getKeywords(bookId).subscribe(keywords => this.keywords = keywords);
+    this.adminService.getKeywords(bookId).subscribe(keywords => {
+      this.keywords = keywords;
+      if (this.keywords.length > 0) {
+        this.hasKeywords = true;
+      }
+    });
   }
 
   updateKeyword(keyword: KeywordDto) {
     this.adminService.updateKeyword(keyword).subscribe();
-    location.reload();
+    window.alert("Updated")
   }
 
   removeKeyword(keywordId: number) {

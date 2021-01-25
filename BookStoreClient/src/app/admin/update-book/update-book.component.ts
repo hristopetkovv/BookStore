@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookFilterDto } from 'src/app/_models/book-filter.dto';
-import { BookDto } from 'src/app/_models/book.dto';
-import { BookService } from 'src/app/_services/book.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BookUpdateDto } from 'src/app/_models/book-update.dto';
+import { AdminService } from 'src/app/_services/admin.service';
 
 @Component({
   selector: 'app-update-book',
@@ -9,15 +9,25 @@ import { BookService } from 'src/app/_services/book.service';
   styleUrls: ['./update-book.component.css']
 })
 export class UpdateBookComponent implements OnInit {
-  books: BookDto[] = [];
+  book: BookUpdateDto;
+  bookId: number;
 
-  constructor(private bookService: BookService, public booksFilter: BookFilterDto) { }
+  constructor(private adminService: AdminService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.getBooks();
+    this.bookId = +this.route.snapshot.paramMap.get('bookId');
+    this.getBook(this.bookId);
   }
 
-  getBooks() {
-    this.bookService.getBooks(this.booksFilter).subscribe(books => this.books = books.result);
+  getBook(bookId: number) {
+    this.adminService.getBook(bookId).subscribe(book => this.book = book);
+  }
+
+  cancel() {
+    this.router.navigateByUrl('/')
+  }
+
+  update() {
+
   }
 }

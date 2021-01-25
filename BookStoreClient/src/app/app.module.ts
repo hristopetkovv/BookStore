@@ -33,8 +33,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { VoteComponent } from './vote/vote.component';
 import { OrderListingComponent } from './order-listing/order-listing.component';
 import { NewBookComponent } from './admin/new-book/new-book.component';
-import { UpdateBookComponent } from './admin/update-book/update-book.component';
+import { UpdateKeywordsComponent } from './admin/update-keywords/update-keywords.component';
 import { KeywordListingComponent } from './admin/keyword-listing/keyword-listing.component';
+import { UpdateBookComponent } from './admin/update-book/update-book.component';
 
 
 @NgModule({
@@ -61,8 +62,9 @@ import { KeywordListingComponent } from './admin/keyword-listing/keyword-listing
     VoteComponent,
     OrderListingComponent,
     NewBookComponent,
-    UpdateBookComponent,
+    UpdateKeywordsComponent,
     KeywordListingComponent,
+    UpdateBookComponent,
   ],
   imports: [
     BrowserModule,
