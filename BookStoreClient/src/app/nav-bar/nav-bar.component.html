@@ -20,6 +20,12 @@
                routerLink="/admin/addbook"
                routerLinkActive="active">Add Book</a>
          </li>
+         <li class="nav-item"
+             *ngIf="authService.isAdmin">
+            <a class="nav-link"
+               routerLink="/admin/getbooks"
+               routerLinkActive="active">Update Book</a>
+         </li>
       </ul>
    </div>
 

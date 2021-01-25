@@ -3,7 +3,6 @@ using BookStore.Data.Models;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +16,22 @@ namespace BookStore.Services
         public AdminService(BookStoreDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task<IEnumerable<BookKeywordsModel>> GetBookKeywords(int bookId)
+        {
+            var keywords = await this.dbContext
+                .BookKeyWords
+                .Where(bk => bk.BookId == bookId)
+                .Select(bk => new BookKeywordsModel
+                {
+                    Id = bk.Id,
+                    Keyword = bk.Keyword,
+                    BookId = bk.BookId
+                })
+                .ToListAsync();
+
+            return keywords;
         }
 
         public async Task AddBook(BookRequestModel model)
@@ -36,13 +51,13 @@ namespace BookStore.Services
 
             foreach (var keyword in model.Keywords)
             {
-                var bookKeywords = new BookKeyWords
+                var bookKeyword = new BookKeyWords
                 {
                     Keyword = keyword,
                     BookId = book.Id,
                 };
 
-                book.BookKeyWords.Add(bookKeywords);
+                book.BookKeyWords.Add(bookKeyword);
             }
 
             var author = this.dbContext
@@ -99,6 +114,28 @@ namespace BookStore.Services
             order.Status = model.Status;
 
             await dbContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveKeyword(int keywordId)
+        {
+            var keyword = await this.dbContext
+                .BookKeyWords
+                .FirstOrDefaultAsync(bk => bk.Id == keywordId);
+
+            this.dbContext.BookKeyWords.Remove(keyword);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateKeyword(BookKeywordsModel model)
+        {
+            var keyword = await this.dbContext
+                .BookKeyWords
+                .FirstOrDefaultAsync(bk => bk.Id == model.Id);
+
+            keyword.Keyword = model.Keyword;
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

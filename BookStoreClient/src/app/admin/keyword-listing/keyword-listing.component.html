@@ -1,0 +1,20 @@
+<h4 class="text-center">Change keywords</h4>
+<div class="row">
+    <ng-container *ngFor="let keyword of keywords">
+        <span>
+            <input type="text"
+                   class="form-control"
+                   style="margin-top: 20px;"
+                   name="keyword"
+                   [(ngModel)]="keyword.keyword"
+                   placeholder={{keyword.keyword}}
+                   #keyword="ngModel">
+            <button class="btn btn-primary"
+                    (click)="updateKeyword(keyword)"
+                    style="margin-top: 5px;">Update</button>
+            <button class="btn btn-danger"
+                    (click)="removeKeyword(keyword.id)"
+                    style="margin-top: 5px; margin-left: 3px">Delete</button>
+        </span>
+    </ng-container>
+</div>

@@ -28,7 +28,6 @@ namespace BookStore.Controllers
         [Route("addbook")]
         public async Task<IActionResult> CreateBook([FromBody] BookRequestModel model)
         {
-
             await this.adminService.AddBook(model);
 
             return Ok();
@@ -38,6 +37,28 @@ namespace BookStore.Controllers
         public async Task UpdateOrder([FromBody] OrderUpdateRequestModel model)
         {
             await this.adminService.UpdateOrder(model);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("keywords/{bookId:int}")]
+        public async Task<IEnumerable<BookKeywordsModel>> GetKeywords([FromRoute]int bookId)
+        {
+           return await this.adminService.GetBookKeywords(bookId);
+        }
+
+        [HttpDelete]
+        [Route("keywords")]
+        public async Task DeleteKeyword([FromQuery]int keywordId)
+        {
+            await this.adminService.RemoveKeyword(keywordId);
+        }
+
+        [HttpPut]
+        [Route("keywords")]
+        public async Task UpdateKeyword([FromBody] BookKeywordsModel model)
+        {
+            await this.adminService.UpdateKeyword(model);
         }
     }
 }

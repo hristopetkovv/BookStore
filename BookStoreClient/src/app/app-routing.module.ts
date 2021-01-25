@@ -13,6 +13,8 @@ import { RegisterComponent } from './account/register/register.component';
 import { NotFoundComponent } from './_errors/not-found/not-found.component';
 import { TestErrorsComponent } from './_errors/test-errors/test-errors.component';
 import { NewBookComponent } from './admin/new-book/new-book.component';
+import { KeywordListingComponent } from './admin/keyword-listing/keyword-listing.component';
+import { UpdateBookComponent } from './admin/update-book/update-book.component';
 
 const routes: Routes = [
   { path: '', component: BookListingComponent },
@@ -26,7 +28,9 @@ const routes: Routes = [
   { path: 'cart', component: CartListingComponent },
   { path: 'cart/:bookId', component: CartComponent },
   { path: 'order', component: OrderListingComponent },
+  { path: 'admin/keywords/:bookId', component: KeywordListingComponent },
   { path: 'admin/addbook', component: NewBookComponent },
+  { path: 'admin/getbooks', component: UpdateBookComponent },
   { path: 'errors', component: TestErrorsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },

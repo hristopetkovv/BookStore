@@ -1,0 +1,11 @@
+<div class="row"
+     style="margin-bottom: 20px;">
+    <div class="form-group col-md-2 col-md-12"
+         *ngFor="let book of books">
+        <h4 style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{book.title}}</h4>
+        <a style="height: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
+           class="nav-link"
+           routerLink="/admin/keywords/{{book.id}}">Update keywords</a>
+        <hr>
+    </div>
+</div>

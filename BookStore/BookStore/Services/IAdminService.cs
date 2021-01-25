@@ -12,5 +12,11 @@ namespace BookStore.Services
         Task<IEnumerable<OrderResponseModel>> GetOrders();
 
         Task UpdateOrder(OrderUpdateRequestModel model);
+
+        Task<IEnumerable<BookKeywordsModel>> GetBookKeywords(int bookId);
+
+        Task RemoveKeyword(int keywordId);
+
+        Task UpdateKeyword(BookKeywordsModel model);
     }
 }
