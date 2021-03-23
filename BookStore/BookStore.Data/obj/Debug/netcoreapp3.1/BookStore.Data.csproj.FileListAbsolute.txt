@@ -1,0 +1,12 @@
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.deps.json
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.AssemblyInfoInputs.cache
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.AssemblyInfo.cs
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.pdb
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.runtimeconfig.json
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.runtimeconfig.dev.json
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.genruntimeconfig.cache
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.csprojAssemblyReference.cache
+C:\Program Files\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.csproj.CoreCompileInputs.cache

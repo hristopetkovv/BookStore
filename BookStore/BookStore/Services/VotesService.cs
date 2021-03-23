@@ -1,6 +1,6 @@
-﻿using BookStore.Data;
-using BookStore.Data.Models;
-using BookStore.Data.Models.Enums;
+﻿using BookStore.Data.Data;
+using BookStore.Data.Data.Models;
+using BookStore.Data.Data.Models.Enums;
 using System.Linq;
 using System.Threading.Tasks;
 

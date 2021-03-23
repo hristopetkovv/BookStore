@@ -79,7 +79,6 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\web.config
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.exe
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.deps.json
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.runtimeconfig.json
@@ -90,7 +89,6 @@ C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Mi
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
@@ -136,3 +134,8 @@ C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Ne
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csproj.CoreCompileInputs.cache
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cs
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.dll
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
+C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\scopedcss\bundle\BookStore.styles.css

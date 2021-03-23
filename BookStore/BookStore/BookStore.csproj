@@ -5,46 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\20201127130518_ChangePKToUserBook.cs" />
-    <Compile Remove="Data\Migrations\20201127130518_ChangePKToUserBook.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201127131326_ChangePKToUserBook.cs" />
-    <Compile Remove="Data\Migrations\20201127131326_ChangePKToUserBook.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201127131623_ChangePKToUserBook.cs" />
-    <Compile Remove="Data\Migrations\20201127131623_ChangePKToUserBook.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201127132756_ChangePKToUserBook.cs" />
-    <Compile Remove="Data\Migrations\20201127132756_ChangePKToUserBook.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201127132840_ChangePKToUserBook.cs" />
-    <Compile Remove="Data\Migrations\20201127132840_ChangePKToUserBook.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201127133500_Change.cs" />
-    <Compile Remove="Data\Migrations\20201127133500_Change.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201127133641_Change.cs" />
-    <Compile Remove="Data\Migrations\20201127133641_Change.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201201083237_NullableColumnBook.cs" />
-    <Compile Remove="Data\Migrations\20201201083237_NullableColumnBook.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201201090012_UpdateColumn.cs" />
-    <Compile Remove="Data\Migrations\20201201090012_UpdateColumn.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201208074008_UpdatePassword.cs" />
-    <Compile Remove="Data\Migrations\20201208074008_UpdatePassword.Designer.cs" />
-    <Compile Remove="Data\Migrations\20201208074231_ChangeUser.cs" />
-    <Compile Remove="Data\Migrations\20201208074231_ChangeUser.Designer.cs" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.1" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+    <ProjectReference Include="..\BookStore.Data\BookStore.Data.csproj" />
   </ItemGroup>
 
 

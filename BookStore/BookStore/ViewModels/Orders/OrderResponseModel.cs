@@ -1,5 +1,4 @@
-﻿using BookStore.Data.Models.Enums;
-using System;
+﻿using System;
 
 namespace BookStore.ViewModels.Orders
 {

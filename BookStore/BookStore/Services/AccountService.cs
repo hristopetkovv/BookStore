@@ -1,5 +1,5 @@
-﻿using BookStore.Data;
-using BookStore.Data.Models;
+﻿using BookStore.Data.Data;
+using BookStore.Data.Data.Models;
 using BookStore.ViewModels.Account;
 using Microsoft.EntityFrameworkCore;
 using System;

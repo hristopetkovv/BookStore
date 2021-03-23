@@ -1,4 +1,4 @@
-﻿using BookStore.Data.Models;
+﻿using BookStore.Data.Data.Models;
 using BookStore.ViewModels.Books;
 using BookStore.ViewModels.Books.Enums;
 using System.Linq;

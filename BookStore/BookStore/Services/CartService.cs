@@ -1,4 +1,5 @@
 ﻿using BookStore.Data;
+using BookStore.Data.Data;
 using BookStore.ViewModels.Home;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
