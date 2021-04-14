@@ -36,6 +36,9 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   buyBook(quantity: any) {
     let pieces: number = +quantity;
+    if (pieces < 1) {
+      pieces = 1;
+    }
     this.bookService.buyBook(this.selectedId, pieces).subscribe();
     this.router.navigateByUrl('/book');
   }

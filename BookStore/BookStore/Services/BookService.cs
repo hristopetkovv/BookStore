@@ -20,15 +20,15 @@ namespace BookStore.Services
             this.dbContext = dbContext;
         }
 
-        public async Task AddBookToCart(int bookId, string username, int pieces)
+        public async Task AddBookToCart(int bookId, int userId, int pieces)
         {
             var book = await dbContext
                 .Book
-                .FirstOrDefaultAsync(b => b.Id == bookId);
+                .SingleOrDefaultAsync(b => b.Id == bookId);
 
             var user = await dbContext
                 .User
-                .FirstOrDefaultAsync(u => u.Username == username);
+                .SingleOrDefaultAsync(u => u.Id == userId);
 
             if (book.IsAvailable == false)
             {

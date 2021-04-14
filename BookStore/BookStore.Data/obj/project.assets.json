@@ -5399,11 +5399,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj",
+      "projectUniqueName": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj",
       "projectName": "BookStore.Data",
-      "projectPath": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj",
+      "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj",
       "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-      "outputPath": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore.Data\\obj\\",
+      "outputPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

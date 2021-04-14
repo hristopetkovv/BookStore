@@ -45,7 +45,7 @@ namespace BookStore.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> BuyBook([FromRoute] int id, [FromBody] int pieces = 1)
         {
-            await this.bookService.AddBookToCart(id, this.userContext.UserName, pieces);
+            await this.bookService.AddBookToCart(id, this.userContext.UserId.Value, pieces);
 
             return Ok();
         }

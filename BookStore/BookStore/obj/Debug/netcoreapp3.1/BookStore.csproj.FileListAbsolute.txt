@@ -30,13 +30,11 @@ C:\Users\hristo.petkov\Desktop\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookS
 C:\Users\hristo.petkov\Desktop\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.exe
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
@@ -139,3 +137,20 @@ C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Sy
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.dll
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
 C:\Program Files\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\scopedcss\bundle\BookStore.styles.css
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Views.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\scopedcss\bundle\BookStore.styles.css

@@ -5901,11 +5901,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
+      "projectUniqueName": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
       "projectName": "BookStore",
-      "projectPath": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
+      "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
       "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-      "outputPath": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore\\obj\\",
+      "outputPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5926,8 +5926,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj": {
-              "projectPath": "C:\\Program Files\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj"
+            "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj": {
+              "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj"
             }
           }
         }
