@@ -1,0 +1,14 @@
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.csprojAssemblyReference.cache
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.AssemblyInfoInputs.cache
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.AssemblyInfo.cs
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.csproj.CoreCompileInputs.cache
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Data.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Services.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Controllers.deps.json
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Controllers.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Controllers.pdb
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\bin\Debug\netcoreapp3.1\BookStore.Services.pdb
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.csproj.CopyComplete
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Controllers\obj\Debug\netcoreapp3.1\BookStore.Controllers.pdb

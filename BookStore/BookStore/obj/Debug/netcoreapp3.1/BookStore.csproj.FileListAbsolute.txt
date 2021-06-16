@@ -70,7 +70,6 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csproj.CoreCompileInputs.cache
-C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\web.config
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csprojAssemblyReference.cache
@@ -154,3 +153,16 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\scopedcss\bundle\BookStore.styles.css
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Controllers.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Services.dll
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Controllers.pdb
+C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\netcoreapp3.1\BookStore.Services.pdb

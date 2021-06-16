@@ -1,9 +1,9 @@
-﻿using BookStore.Data;
-using BookStore.Data.Data;
-using BookStore.Services;
+﻿using BookStore.Data.Data;
+using BookStore.Services.Services;
+using BookStore.Services.Services.Helpers;
+using BookStore.Services.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
