@@ -55,17 +55,7 @@ Thumbs.db
 
 WebApplication/proxy.conf.json
 
-VisaD.Hosting/appsettings.Development.json
-VisaD.Persistence/Migrations/**
-VisaD.Deployment/build/**
-VisaD.Deployment/package/**
-
-Public.Hosting/appsettings.Development.json
-Public.WebApplication/proxy.conf.json
-Public.Deployment/build/**
-Public.Deployment/package/**
-Public.Hosting/Properties/**
-
+Bookstore/Bookstore/appsettings.Development.json
 **/wwwroot
 
 **/bin
