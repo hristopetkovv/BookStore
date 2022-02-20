@@ -55,6 +55,7 @@ Thumbs.db
 
 WebApplication/proxy.conf.json
 
+Bookstore/Bookstore/appsettings.Development.json
 **/wwwroot
 
 **/bin
