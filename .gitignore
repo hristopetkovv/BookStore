@@ -67,3 +67,4 @@ WebApplication/proxy.conf.json
 *.suo
 *.csproj.user
 BookStore/BookStore/appsettings.Development.json
+BookStore/BookStore/bin/Debug/netcoreapp3.1/BookStore.dll
