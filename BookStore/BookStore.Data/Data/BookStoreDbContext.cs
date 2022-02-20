@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data.Data
 {
-    public class BookStoreDbContext : DbContext
+    public class BookStoreDbContext : DbContext, IAppDbContext
     {
         public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
           : base(options)

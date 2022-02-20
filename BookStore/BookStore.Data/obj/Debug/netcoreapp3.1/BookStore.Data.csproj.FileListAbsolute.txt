@@ -22,3 +22,16 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Data\obj\D
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.pdb
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.genruntimeconfig.cache
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.csprojAssemblyReference.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.deps.json
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.runtimeconfig.json
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.runtimeconfig.dev.json
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.dll
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.csproj.AssemblyReference.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.AssemblyInfoInputs.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.AssemblyInfo.cs
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.csproj.CoreCompileInputs.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.dll
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.pdb
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Data\obj\Debug\netcoreapp3.1\BookStore.Data.genruntimeconfig.cache

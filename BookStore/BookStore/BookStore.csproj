@@ -18,5 +18,10 @@
     <ProjectReference Include="..\BookStore.Services\BookStore.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+
 
 </Project>

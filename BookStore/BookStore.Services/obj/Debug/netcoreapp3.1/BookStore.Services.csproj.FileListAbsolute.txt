@@ -10,3 +10,16 @@ C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Services\o
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.csproj.CopyComplete
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.dll
 C:\Users\hristo.petkov\Documents\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.pdb
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\bin\Debug\netcoreapp3.1\BookStore.Services.deps.json
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\bin\Debug\netcoreapp3.1\BookStore.Services.dll
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\bin\Debug\netcoreapp3.1\BookStore.Services.pdb
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\bin\Debug\netcoreapp3.1\BookStore.Data.dll
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\bin\Debug\netcoreapp3.1\BookStore.Data.pdb
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.csproj.AssemblyReference.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.AssemblyInfoInputs.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.AssemblyInfo.cs
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.csproj.CoreCompileInputs.cache
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.csproj.CopyComplete
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.dll
+D:\Documents\C#\GitHub\BookStore\BookStore\BookStore.Services\obj\Debug\netcoreapp3.1\BookStore.Services.pdb

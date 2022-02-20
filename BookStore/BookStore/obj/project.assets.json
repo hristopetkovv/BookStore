@@ -6809,23 +6809,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hristo.petkov\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
+      "projectUniqueName": "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
       "projectName": "BookStore",
-      "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
-      "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore\\obj\\",
+      "projectPath": "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6833,21 +6829,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.0.38:20202/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Controllers\\BookStore.Controllers.csproj": {
-              "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Controllers\\BookStore.Controllers.csproj"
+            "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore.Controllers\\BookStore.Controllers.csproj": {
+              "projectPath": "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore.Controllers\\BookStore.Controllers.csproj"
             },
-            "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj": {
-              "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj"
+            "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj": {
+              "projectPath": "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore.Data\\BookStore.Data.csproj"
             },
-            "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Services\\BookStore.Services.csproj": {
-              "projectPath": "C:\\Users\\hristo.petkov\\Documents\\GitHub\\BookStore\\BookStore\\BookStore.Services\\BookStore.Services.csproj"
+            "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore.Services\\BookStore.Services.csproj": {
+              "projectPath": "D:\\Documents\\C#\\GitHub\\BookStore\\BookStore\\BookStore.Services\\BookStore.Services.csproj"
             }
           }
         }
@@ -6893,12 +6888,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.13, 3.1.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -6907,7 +6896,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   },
