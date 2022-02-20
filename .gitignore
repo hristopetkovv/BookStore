@@ -67,3 +67,4 @@ Bookstore/Bookstore/appsettings.Development.json
 *.tmp
 *.suo
 *.csproj.user
+BookStore/BookStore/appsettings.Development.json
