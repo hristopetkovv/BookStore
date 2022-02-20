@@ -53,7 +53,7 @@ Thumbs.db
 
 .vs/**
 
-BookStoreClient/proxy.conf.json
+WebApplication/proxy.conf.json
 
 **/wwwroot
 
