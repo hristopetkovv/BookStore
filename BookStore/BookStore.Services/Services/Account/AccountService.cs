@@ -1,5 +1,6 @@
 ﻿using BookStore.Data.Data;
 using BookStore.Data.Data.Models;
+using BookStore.Services.Common.Interfaces;
 using BookStore.Services.Services.Token;
 using BookStore.Services.ViewModels.Account;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,10 @@ namespace BookStore.Services.Services
 {
     public class AccountService : IAccountService
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
         private readonly ITokenService tokenService;
 
-        public AccountService(BookStoreDbContext dbContext, ITokenService tokenService)
+        public AccountService(IAppDbContext dbContext, ITokenService tokenService)
         {
             this.dbContext = dbContext;
             this.tokenService = tokenService;
@@ -41,7 +42,7 @@ namespace BookStore.Services.Services
 
             user.Role = Role.User;
 
-            this.dbContext.User.Add(user);
+            this.dbContext.Set<User>().Add(user);
 
             await this.dbContext.SaveChangesAsync();
 
@@ -55,8 +56,7 @@ namespace BookStore.Services.Services
 
         public async Task<UserResponseModel> Login(LoginRequestModel model)
         {
-            var user = await this.dbContext
-               .User
+            var user = await this.dbContext.Set<User>()
                .SingleOrDefaultAsync(u => u.Username == model.Username);
 
             if (user == null)
@@ -86,7 +86,7 @@ namespace BookStore.Services.Services
 
         private async Task<string> UserExists(string username)
         {
-            var exists = await this.dbContext.User.AnyAsync(u => u.Username.ToLower() == username.ToLower());
+            var exists = await this.dbContext.Set<User>().AnyAsync(u => u.Username.ToLower() == username.ToLower());
 
             if (exists)
             {

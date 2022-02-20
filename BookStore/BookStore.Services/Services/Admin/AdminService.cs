@@ -1,5 +1,5 @@
-﻿using BookStore.Data.Data;
-using BookStore.Data.Data.Models;
+﻿using BookStore.Data.Data.Models;
+using BookStore.Services.Common.Interfaces;
 using BookStore.Services.ViewModels.Books;
 using BookStore.Services.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +11,16 @@ namespace BookStore.Services.Services
 {
     public class AdminService : IAdminService
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
 
-        public AdminService(BookStoreDbContext dbContext)
+        public AdminService(IAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
         public async Task<IEnumerable<BookKeywordsModel>> GetBookKeywords(int bookId)
         {
-            var keywords = await this.dbContext
-                .BookKeyWords
+            var keywords = await this.dbContext.Set<BookKeyWords>()
                 .Where(bk => bk.BookId == bookId)
                 .Select(bk => new BookKeywordsModel
                 {
@@ -60,8 +59,7 @@ namespace BookStore.Services.Services
                 book.BookKeyWords.Add(bookKeyword);
             }
 
-            var author = this.dbContext
-                .Author
+            var author = this.dbContext.Set<Author>()
                 .FirstOrDefault(a => a.FirstName.ToLower() == model.AuthorFirstName.ToLower() && a.LastName.ToLower() == model.AuthorLastName.ToLower());
 
             var bookAuthor = new BookAuthor
@@ -73,7 +71,7 @@ namespace BookStore.Services.Services
             {
                 bookAuthor.AuthorId = author.Id;
                 bookAuthor.Author = author;
-                dbContext.BookAuthor.Add(bookAuthor);
+                dbContext.Set<BookAuthor>().Add(bookAuthor);
             }
             else
             {
@@ -81,15 +79,14 @@ namespace BookStore.Services.Services
                 book.Authors.Add(bookAuthor);
             }
 
-            dbContext.Book.Add(book);
+            dbContext.Set<Book>().Add(book);
             
             await dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<OrderResponseModel>> GetOrders()
         {
-            var orders = await dbContext
-                .Order
+            var orders = await dbContext.Set<Order>()
                 .Select(o => new OrderResponseModel
                 {
                     Id = o.Id,
@@ -109,7 +106,7 @@ namespace BookStore.Services.Services
 
         public async Task UpdateOrder(OrderUpdateRequestModel model)
         {
-            var order = await dbContext.Order.FirstOrDefaultAsync(x => x.Id == model.OrderId);
+            var order = await dbContext.Set<Order>().FirstOrDefaultAsync(x => x.Id == model.OrderId);
 
             order.Status = model.Status;
 
@@ -118,19 +115,17 @@ namespace BookStore.Services.Services
 
         public async Task RemoveKeyword(int keywordId)
         {
-            var keyword = await this.dbContext
-                .BookKeyWords
+            var keyword = await this.dbContext.Set<BookKeyWords>()
                 .FirstOrDefaultAsync(bk => bk.Id == keywordId);
 
-            this.dbContext.BookKeyWords.Remove(keyword);
+            this.dbContext.Set<BookKeyWords>().Remove(keyword);
 
             await this.dbContext.SaveChangesAsync();
         }
 
         public async Task UpdateKeyword(BookKeywordsModel model)
         {
-            var keyword = await this.dbContext
-                .BookKeyWords
+            var keyword = await this.dbContext.Set<BookKeyWords>()
                 .FirstOrDefaultAsync(bk => bk.Id == model.Id);
 
             keyword.Keyword = model.Keyword;
@@ -140,7 +135,7 @@ namespace BookStore.Services.Services
 
         public async Task UpdateBook(int bookId, BookUpdateModel model)
         {
-            var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
+            var book = await this.dbContext.Set<Book>().FirstOrDefaultAsync(b => b.Id == bookId);
 
             book.Title = model.Title;
             book.Description = model.Description;
@@ -154,8 +149,7 @@ namespace BookStore.Services.Services
 
         public async Task<BookUpdateModel> GetBook(int bookId)
         {
-            var book = await this.dbContext
-                .Book
+            var book = await this.dbContext.Set<Book>()
                 .Where(b => b.Id == bookId)
                 .Select(b => new BookUpdateModel
                 {

@@ -1,4 +1,5 @@
-﻿using BookStore.Data.Data;
+﻿using BookStore.Data.Data.Models;
+using BookStore.Services.Common.Interfaces;
 using BookStore.Services.ViewModels.Account;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,16 +9,16 @@ namespace BookStore.Services.Services
 {
     public class UserService : IUserService
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
 
-        public UserService(BookStoreDbContext dbContext)
+        public UserService(IAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
         public async Task<UserInformationResponseModel> GetUser(int userId)
         {
-            return await this.dbContext.User
+            return await this.dbContext.Set<User>()
                 .Where(u => u.Id == userId)
                 .Select(u => new UserInformationResponseModel
                 {
@@ -34,8 +35,7 @@ namespace BookStore.Services.Services
 
         public async Task UpdateUser(UserInformationResponseModel model)
         {
-            var user = await this.dbContext
-                .User
+            var user = await this.dbContext.Set<User>()
                 .FirstOrDefaultAsync(u => u.Id == model.Id);
 
             user.FirstName = model.FirstName;

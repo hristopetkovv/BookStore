@@ -1,6 +1,7 @@
 ﻿using BookStore.Data.Data;
 using BookStore.Data.Data.Models;
 using BookStore.Data.Data.Models.Enums;
+using BookStore.Services.Common.Interfaces;
 using BookStore.Services.ViewModels.Orders;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,9 +13,9 @@ namespace BookStore.Services.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
 
-        public OrderService(BookStoreDbContext dbContext)
+        public OrderService(IAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -35,13 +36,13 @@ namespace BookStore.Services.Services
 
             this.ClearCart(userId);
 
-            await this.dbContext.Order.AddAsync(order);
+            await this.dbContext.Set<Order>().AddAsync(order);
             await this.dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<OrderResponseModel>> GetOrders(int userId)
         {
-            IQueryable<Order> orders = this.dbContext.Order.Where(o => o.UserId == userId);
+            IQueryable<Order> orders = this.dbContext.Set<Order>().Where(o => o.UserId == userId);
 
             var result = await orders
                 .Select(o => new OrderResponseModel
@@ -63,12 +64,11 @@ namespace BookStore.Services.Services
 
         private void ClearCart(int userId)
         {
-            var userBooks = dbContext
-                .UserBook
+            var userBooks = dbContext.Set<UserBook>()
                 .Where(ub => ub.UserId == userId)
                 .ToList();
 
-            dbContext.UserBook.RemoveRange(userBooks);
+            dbContext.Set<UserBook>().RemoveRange(userBooks);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using BookStore.Services.Services.Helpers;
+﻿using BookStore.Services.Common.Interfaces;
 using BookStore.Services.Services;
 using BookStore.Services.ViewModels.Votes;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +9,9 @@ namespace BookStore.Controllers.Controllers
     public class VoteController : BaseApiController
     {
         private readonly IVotesService votesService;
-        private readonly UserContext userContext;
+        private readonly IUserContext userContext;
 
-        public VoteController(IVotesService votesService, UserContext userContext)
+        public VoteController(IVotesService votesService, IUserContext userContext)
         {
             this.votesService = votesService;
             this.userContext = userContext;
@@ -21,7 +21,7 @@ namespace BookStore.Controllers.Controllers
         public async Task<VoteResponseModel> Vote(VoteRequestModel model)
         {
 
-            await this.votesService.VoteAsync(model.BookId, this.userContext.UserId.Value, model.IsUpVote);
+            await this.votesService.VoteAsync(model.BookId, this.userContext.UserId, model.IsUpVote);
 
             var votes = this.votesService.GetVotes(model.BookId);
 

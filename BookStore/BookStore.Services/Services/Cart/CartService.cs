@@ -1,4 +1,5 @@
-﻿using BookStore.Data.Data;
+﻿using BookStore.Data.Data.Models;
+using BookStore.Services.Common.Interfaces;
 using BookStore.Services.ViewModels.Home;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,29 +9,28 @@ namespace BookStore.Services.Services
 {
     public class CartService : ICartService
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
 
-        public CartService(BookStoreDbContext dbContext)
+        public CartService(IAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
         public async Task RemoveBook(int bookId)
         {
-            var userBook = await this.dbContext.UserBook.FirstOrDefaultAsync(ub => ub.BookId == bookId && ub.IsDeleted == false);
+            var userBook = await this.dbContext.Set<UserBook>().FirstOrDefaultAsync(ub => ub.BookId == bookId);
 
             await this.RestoreBook(bookId, userBook.Pieces);
 
-            userBook.IsDeleted = true;
+            //userBook.IsDeleted = true;
 
             await dbContext.SaveChangesAsync();
         }
 
         public async Task<CartListingResponseModel> ShowCart(int userId)
         {
-            var books = await this.dbContext
-                 .UserBook
-                 .Where(u => u.UserId == userId && u.IsDeleted == false)
+            var books = await this.dbContext.Set<UserBook>()
+                 .Where(u => u.UserId == userId)
                  .Select(u => new CartViewModel
                  {
                      Pieces = u.Pieces,
@@ -53,7 +53,7 @@ namespace BookStore.Services.Services
 
         private async Task RestoreBook(int bookId, int pieces)
         {
-            var book = await this.dbContext.Book.FirstOrDefaultAsync(b => b.Id == bookId);
+            var book = await this.dbContext.Set<Book>().FirstOrDefaultAsync(b => b.Id == bookId);
             book.Quantity += pieces;
 
             if (book.IsAvailable == false)

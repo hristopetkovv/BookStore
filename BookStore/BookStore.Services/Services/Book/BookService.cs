@@ -1,7 +1,7 @@
-﻿using BookStore.Data.Data;
-using BookStore.Data.Data.Models;
+﻿using BookStore.Data.Data.Models;
 using BookStore.Data.Data.Models.Enums;
 using BookStore.ExtensionMethods;
+using BookStore.Services.Common.Interfaces;
 using BookStore.Services.ExtensionMethods;
 using BookStore.Services.ViewModels.Books;
 using BookStore.Services.ViewModels.Comments;
@@ -14,21 +14,19 @@ namespace BookStore.Services.Services
 {
     public class BookService : IBookService
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
 
-        public BookService(BookStoreDbContext dbContext)
+        public BookService(IAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
         public async Task AddBookToCart(int bookId, int userId, int pieces)
         {
-            var book = await dbContext
-                .Book
+            var book = await dbContext.Set<Book>()
                 .SingleOrDefaultAsync(b => b.Id == bookId);
 
-            var user = await dbContext
-                .User
+            var user = await dbContext.Set<User>()
                 .SingleOrDefaultAsync(u => u.Id == userId);
 
             if (book.IsAvailable == false)
@@ -55,7 +53,7 @@ namespace BookStore.Services.Services
                 Pieces = pieces,
             };
 
-            await this.dbContext.UserBook.AddAsync(userBook);
+            await this.dbContext.Set<UserBook>().AddAsync(userBook);
             await this.dbContext.SaveChangesAsync();
         }
 
@@ -68,7 +66,7 @@ namespace BookStore.Services.Services
                 BookId = bookId
             };
 
-            this.dbContext.Comment.Add(newComment);
+            this.dbContext.Set<Comment>().Add(newComment);
 
             await this.dbContext.SaveChangesAsync();
 
@@ -77,8 +75,7 @@ namespace BookStore.Services.Services
 
         public async Task<BookDetailalsResponseModel> GetBookById(int id)
         {
-            var book = await this.dbContext
-                .Book
+            var book = await this.dbContext.Set<Book>()
                 .Where(b => b.Id == id)
                 .Select(b => new BookDetailalsResponseModel
                 {
@@ -99,8 +96,7 @@ namespace BookStore.Services.Services
                     Comments = b.Comments.Select(c => new CommentResponseModel
                     {
                         Comment = c.Text,
-                        Username = c.Username,
-                        CreatedOn = c.CreatedOn
+                        Username = c.Username
                     }).OrderByDescending(c => c.CreatedOn)
 
                 })
@@ -116,7 +112,7 @@ namespace BookStore.Services.Services
 
         public async Task<SearchResultDto<BookResponseModel>> GetBooks(BookFilterRequestModel filter)
         {
-            IQueryable<BookResponseModel> query = this.dbContext.Book
+            IQueryable<BookResponseModel> query = this.dbContext.Set<Book>()
                 .Where(b => b.IsAvailable == true)
                 .OrderBooks(filter)
                 .SortBooks(filter)

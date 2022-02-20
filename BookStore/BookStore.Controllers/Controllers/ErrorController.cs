@@ -1,5 +1,6 @@
 ﻿using BookStore.Data.Data;
 using BookStore.Data.Data.Models;
+using BookStore.Services.Common.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +8,9 @@ namespace BookStore.Controllers.Controllers
 {
     public class ErrorController : BaseApiController
     {
-        private readonly BookStoreDbContext dbContext;
+        private readonly IAppDbContext dbContext;
 
-        public ErrorController(BookStoreDbContext dbContext)
+        public ErrorController(IAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -24,7 +25,7 @@ namespace BookStore.Controllers.Controllers
         [HttpGet("not-found")]
         public ActionResult<User> GetNotFound()
         {
-            var thing = this.dbContext.User.Find(-1);
+            var thing = this.dbContext.Set<User>().Find(-1);
 
             if (thing == null)
             {
@@ -38,7 +39,7 @@ namespace BookStore.Controllers.Controllers
         [HttpGet("server-error")]
         public ActionResult<string> GetServerError()
         {
-                var thing = this.dbContext.User.Find(-1);
+                var thing = this.dbContext.Set<User>().Find(-1);
 
                 var thingToReturn = thing.ToString();
 
