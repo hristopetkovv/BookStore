@@ -145,7 +145,6 @@ D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\sta
 D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\staticwebassets\BookStore.StaticWebAssets.xml
 D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\scopedcss\bundle\BookStore.styles.css
 D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.RazorTargetAssemblyInfo.cache
-D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csproj.CopyComplete
 D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.dll
 D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.pdb
 D:\Documents\C#\GitHub\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.genruntimeconfig.cache
