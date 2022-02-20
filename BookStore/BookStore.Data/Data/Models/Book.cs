@@ -1,11 +1,10 @@
-﻿using BookStore.Data.Data.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Data.Data.Models
 {
-    public class Book : BaseModel
+    public class Book
     {
         public Book()
         {

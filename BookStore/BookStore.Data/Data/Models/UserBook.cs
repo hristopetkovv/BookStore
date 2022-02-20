@@ -1,9 +1,6 @@
-﻿
-using BookStore.Data.Data.Common;
-
-namespace BookStore.Data.Data.Models
+﻿namespace BookStore.Data.Data.Models
 {
-    public class UserBook : BaseDeletableModel
+    public class UserBook
     {
         public int Id { get; set; }
 

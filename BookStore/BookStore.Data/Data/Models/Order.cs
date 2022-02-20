@@ -1,10 +1,9 @@
-﻿using BookStore.Data.Data.Common;
-using BookStore.Data.Data.Models.Enums;
+﻿using BookStore.Data.Data.Models.Enums;
 using System;
 
 namespace BookStore.Data.Data.Models
 {
-    public class Order : BaseModel
+    public class Order
     {
         public int Id { get; set; }
 

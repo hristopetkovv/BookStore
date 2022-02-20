@@ -1,8 +1,6 @@
-﻿using BookStore.Data.Data.Common;
-
-namespace BookStore.Data.Data.Models
+﻿namespace BookStore.Data.Data.Models
 {
-    public class Comment : BaseModel
+    public class Comment
     {
         public int Id { get; set; }
 

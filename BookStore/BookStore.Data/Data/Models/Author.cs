@@ -1,9 +1,8 @@
-﻿using BookStore.Data.Data.Common;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BookStore.Data.Data.Models
 {
-    public class Author : BaseModel
+    public class Author
     {
         public Author()
         {

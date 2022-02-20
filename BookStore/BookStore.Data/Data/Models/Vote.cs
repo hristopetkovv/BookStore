@@ -1,9 +1,8 @@
-﻿using BookStore.Data.Data.Common;
-using BookStore.Data.Data.Models.Enums;
+﻿using BookStore.Data.Data.Models.Enums;
 
 namespace BookStore.Data.Data.Models
 {
-    public class Vote : BaseModel
+    public class Vote
     {
         public int Id { get; set; }
 
