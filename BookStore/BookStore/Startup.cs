@@ -38,8 +38,8 @@ namespace BookStore
                 .AddJson();
 
             services
-                .AddPersistence<IAppDbContext, AppDbContext>(configuration.GetSection("DbConfiguration:ConnectionString").Value, environment.IsDevelopment())
-                .AddPersistence<IAppLogContext, AppLogContext>(configuration.GetSection("DbConfiguration:ConnectionString").Value, environment.IsDevelopment())
+                .AddPersistence<IAppDbContext, AppDbContext>(configuration.GetSection("ConnectionStrings:DefaultConnection").Value, environment.IsDevelopment())
+                .AddPersistence<IAppLogContext, AppLogContext>(configuration.GetSection("ConnectionStrings:LogConnectionString").Value, environment.IsDevelopment())
                 .AddApplication();
 
             var authConfig = configuration.GetSection("AuthConfiguration").Get<AuthConfiguration>();
